@@ -2,7 +2,7 @@ package com.jps.domain;
 
 public class jpsVO {
 	
-	private String User_num;
+	private String User_num; 
 	private String Id;
 	private String Pw;
 	private String Email;
