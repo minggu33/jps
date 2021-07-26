@@ -1,4 +1,4 @@
-package com.jps.cotroller;
+package com.jps.controller;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
