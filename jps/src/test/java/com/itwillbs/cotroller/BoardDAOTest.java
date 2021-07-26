@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.itwillbs.domain.BoardVO;
-import com.itwillbs.persistence.BoardDAO;
+import com.jps.domain.jpsVO;
+import com.jps.persistence.BoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -22,7 +22,7 @@ public class BoardDAOTest {
 		@Test
 		public void testCreate() throws Exception{
 			//글쓰기 테스트
-			BoardVO vo = new BoardVO();
+			jpsVO vo = new jpsVO();
 			vo.setTitle("1번글 테스트");
 			vo.setContent("내용 111");
 			vo.setWriter("sleeping");
