@@ -19,7 +19,7 @@
         <!-- log4jdbc 전용 주소 -->
 		 <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		 <property name="url" 
-		           value="jdbc:log4jdbc:mysql://localhost:3306/springdb?useSSL=false"></property>
+		           value="jdbc:log4jdbc:mysql://localhost:3306/jpsdb?useSSL=false"></property>
 
 
        <!--   <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
