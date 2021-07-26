@@ -10,7 +10,7 @@ public class jpsVO {
 	private String Nickname;
 	private String Birth;
 	private int Gender;
-	private String Addr;
+	private String Addr; 
 	private String Phone;
 	private int Point;
 	private String Bank;
