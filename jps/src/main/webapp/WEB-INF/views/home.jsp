@@ -8,7 +8,6 @@
 
 <%@ include file="include/header.jsp" %>
 
-<body>
 
 
   <main id="main">
