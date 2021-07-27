@@ -28,6 +28,7 @@ public class ItemController {
 	private ItemService service;
 	
 	
+	
 	@RequestMapping(value = "/item", method = RequestMethod.GET) public void
 	itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
 	 
