@@ -1,6 +1,6 @@
 package com.jps.domain;
 
-public class userVO {
+public class UserVO {
 	
 	private String user_num;
 	private String user_id;
