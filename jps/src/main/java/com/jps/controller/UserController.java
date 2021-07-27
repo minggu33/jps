@@ -1,13 +1,9 @@
 package com.jps.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,7 +19,7 @@ public class UserController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	//http://localhost:8088
+	//http://localhost:8088/user/join
 	
 	
 	@RequestMapping(value="/login", method= RequestMethod.GET)
@@ -32,7 +28,7 @@ public class UserController {
 		logger.info("C : login view 페이지로 이동 ");
 		
 		
-		return "/loginForm";
+		return "/user/loginForm";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
