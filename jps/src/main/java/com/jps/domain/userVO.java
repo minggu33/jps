@@ -1,6 +1,6 @@
 package com.jps.domain;
 
-public class jpsVO {
+public class userVO {
 	
 	private String user_num;
 	private String user_id;
@@ -124,6 +124,4 @@ public class jpsVO {
 				+ user_account + ", user_join_date=" + user_join_date + ", user_late_login=" + user_late_login
 				+ ", user_state=" + user_state + "]";
 	}
-	
-	
 }
