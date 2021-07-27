@@ -33,7 +33,7 @@ public abstract class item_detailVO {
 	}
 	public int getItem_stock() {
 		return item_stock;
-	}
+	} 
 	public void setItem_stock(int item_stock) {
 		this.item_stock = item_stock;
 	}
