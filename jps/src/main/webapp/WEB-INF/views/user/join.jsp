@@ -11,6 +11,18 @@
 
 <h1>회원가입</h1>
 
+<fieldset>
+<legend>회원가입</legend>
+<form>
+
+
+</form>
+</fieldset>
+
+
+
+
+
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>
