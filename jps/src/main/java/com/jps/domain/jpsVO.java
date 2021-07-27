@@ -2,124 +2,127 @@ package com.jps.domain;
 
 public class jpsVO {
 	
-	private String User_num;
-	private String Id;
-	private String Pw;
-	private String Email;
-	private String Name;
-	private String Nickname;
-	private String Birth;
-	private int Gender;
-	private String Addr;
-	private String Phone;
-	private int Point;
-	private String Bank;
-	private String Account;
-	private String Join_date;
-	private String late_login;
-	private int state;
+	private String user_num;
+	private String user_id;
+	private String user_pw;
+	private String user_email;
+	private String user_name;
+	private String user_nickname;
+	private String user_birth;
+	private int user_gender;
+	private String user_addr;
+	private String user_phone;
+	private int user_point;
+	private String user_bank;
+	private String user_account;
+	private String user_join_date;
+	private String user_late_login;
+	private int user_state;
+	
 	public String getUser_num() {
-		return User_num;
+		return user_num;
 	}
 	public void setUser_num(String user_num) {
-		User_num = user_num;
+		this.user_num = user_num;
 	}
-	public String getId() {
-		return Id;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setId(String id) {
-		Id = id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
-	public String getPw() {
-		return Pw;
+	public String getUser_pw() {
+		return user_pw;
 	}
-	public void setPw(String pw) {
-		Pw = pw;
+	public void setUser_pw(String user_pw) {
+		this.user_pw = user_pw;
 	}
-	public String getEmail() {
-		return Email;
+	public String getUser_email() {
+		return user_email;
 	}
-	public void setEmail(String email) {
-		Email = email;
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
-	public String getName() {
-		return Name;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setName(String name) {
-		Name = name;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-	public String getNickname() {
-		return Nickname;
+	public String getUser_nickname() {
+		return user_nickname;
 	}
-	public void setNickname(String nickname) {
-		Nickname = nickname;
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
 	}
-	public String getBirth() {
-		return Birth;
+	public String getUser_birth() {
+		return user_birth;
 	}
-	public void setBirth(String birth) {
-		Birth = birth;
+	public void setUser_birth(String user_birth) {
+		this.user_birth = user_birth;
 	}
-	public int getGender() {
-		return Gender;
+	public int getUser_gender() {
+		return user_gender;
 	}
-	public void setGender(int gender) {
-		Gender = gender;
+	public void setUser_gender(int user_gender) {
+		this.user_gender = user_gender;
 	}
-	public String getAddr() {
-		return Addr;
+	public String getUser_addr() {
+		return user_addr;
 	}
-	public void setAddr(String addr) {
-		Addr = addr;
+	public void setUser_addr(String user_addr) {
+		this.user_addr = user_addr;
 	}
-	public String getPhone() {
-		return Phone;
+	public String getUser_phone() {
+		return user_phone;
 	}
-	public void setPhone(String phone) {
-		Phone = phone;
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
 	}
-	public int getPoint() {
-		return Point;
+	public int getUser_point() {
+		return user_point;
 	}
-	public void setPoint(int point) {
-		Point = point;
+	public void setUser_point(int user_point) {
+		this.user_point = user_point;
 	}
-	public String getBank() {
-		return Bank;
+	public String getUser_bank() {
+		return user_bank;
 	}
-	public void setBank(String bank) {
-		Bank = bank;
+	public void setUser_bank(String user_bank) {
+		this.user_bank = user_bank;
 	}
-	public String getAccount() {
-		return Account;
+	public String getUser_account() {
+		return user_account;
 	}
-	public void setAccount(String account) {
-		Account = account;
+	public void setUser_account(String user_account) {
+		this.user_account = user_account;
 	}
-	public String getJoin_date() {
-		return Join_date;
+	public String getUser_join_date() {
+		return user_join_date;
 	}
-	public void setJoin_date(String join_date) {
-		Join_date = join_date;
+	public void setUser_join_date(String user_join_date) {
+		this.user_join_date = user_join_date;
 	}
-	public String getLate_login() {
-		return late_login;
+	public String getUser_late_login() {
+		return user_late_login;
 	}
-	public void setLate_login(String late_login) {
-		this.late_login = late_login;
+	public void setUser_late_login(String user_late_login) {
+		this.user_late_login = user_late_login;
 	}
-	public int getState() {
-		return state;
+	public int getUser_state() {
+		return user_state;
 	}
-	public void setState(int state) {
-		this.state = state;
+	public void setUser_state(int user_state) {
+		this.user_state = user_state;
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [User_num=" + User_num + ", Id=" + Id + ", Pw=" + Pw + ", Email=" + Email + ", Name=" + Name
-				+ ", Nickname=" + Nickname + ", Birth=" + Birth + ", Gender=" + Gender + ", Addr=" + Addr + ", Phone="
-				+ Phone + ", Point=" + Point + ", Bank=" + Bank + ", Account=" + Account + ", Join_date=" + Join_date
-				+ ", late_login=" + late_login + ", state=" + state + "]";
+		return "jpsVO [user_num=" + user_num + ", user_id=" + user_id + ", user_pw=" + user_pw + ", user_email="
+				+ user_email + ", user_name=" + user_name + ", user_nickname=" + user_nickname + ", user_birth="
+				+ user_birth + ", user_gender=" + user_gender + ", user_addr=" + user_addr + ", user_phone="
+				+ user_phone + ", user_point=" + user_point + ", user_bank=" + user_bank + ", user_account="
+				+ user_account + ", user_join_date=" + user_join_date + ", user_late_login=" + user_late_login
+				+ ", user_state=" + user_state + "]";
 	}
 	
 	
