@@ -6,7 +6,7 @@
 
 <mapper namespace="com.jps.mapper.ItemMapper">
 	<insert id="insertItem">
-		insert into item (item_num, item_category, item_name, item_price, item_img, item_content, item_create_date, item_read_count, item_point)
+		insert into item (item_num, item_category, item_name, item_price, item_img, item_content, item_create_date, item_read_count, item_point) 
 		values(#{item_num}, #{item_category}, #{item_name}, #{item_price}, #{item_img}, #{item_content}, #{item_create_date}, #{item_read_count}, #{item_point})
 	</insert>
 	
