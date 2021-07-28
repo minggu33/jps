@@ -1,5 +1,3 @@
-alert("테스트");
-
 $(document).ready(function() {
 
 	$('#id').on('keyup', function() {
