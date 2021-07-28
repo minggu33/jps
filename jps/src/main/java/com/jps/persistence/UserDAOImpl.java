@@ -28,6 +28,7 @@ public class UserDAOImpl implements UserDAO{
 		
 		return sqlSession.selectOne(namespace+".loginUser",vo);
 	}
+	
 
 	@Override
 	public UserVO getUser(int user_num) {
