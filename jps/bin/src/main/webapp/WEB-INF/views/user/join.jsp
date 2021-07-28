@@ -15,7 +15,7 @@
 
 	<fieldset>
 		<legend>회원가입</legend>
-		<form>
+		<form name="fr" method="post" action="./join">
 			아이디 : <input type="text" name="user_id"><br>
 			비밀번호 : <input type="password" name="user_pw"><br>
 			비밀번호 확인 : <input type="password" name="user_ch_pw"><br>
@@ -45,16 +45,14 @@
 			
 			<hr>
 			자주 쓰는 은행 등록 <br>
-			은행 : <input type="text" name="user_bank">
+			은행 : <input type="text" name="user_bank"><br>
+			계좌 번호 : <input type="text" name="user_account">
 			
 			<hr>
 			<input type="submit" value="가입하기">
 			<input type="reset" value="다시작성하기">
 		</form>
 	</fieldset>
-
-
-
 
 
 	<%@ include file="../include/footer.jsp"%>
