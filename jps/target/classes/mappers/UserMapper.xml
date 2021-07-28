@@ -6,7 +6,9 @@
 
 <mapper namespace="com.jps.mapper.UserMapper">
 	
-	
+	<select id="loginUser">
+		select * from user where user_id=#{user_id} and user_pw=#{user_pw}
+	</select>
 	
 	
 </mapper>
