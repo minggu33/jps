@@ -19,7 +19,7 @@
 		<form name="fr" method="post" action="./join">
 			아이디 : <input type="text" name="user_id" id="id"><br>
 			<div id="idCheckText">아이디를 입력해주세요.</div><br>
-			비밀번호 : <input type="password" name="user_pw"><br>
+			비밀번호 : <input type="password" name="user_pw" id="pw"><br>
 			비밀번호 확인 : <input type="password" name="user_ch_pw" id="pw2"><br>
 			<div id="pwCheckText">확인 비밀번호를 입력해주세요.</div><br>
 			이메일 : <input type="email" name="user_email" id="email"><br>
@@ -45,7 +45,7 @@
 			
 			<script src="/resources/daum_postcode/js/postcode.js"></script><br>
 			
-			휴대전화 : <input type="tel" name="user_phone" id="tel"><br>
+			휴대전화 : <input type="tel" name="user_phone" id="tel" maxlength="13"><br>
 			<div id="telCheckText">전화번호 입력해주세요.</div><br>
 			
 			<hr>

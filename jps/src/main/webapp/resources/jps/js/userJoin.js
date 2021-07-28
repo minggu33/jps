@@ -87,7 +87,7 @@ $(document).ready(function() {
 			$.ajax({
 				type: 'post',
 				url: 'tel_check2.jsp',
-				data: { valueOfTel: valueOfTe },
+				data: { valueOfTel: valueOfTel },
 				success: function(data) {
 					if (data == 1) {
 						$('#telCheckText').html("이미 사용중인 전화번호 입니다.");
