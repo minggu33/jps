@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -48,7 +49,11 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(UserVO vo, HttpSession session) throws Exception{
 		
-		System.out.println("C : loginPost 호출 ");
+		logger.info("C : loginPOST() 페이지 호출 ");
+		
+		
+		logger.info("C : 서비스 -loginUser() 호출시도 ");
+		logger.info(vo.getUser_id() + "@@@@@" + vo.getUser_pw());
 		
 		UserVO loginVO = service.loginUser(vo);
 		
@@ -66,8 +71,11 @@ public class UserController {
 			session.setAttribute("admin", "jpsadmin");
 		}
 		
+		System.out.println("로그인 완료!~~~~~~~~~₩");
 		
-		return "redirect:/";
+		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@login@@@@@@");
+		
+		return "redirect:/home";
 	}
 	
 	
@@ -76,4 +84,27 @@ public class UserController {
 		logger.info("C : joinGET() 페이지 호출 ");
 		logger.info("C : join view 페이지로 이동 ");
 	}
+	
+	// 유저 정보 확인 
+	@RequestMapping(value = "/info",method = RequestMethod.GET)
+	public void infoGET(HttpSession session, Model model) throws Exception {
+		
+		logger.info("C : infoGET() 호출 ");
+		
+		String use = (String)session.getAttribute("user_num");
+		
+		int user_num = Integer.parseInt(use);
+		
+		user_num = 1;
+		
+		UserVO infoVO = service.infoUser(user_num);
+		
+		model.addAttribute("infoVO", infoVO);
+		
+		logger.info("페이지 이동 /user/info.jsp");
+		
+	}
+	
+	
+	
 }
