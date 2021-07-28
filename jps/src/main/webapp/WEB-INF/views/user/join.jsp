@@ -64,6 +64,7 @@
 		<script src="/resources/jps/js/userJoin.js"></script><br>
 	</main>
 
+
 	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>
