@@ -18,10 +18,22 @@ public class UserServiceImpl implements UserService{
 		System.out.println("S : loginUser(vo)호출 ");
 
 		//DAO 주입
-		UserVO loginVO = udao.LoginUser(vo);
+		UserVO loginVO = udao.loginUser(vo);
 		
 		return loginVO;
 	}
+
+	@Override
+	public UserVO infoUser(int user_num) throws Exception {
+		System.out.println("S : infoUser(user_id) 호출 ");
+		
+		UserVO infoVO = udao.getUser(user_num);
+		System.out.println("S : "+ infoVO);
+		
+		return infoVO;
+	}
+	
+	
 	
 	
 }
