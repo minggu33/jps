@@ -1,5 +1,7 @@
 package com.jps.domain;
 
+import java.util.Date;
+
 public class ItemVO {
 
 	
@@ -9,10 +11,9 @@ public class ItemVO {
 	private int item_price;
 	private String item_img;
 	private String item_content;
+	private Date item_create_date;
 	private int item_read_count;
 	private String item_point;
-	
-	
 	public int getItem_num() {
 		return item_num;
 	}
@@ -49,6 +50,12 @@ public class ItemVO {
 	public void setItem_content(String item_content) {
 		this.item_content = item_content;
 	}
+	public Date getItem_create_date() {
+		return item_create_date;
+	}
+	public void setItem_create_date(Date item_create_date) {
+		this.item_create_date = item_create_date;
+	}
 	public int getItem_read_count() {
 		return item_read_count;
 	}
@@ -61,15 +68,13 @@ public class ItemVO {
 	public void setItem_point(String item_point) {
 		this.item_point = item_point;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "ItemVO [item_num=" + item_num + ", item_category=" + item_category + ", item_name=" + item_name
 				+ ", item_price=" + item_price + ", item_img=" + item_img + ", item_content=" + item_content
-				+ ", item_read_count=" + item_read_count + ", item_point=" + item_point + "]";
+				+ ", item_create_date=" + item_create_date + ", item_read_count=" + item_read_count + ", item_point="
+				+ item_point + "]";
 	}
-	
 	
 	
 }

@@ -1,5 +1,7 @@
 package com.jps.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,9 +17,18 @@ public class ItemDAOImpl implements ItemDAO{
 	
 	private static final String namespace
 		= "com.jps.mapper.ItemMapper";
+	
 	@Override
 	public void insertItem(ItemVO vo) {
 		sqlSession.insert(namespace+".insertItem", vo);
 	}
+
+	@Override
+	public List<ItemVO> ItemList() throws Exception {
+		
+		return sqlSession.selectList(namespace+".ItemList");
+	}
+	
+	
 	
 }

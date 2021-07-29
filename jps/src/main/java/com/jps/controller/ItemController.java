@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -22,13 +23,10 @@ public class ItemController {
 	@Inject
 	private ItemService service;
 	
+	@RequestMapping(value = "/item", method = RequestMethod.GET) 
+	public void itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
 	
-	
-	@RequestMapping(value = "/item", method = RequestMethod.GET) public void
-	itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
-	 
-	
-	@RequestMapping(value ="/iteminsert", method=RequestMethod.POST)
+	@RequestMapping(value ="/item", method=RequestMethod.POST)
 	public String itemPOST(ItemVO vo, RedirectAttributes rttr, Model model) throws Exception {
 		
 		service.item(vo);
@@ -36,6 +34,15 @@ public class ItemController {
 		model.addAttribute("result", "success");
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/item/listAll";
+		return "redirect:/item/ItemList";
 	}
+	
+	@RequestMapping(value = "/ItemList", method = RequestMethod.GET)
+	public void itemListGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception { 
+		System.out.println("C : itemListGET() 호출"); 
+		model.addAttribute("ItemList", service.ItemList());
+		
+	}
+	
+	
 }
