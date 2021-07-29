@@ -120,3 +120,13 @@ $(document).ready(function() {
 		preLengthOfTel = $('#tel').val().length;
 	});
 });
+
+function checkJoin() {
+	if(document.fr.user_id.value == "") {
+		alert("아이디를 입력해 주세요.");
+		document.fr.user_id.focus();
+		return false;
+	}
+	
+	
+}

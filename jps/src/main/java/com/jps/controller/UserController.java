@@ -1,6 +1,9 @@
 package com.jps.controller;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -85,6 +88,16 @@ public class UserController {
 		logger.info("C : join view 페이지로 이동 ");
 	}
 	
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	public String joinPOST(UserVO vo) throws Exception {
+		
+		logger.info("C : joinPOST() 페이지 호출");
+		
+		service.inserUser(vo);
+		
+		return "redirect:/user/login";
+	}
+	
 	// 유저 정보 확인 
 	@RequestMapping(value = "/info",method = RequestMethod.GET)
 	public void infoGET(HttpSession session, Model model) throws Exception {
@@ -105,6 +118,43 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
+	public void checkIdPOST(String user_id, HttpServletResponse resp) throws Exception {
+		logger.info("C : checkIdPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.checkId(user_id));
+		out.close();
+	}
 	
+	@RequestMapping(value = "/checkEmail", method = RequestMethod.POST)
+	public void checkEmailPOST(String user_email, HttpServletResponse resp) throws Exception {
+		logger.info("C : checkEmailPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.checkEmail(user_email));
+		out.close();
+	}
 	
+	@RequestMapping(value = "/checkNickname", method = RequestMethod.POST)
+	public void checkNicknamePOST(String user_nickname, HttpServletResponse resp) throws Exception {
+		logger.info("C : checkNicknamePOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.checkNickname(user_nickname));
+		out.close();
+	}
+	
+	@RequestMapping(value = "/checkPhone", method = RequestMethod.POST)
+	public void checkPhonePOST(String user_phone, HttpServletResponse resp) throws Exception {
+		logger.info("C : checkPhonePOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.checkPhone(user_phone));
+		out.close();
+	}
 }

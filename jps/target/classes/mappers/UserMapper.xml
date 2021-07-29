@@ -5,14 +5,48 @@
 
 
 <mapper namespace="com.jps.mappers.UserMapper">
-	
+
 	<select id="loginUser" resultType="com.jps.domain.UserVO">
-		select * from user where user_id=#{user_id} and user_pw=#{user_pw}
+		select * from user where
+		user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
-	
+
 	<select id="infoUser" resultType="com.jps.domain.UserVO">
-		select * from user where user_num=#{user_num}
+		select * from user where
+		user_num=#{user_num}
 	</select>
-	
-	
+
+	<insert id="insertUser">
+		insert into user (user_id, user_pw, user_email,
+		user_name, user_nickname,
+		user_birth, user_gender, user_addr,
+		user_phone, user_point, user_bank,
+		user_account, user_state) VALUES
+		(#{user_id}, #{user_pw},
+		#{user_email}, #{user_name}, #{user_nickname},
+		#{user_birth},
+		#{user_gender}, #{user_addr}, #{user_phone}, 0,
+		#{user_bank},
+		#{user_account}, 0)
+	</insert>
+
+	<select id="checkId" resultType="int">
+		select exists (select * from user where user_id=#{user_id}) as user_id
+	</select>
+
+	<select id="checkEmail" resultType="int">
+		select exists (select * from user where user_email=#{user_email}) as
+		user_email
+	</select>
+
+	<select id="checkNickname" resultType="int">
+		select exists (select * from user where user_nickname=#{user_nickname}) as
+		user_nickname
+	</select>
+
+	<select id="checkPhone" resultType="int">
+		select exists (select * from user where user_phone=#{user_phone}) as
+		user_phone
+	</select>
+
 </mapper>
