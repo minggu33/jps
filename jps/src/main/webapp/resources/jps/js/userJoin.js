@@ -215,17 +215,6 @@ function checkJoin() {
 		return false;
 	}
 	
-	if(document.fr.postcode.value == "") {
-		alert("주소를 입력해 주세요.");
-		return false;
-	}
-	
-	if(document.fr.detailAddress.value == "") {
-		alert("상세 주소를 입력해 주세요.");
-		document.fr.detailAddress.focus();
-		return false;
-	}
-	
 	if(document.fr.user_phone.value == "") {
 		alert("전화번호를 입력해 주세요.");
 		document.fr.user_phone.focus();
@@ -235,6 +224,17 @@ function checkJoin() {
 	if(document.fr.phoneCheck.value == 0) {
 		alert("사용하실수 없는 전화번호 입니다.");
 		document.fr.user_nickname.focus();
+		return false;
+	}
+	
+	if(document.fr.postcode.value == "") {
+		alert("주소를 입력해 주세요.");
+		return false;
+	}
+	
+	if(document.fr.detailAddress.value == "") {
+		alert("상세 주소를 입력해 주세요.");
+		document.fr.detailAddress.focus();
 		return false;
 	}
 	
