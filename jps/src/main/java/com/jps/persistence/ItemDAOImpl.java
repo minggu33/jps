@@ -24,9 +24,9 @@ public class ItemDAOImpl implements ItemDAO{
 	}
 
 	@Override
-	public List<ItemVO> itemList() throws Exception {
+	public List<ItemVO> ItemList() throws Exception {
 		
-		return sqlSession.selectList(namespace+".selectItem");
+		return sqlSession.selectList(namespace+".ItemList");
 	}
 	
 	

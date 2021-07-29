@@ -14,13 +14,13 @@
 				<td width="100">상품등록일</td>
 				<td width="100">조회수</td>
 			</tr>
-		<c:forEach var="itemVO" items="${itemList }">
+		<c:forEach var="ItemVO" items="${ItemList }">
 			<tr style="text-align: center;">
-				<td>${itemVO.item_name }</td>
-				<td>${itemVO.item_category }</td>
-				<td>${itemVO.item_price }</td>
-				<td>${itemVO.item_create_date }</td>
-				<td>${itemVO.item_read_count }</td>
+				<td>${ItemVO.item_name }</td>
+				<td>${ItemVO.item_category }</td>
+				<td>${ItemVO.item_price }</td>
+				<td><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				<td>${ItemVO.item_read_count }</td>
 			</tr>
 		</c:forEach>
 		</table>
