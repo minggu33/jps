@@ -34,10 +34,10 @@ public class ItemController {
 		model.addAttribute("result", "success");
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/item/ItemList";
+		return "redirect:/item/itemlist";
 	}
 	
-	@RequestMapping(value = "/ItemList", method = RequestMethod.GET)
+	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
 	public void itemListGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception { 
 		System.out.println("C : itemListGET() 호출"); 
 		model.addAttribute("ItemList", service.ItemList());
