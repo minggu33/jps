@@ -6,7 +6,7 @@ public interface UserService {
 
 	public UserVO loginUser(UserVO vo) throws Exception;
 
-	public UserVO infoUser(int user_num) throws Exception;
+	public UserVO infoUser(String user_num) throws Exception;
 
 	public void inserUser(UserVO vo) throws Exception;
 

@@ -104,11 +104,9 @@ public class UserController {
 		
 		logger.info("C : infoGET() 호출 ");
 		
-		String use = (String)session.getAttribute("user_num");
+		String user_num = (String)session.getAttribute("user_num");
 		
-		int user_num = Integer.parseInt(use);
-		
-		user_num = 1;
+		// user_num="1";
 		
 		UserVO infoVO = service.infoUser(user_num);
 		
