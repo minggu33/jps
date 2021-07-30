@@ -1,8 +1,12 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="com.jps.domain.UserVO"%>
+
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MyPortfolio</title>
+  <title>JPS Market</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -35,6 +39,7 @@
   ======================================================= -->	
   
   
+ 
   
 </head>
 <body>
@@ -69,10 +74,21 @@
 
     </div>
   </div>
+  
+    <div class="userinfo">
+      Welcome!  
+      <a href="/user/info">${userVO.user_nickname} </a>님 |
+      <a href="#">알림 </a> |
+      <a href="#">마이 페이지 </a> |
+      <a href="#">찜 목록 </a> |
+      <a href="#">장바구니 </a>
 
+    </div>
+  
+ 
   <nav class="navbar navbar-light custom-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/">MyPortfolio.</a>
+      <a class="navbar-brand" href="/home">JPS Market</a>
 
       <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
         <span></span>

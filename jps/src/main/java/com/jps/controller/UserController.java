@@ -67,7 +67,15 @@ public class UserController {
 			
 		}
 		
+		
 		session.setAttribute("user_num", loginVO.getUser_num());
+		
+		String user_num = loginVO.getUser_num();
+		
+		UserVO infoVO = service.infoUser(user_num);
+		
+		session.setAttribute("userVO", infoVO);
+		System.out.println("userinfo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+infoVO);
 		
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
