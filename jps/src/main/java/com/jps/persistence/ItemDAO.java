@@ -8,5 +8,5 @@ public interface ItemDAO {
 
 	public void insertItem(ItemVO vo) throws Exception;
 	
-	public List<ItemVO> ItemList() throws Exception;
+	public List<ItemVO> itemlist() throws Exception;
 }

@@ -14,7 +14,7 @@
 				<td width="100">상품등록일</td>
 				<td width="100">조회수</td>
 			</tr>
-		<c:forEach var="ItemVO" items="${itemlist }">
+		<c:forEach var="ItemVO" items="${ItemList }">
 			<tr style="text-align: center;">
 				<td>${ItemVO.item_name }</td>
 				<td>${ItemVO.item_category }</td>
