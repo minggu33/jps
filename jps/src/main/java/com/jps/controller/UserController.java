@@ -48,7 +48,7 @@ public class UserController {
 		return "/user/loginForm";
 	}
 	
-	
+	// 로그인페이지(post)
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(UserVO vo, HttpSession session) throws Exception{
 		
@@ -115,6 +115,21 @@ public class UserController {
 		logger.info("페이지 이동 /user/info.jsp");
 		
 	}
+	
+	//로그아웃기능(get)
+	@RequestMapping(value = "/logout",method = RequestMethod.GET)
+	public String logoutGET(HttpSession session) throws Exception{
+		
+		logger.info("C : logoutGET() 호출 > /home.jsp 이동");
+		
+		
+		//세션 정보 초기화
+		session.invalidate();
+		
+		//페이지 이동
+		return "redirect:/home";
+	}
+	
 	
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
 	public void checkIdPOST(String user_id, HttpServletResponse resp) throws Exception {

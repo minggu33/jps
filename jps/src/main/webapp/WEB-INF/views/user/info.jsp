@@ -52,6 +52,9 @@
     </tr>
   </table>
   
+  
+  <h3><a href="./logout">로그아웃 </a></h3>
+  
   <h3><a href="../home">메인페이지로</a></h3>  
 
 
