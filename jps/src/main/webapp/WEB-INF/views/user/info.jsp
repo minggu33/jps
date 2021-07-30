@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이 페이지 </title>
 
   <link href="/resources/jps/css/userinfo.css" rel="stylesheet">
 
@@ -44,15 +44,24 @@
     <tr>
       <td>비밀번호</td>
       <td>${infoVO.user_pw }</td>
+      <td><button>비밀번호 변경</button></td>
     </tr>
+     <!-- 비밀번호 변경  -->
+     <tr style="display: none;">
+     	<td>present password</td>
+     	
+     	
+     </tr>
     <tr>
       <td>이름</td>
       <td>${infoVO.user_name}</td>
+      <td><button>이름 변경</button></td>
     </tr>
  
     <tr>
       <td>생년월일 </td>
       <td>${infoVO.user_birth}</td>
+      <td><button>생년월일 변경</button></td>
     </tr>
     <tr>
       <td>성별</td>
@@ -71,10 +80,12 @@
     <tr>
       <td>이메일</td>
       <td>${infoVO.user_email }</td>
+      <td><button>이메일 변경</button></td>
     </tr>
     <tr>
       <td>연락처 </td>
       <td>${infoVO.user_phone }</td>
+      <td><button>연락처 변경</button></td>	
     </tr>
     
    <tr>
