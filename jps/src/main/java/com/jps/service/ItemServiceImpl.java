@@ -21,8 +21,8 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public List<ItemVO> ItemList() throws Exception {
-		return idao.ItemList();
+	public List<ItemVO> itemlist() throws Exception {
+		return idao.itemlist();
 	}
 
 	

@@ -10,7 +10,7 @@
 		values(#{item_category}, #{item_name}, #{item_price}, #{item_img}, #{item_content}, now(), #{item_read_count}, #{item_point})
 	</insert>
 	
-	<select id="ItemList" resultType="com.jps.domain.ItemVO">
+	<select id="itemlist" resultType="com.jps.domain.ItemVO">
 		select * from item
 	</select>
 	

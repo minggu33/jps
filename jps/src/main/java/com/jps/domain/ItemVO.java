@@ -14,6 +14,7 @@ public class ItemVO {
 	private Date item_create_date;
 	private int item_read_count;
 	private String item_point;
+	
 	public int getItem_num() {
 		return item_num;
 	}

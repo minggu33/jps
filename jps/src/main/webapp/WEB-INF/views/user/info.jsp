@@ -34,25 +34,34 @@
       <td>이름</td>
       <td>${infoVO.user_name}</td>
     </tr>
+ 
     <tr>
-      <td>나이</td>
-      <td></td>
+      <td>생년월일 </td>
+      <td>${infoVO.user_birth}</td>
     </tr>
     <tr>
       <td>성별</td>
-      <td></td>
+      <td>${infoVO.user_gender }</td>
     </tr>
     <tr>
       <td>이메일</td>
       <td>${infoVO.user_email }</td>
     </tr>
+    <tr>
+      <td>연락처 </td>
+      <td>${infoVO.user_phone }</td>
+    </tr>
+    
    <tr>
       <td>가입일자</td>
       <td>${infoVO.user_join_date }</td>
     </tr>
   </table>
   
-  <h3><a href="./">메인페이지로</a></h3>  
+  
+  <h3><a href="./logout">로그아웃 </a></h3>
+  
+  <h3><a href="../home">메인페이지로</a></h3>  
 
 
 </body>

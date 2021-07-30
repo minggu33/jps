@@ -29,12 +29,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UserVO getUser(int user_num) {
+	public UserVO infoUser(String user_num) {
 
-		System.out.println("DAO : getUser() 호출 ");
+		System.out.println("DAO : infoUser() 호출 ");
 		System.out.println("DAO : DB연결 ");
 
-		UserVO vo = sqlSession.selectOne(namespace + ".getUser", user_num);
+		UserVO vo = sqlSession.selectOne(namespace + ".infoUser", user_num);
 
 		System.out.println("DAO:mapper 실행완료 ");
 		System.out.println("DAO : " + vo);

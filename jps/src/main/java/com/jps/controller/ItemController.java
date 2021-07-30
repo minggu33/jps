@@ -38,10 +38,10 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
-	public void itemListGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception { 
-		System.out.println("C : itemListGET() 호출"); 
-		model.addAttribute("ItemList", service.ItemList());
-		
+	public String itemlistGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception { 
+		System.out.println("C : itemListGET() 호출");
+		model.addAttribute("itemlist", service.itemlist());
+		return "/item/itemlist";
 	}
 	
 	

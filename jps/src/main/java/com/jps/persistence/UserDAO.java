@@ -8,7 +8,7 @@ public interface UserDAO {
 	public UserVO loginUser(UserVO vo);
 
 	// 특정 회원 정보
-	public UserVO getUser(int user_num);
+	public UserVO infoUser(String user_num);
 
 	public void insertUser(UserVO vo);
 

@@ -24,10 +24,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserVO infoUser(int user_num) throws Exception {
+	public UserVO infoUser(String user_num) throws Exception {
 		System.out.println("S : infoUser(user_id) 호출 ");
 
-		UserVO infoVO = udao.getUser(user_num);
+		UserVO infoVO = udao.infoUser(user_num);
 		System.out.println("S : " + infoVO);
 
 		return infoVO;

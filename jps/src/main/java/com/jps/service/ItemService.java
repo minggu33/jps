@@ -8,7 +8,7 @@ public interface ItemService {
 
 	public void item(ItemVO vo) throws Exception;
 	
-	public List<ItemVO> ItemList() throws Exception;
+	public List<ItemVO> itemlist() throws Exception;
 	
 
 }
