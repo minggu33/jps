@@ -14,6 +14,10 @@
 		select * from item
 	</select>
 	
+	<select id="read" resultType="com.jps.domain.ItemVO">
+		select * from item where item_num=#{item_num }
+	</select>
+	
 	
 	
 </mapper>

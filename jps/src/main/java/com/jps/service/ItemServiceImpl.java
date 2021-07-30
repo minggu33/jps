@@ -25,6 +25,12 @@ public class ItemServiceImpl implements ItemService{
 		return idao.itemlist();
 	}
 
+	@Override
+	public ItemVO read(Integer item_num) throws Exception {
+		return idao.itemdetail(item_num);
+	}
+
+	
 	
 	
 	

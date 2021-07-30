@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jps.domain.ItemVO;
@@ -44,5 +45,12 @@ public class ItemController {
 		return "/item/itemlist";
 	}
 	
-	
+	@RequestMapping(value = "/itemdetail", method = RequestMethod.GET)
+	public void itemdetailGET(Model model, @RequestParam("item_num") int item_num ) throws Exception {
+		
+		System.out.println(item_num);
+		ItemVO vo = service.read(item_num);
+		
+		model.addAttribute("vo", vo);
+	}
 }

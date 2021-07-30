@@ -10,5 +10,5 @@ public interface ItemService {
 	
 	public List<ItemVO> itemlist() throws Exception;
 	
-
+	public ItemVO read(Integer item_num) throws Exception; 
 }

@@ -5,7 +5,7 @@
 <!-- header -->
 <%@ include file="../include/header.jsp" %>
 <!-- header -->
-	<center>
+	<%-- <center>
 		<table border="1">
 			<tr style="text-align: center;">
 				<td width="100">상품명</td>
@@ -24,7 +24,47 @@
 			</tr>
 		</c:forEach> 
 		</table>
-	</center>
+	</center> --%>
+	
+	<main id="main">
+      
+    <div class="site-section site-portfolio">
+      <div class="container">
+        <div class="row mb-5 align-items-center">
+          <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+            <h2>What do you want?</h2>
+            <p class="mb-0">Select your style</p>
+          </div>
+          <div class="col-md-12 col-lg-6 text-left text-lg-right" data-aos="fade-up" data-aos-delay="100">
+            <div id="filters" class="filters">
+              <a href="#" data-filter="*" class="active">All</a>
+              <a href="#" data-filter=".hat">Hat</a>
+              <a href="#" data-filter=".outer">Outer</a>
+              <a href="#" data-filter=".shirts">Shirts</a>
+              <a href="#" data-filter=".pants">Pants</a>
+              <a href="#" data-filter=".shoes">Shoes</a>
+            </div>
+          </div>
+        </div>
+        <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+        <c:forEach var="ItemVO" items="${itemlist }">
+          
+          <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="./itemdetail?item_num=${ItemVO.item_num }" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>${ItemVO.item_name }</h3>
+                <span>${ItemVO.item_category }</span>
+              </div>
+              <img class="img-fluid" src="/resources/tmp/img/img_6.jpg">
+            </a>
+          </div>
+        </c:forEach>
+        </div>
+      </div>
+    </div>
+    
+    </main>
+	
 <!-- footer -->
 <%@ include file="../include/footer.jsp" %>
 <!-- footer -->
