@@ -11,13 +11,17 @@
 
 <h1>login	</h1>
 
-<fieldset>
-<legend>login</legend>
-<form>
 
-
-</form>
-</fieldset>
+  <form action="/user/login" method="post">
+    아이디 : <input type="text" name="user_id"><br>
+    비밀번호 : <input type="password" name="user_pw"><br>
+    
+    <input type="submit" value="로그인"> 
+    <input type="button" value="회원가입" 
+        onclick="location.href='/user/join'"
+    >  
+    
+  </form>
 
 
 
