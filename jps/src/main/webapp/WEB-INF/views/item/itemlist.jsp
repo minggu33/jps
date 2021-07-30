@@ -22,7 +22,7 @@
 				<td><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>${ItemVO.item_read_count }</td>
 			</tr>
-		</c:forEach>
+		</c:forEach> 
 		</table>
 	</center>
 <!-- footer -->
