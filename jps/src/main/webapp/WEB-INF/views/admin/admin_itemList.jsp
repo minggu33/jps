@@ -26,21 +26,25 @@
 	<div id="adminContent">
 		<h1>상품 목록</h1>
 		
-		<table border="1">
-			<tr style="text-align: center;">
-				<td width="100">상품명</td>
-				<td width="100">카테고리</td>
-				<td width="100">가격</td>
-				<td width="100">상품등록일</td>
-				<td width="100">조회수</td>
+		<table class="itemList">
+			<tr>
+				<td class="item_num">상품 번호</td>
+				<td class="item_name">상품명</td>
+				<td class="item_category">카테고리</td>
+				<td class="item_price">가격</td>
+				<td class="item_create_date">상품등록일</td>
+				<td class="item_readcount">조회수</td>
+				<td class="item_etc">비고</td>
 			</tr>
 		<c:forEach var="ItemVO" items="${itemlist }">
-			<tr style="text-align: center;">
-				<td>${ItemVO.item_name }</td>
-				<td>${ItemVO.item_category }</td>
-				<td>${ItemVO.item_price }</td>
-				<td><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				<td>${ItemVO.item_read_count }</td>
+			<tr>
+				<td class="item_num">${ItemVO.item_num }</td>
+				<td class="item_name">${ItemVO.item_name }</td>
+				<td class="item_category">${ItemVO.item_category }</td>
+				<td class="item_price">${ItemVO.item_price }</td>
+				<td class="item_create_date"><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				<td class="item_readcount">${ItemVO.item_read_count }</td>
+				<td class="item_etc"></td>
 			</tr>
 		</c:forEach> 
 		</table>

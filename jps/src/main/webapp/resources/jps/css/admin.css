@@ -160,3 +160,53 @@ Sidebar Nav
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+
+#stock tr:not(:first-child):hover {
+	background-color: #e7e2e7;
+}
+
+.itemList {
+	text-align: center;
+}
+
+.itemList .item_num{
+	width: 5%;
+}
+
+.itemList .item_name{
+	width: 20%;
+}
+
+.itemList .item_category{
+	width: 10%;
+}
+
+.itemList .item_price{
+	width: 10%;
+}
+
+.itemList .item_create_date{
+	width: 10%;
+}
+
+.itemList .item_readcount{
+	width: 5%;
+}
+
+.itemList .item_etc{
+	width: 5%;
+}
+
+
+.itemList tr td {
+	border-bottom: 1px solid gray;
+}
+
+.itemList tr:first-child td {
+	border-bottom: 2px solid gray;
+	background-color: #b9aab9;
+}
+
+.itemList tr:not(:first-child):hover {
+	background-color: #e7e2e7;
+}

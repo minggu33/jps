@@ -32,10 +32,26 @@
 				</select> <br>
 				<input type="number" placeholder="가격을 작성해주세요" step="100" min="0" name="item_price" class="under_line_solid_gray"> <br>
 				<input type="file" name="item_img" class="border_none under_line_solid_gray">
-				<input type="button" class="append border_none" value="파일추가"> <br>
+				<input type="button" class="append border_none" value="파일추가">
 				<div class="box" style="display: none"></div>
-				<textarea rows="20" cols="160" name="item_content" class="resize_none"></textarea>
-				<br> 
+				<hr>
+				<table id="stock">
+					<tr>
+						<td>색상</td>
+						<td>사이즈</td>
+						<td>수량</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="item_color"></td>
+						<td><input type="text" name="item_size"></td>
+						<td><input type="number" name="item_stock" min="0"></td>
+						<td><input type="button" value="삭제하기" class="deleteStock border_none"></td>
+					</tr>
+				</table>
+				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock()"> 
+				<hr>
+				<textarea rows="20" cols="165" name="item_content" class="resize_none"></textarea>
+				<hr> 
 				<div id="submit_button">
 					<input type="submit" value="등록하기" class="border_none">
 				</div>

@@ -27,3 +27,27 @@ function check() {
 		return false;
 	}
 }
+
+function addStock() {
+	$(function(){
+		var t = '<tr><td><input type="text" name="item_color"></td>'
+		+'<td><input type="text" name="item_size"></td>'
+		+'<td><input type="number" name="item_stock" min="0"></td>'
+		+'<td><input type="button" value="삭제하기" class="deleteStock border_none"></td></tr>';
+		
+		$('#stock').append(t);
+	});
+}
+
+
+$(function(){
+	$(document).on('click', '.deleteStock', function(){
+		var trCount = $("#stock tr").length;
+		if(trCount > 2) {
+			var trNum = $(this).closest('tr').prevAll().length + 1;
+			$("#stock > tbody:last > tr:nth-child("+trNum+")").remove();
+		} else {
+			alert("최소 1개 이상의 정보가 필요합니다.");
+		}
+	});
+});
