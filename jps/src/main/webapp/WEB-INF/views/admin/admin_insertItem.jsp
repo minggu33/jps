@@ -42,12 +42,24 @@
 						<td>수량</td>
 					</tr>
 					<tr>
-						<td><input type="text" name="item_color"></td>
-						<td><input type="text" name="item_size"></td>
-						<td><input type="number" name="item_stock" min="0"></td>
+						<td><input type="text" name="item_colors"></td>
+						<td>
+							<select name="item_sizes">
+								<option value="">사이즈를 선택해 주세요.</option>
+								<option value="S">S</option>
+								<option value="M">M</option>
+								<option value="L">L</option>
+								<option value="XL">XL</option>
+								<option value="XXL">XXL</option>
+								<option value="Free">Free</option>
+							</select>
+						<td><input type="number" name="item_stocks" min="0"></td>
 						<td><input type="button" value="삭제하기" class="deleteStock border_none"></td>
 					</tr>
 				</table>
+				<input type="hidden" name="item_color">
+				<input type="hidden" name="item_size">
+				<input type="hidden" name="item_stock">
 				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock()"> 
 				<hr>
 				<textarea rows="20" cols="165" name="item_content" class="resize_none"></textarea>

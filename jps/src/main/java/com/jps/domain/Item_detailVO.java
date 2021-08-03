@@ -1,6 +1,6 @@
 package com.jps.domain;
 
-public abstract class Item_detailVO {
+public class Item_detailVO {
 	
 	private	int item_detail_idx;
 	private int item_num;

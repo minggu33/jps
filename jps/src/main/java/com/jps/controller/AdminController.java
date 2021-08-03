@@ -1,5 +1,9 @@
 package com.jps.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -9,11 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_detailVO;
 import com.jps.service.AdminService;
-import com.jps.service.ItemService;
 
 /**
  * Handles requests for the application home page.
@@ -42,10 +47,30 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/insertitem", method = RequestMethod.POST)
-	public String adminInsertItemPOST(ItemVO vo, RedirectAttributes rttr) throws Exception {
+	public String adminInsertItemPOST(ItemVO vo, @RequestParam(value = "item_color") String item_color,
+			@RequestParam(value = "item_size") String item_size, @RequestParam(value = "item_stock") String item_stock,
+			RedirectAttributes rttr) throws Exception {
+		
 		logger.info("C : adminInsertItemPOST() 호출");
 		
-		service.item(vo);
+		List<Item_detailVO> dtlList = new ArrayList<Item_detailVO>();
+		String item_colors[] = item_color.split(",");
+		String item_sizes[] = item_size.split(",");
+		String item_stocks[] = item_stock.split(",");
+		
+		
+		for(int i=0; i<item_colors.length; i++) {
+			Item_detailVO dtlvo = new Item_detailVO();
+			dtlvo.setItem_color(item_colors[i]);
+			dtlvo.setItem_size(item_sizes[i]);
+			dtlvo.setItem_stock(Integer.parseInt(item_stocks[i]));
+			
+			dtlList.add(dtlvo);
+		}
+		
+		logger.info("C : dtlList - "+ dtlList);
+		
+		service.item(vo, dtlList);
 		
 		rttr.addFlashAttribute("msg", "success");
 		

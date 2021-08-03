@@ -14,6 +14,13 @@
 		select * from item order by item_num desc
 	</select>
 	
+	<select id="getItemNum" resultType="int">
+		select item_num from item order by item_num desc limit 0,1;
+	</select>
 	
+	<insert id="insertItemDetail">
+		insert into item_detail(item_num, item_size, item_color, item_stock)
+		 values(#{item_num},#{item_size},#{item_color},#{item_stock})
+	</insert>
 	
 </mapper>
