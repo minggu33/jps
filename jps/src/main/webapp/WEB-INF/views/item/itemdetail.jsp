@@ -9,6 +9,8 @@
 <!-- header -->
 <%@ include file="../include/header.jsp" %>
 <!-- header -->
+
+	
 	<center>
 	<table border="1" style="text-align: center;">
 		<tr>
@@ -27,15 +29,40 @@
 	<br>
 	<br>
 	<input type="button" class="order" value="주문하기">
+	<input type="button" value="장바구니" class="basket">
+	<input type="button" value="찜">
 	<br>
 	<br>
+	<div class="basket_detail" style="display: none">
+		<form name="fr2">
+		
+		<input type="hidden" name="item_num" value="${vo.item_num }">
+		Color : <select name="basket_color">
+			<option value="">Choose color</option>
+			<option value="black">Black</option>
+			<option value="white">White</option>
+			<option value="gray'">Gray</option>
+		</select>
+			<br>
+		Size : <select name="basket_size">
+			<option value="">Choose color</option>
+			<option value="90">90</option>
+			<option value="95">95</option>
+			<option value="100">100</option>
+			<option value="105">105</option>
+		</select>
+			<br>
+		Count : <input type="number" id="basket_count" value="1">
+		<br><input type="button" class="basket_insert" value="바구니담기">
+		</form>
+	</div>
 	<div class="orderdetail" style="display: none;">
 	<form name="fr" action="./itemdetail" method="post" onsubmit="return check();">
 	Name : ${vo.item_name }
 	<br>
 		Color : <select name="color">
 				<option value="">Choose color</option>
-				<option vlaue="black">Black</option>
+				<option value="black">Black</option>
 				<option value="white">White</option>
 				<option value="gray">Gray</option>
 			</select>
@@ -48,7 +75,7 @@
 			<option value="105">105</option>
 		</select>
 		<br>
-		Count : <input type="number" name="count" id="count">
+		Count : <input type="number" name="count" id="count" value="1">
 		<br>
 		<input type="button" class="jjinmak" value="주문신청">
 		<input type="hidden" id="item_price" value="${vo.item_price}">
