@@ -2,7 +2,6 @@ package com.jps.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -83,4 +82,5 @@ public class AdminController {
 		model.addAttribute("itemlist", service.itemlist());
 		return "/admin/admin_itemList";
 	}
+
 }
