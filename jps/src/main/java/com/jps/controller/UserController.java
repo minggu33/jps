@@ -67,7 +67,15 @@ public class UserController {
 			
 		}
 		
+		
 		session.setAttribute("user_num", loginVO.getUser_num());
+		
+		String user_num = loginVO.getUser_num();
+		
+		UserVO infoVO = service.infoUser(user_num);
+		
+		session.setAttribute("userVO", infoVO);
+		System.out.println("userinfo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+infoVO);
 		
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
@@ -170,4 +178,64 @@ public class UserController {
 		out.print(service.checkPhone(user_phone));
 		out.close();
 	}
+	
+	
+	@RequestMapping(value = "/changePw", method = RequestMethod.POST)
+	public void changePwPOST(String user_pw, HttpServletResponse resp, HttpSession session) throws Exception {
+		logger.info("C : changePwPOST() 호출");
+		
+		String user_num = (String)session.getAttribute("user_num");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.changePw(user_num,user_pw));
+		out.close();
+	}
+	@RequestMapping(value = "/changeNick", method = RequestMethod.POST)
+	public void changeNickPOST(String user_nickname, HttpServletResponse resp, HttpSession session) throws Exception {
+		logger.info("C : changeNickPOST() 호출");
+		
+		String user_num = (String)session.getAttribute("user_num");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.changeNick(user_num,user_nickname));
+		out.close();
+	}
+	
+	// 좋아요 목록  확인 
+		@RequestMapping(value = "/like",method = RequestMethod.GET)
+		public void likeGET(HttpSession session, Model model) throws Exception {
+			
+			logger.info("C : likeGET() 호출 ");
+			
+			String user_num = (String)session.getAttribute("user_num");
+			
+			// user_num="1";
+			
+			UserVO infoVO = service.infoUser(user_num);
+			
+			model.addAttribute("infoVO", infoVO);
+			
+			logger.info("페이지 이동 /user/like.jsp");
+			
+		}
+	
+		@RequestMapping(value = "/cart",method = RequestMethod.GET)
+		public void cartGET(HttpSession session, Model model) throws Exception {
+			
+			logger.info("C : cartGET() 호출 ");
+			
+			String user_num = (String)session.getAttribute("user_num");
+			
+			// user_num="1";
+			
+			UserVO infoVO = service.infoUser(user_num);
+			
+			model.addAttribute("infoVO", infoVO);
+			
+			logger.info("페이지 이동 /user/cart.jsp");
+			
+		}
+		
 }

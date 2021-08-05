@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+.mypage-nav{
+	width: 170px;
+    font-family:  "Inconsolata", monosapce;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 50px;
+    float: left;
+}
+
+.mypage-menu>dd>a{
+	display: block;
+    color: #aaaaaa;
+    line-height: 40px;
+	
+}
+
+.mypage-menu>dt{
+	font-size: 22px;
+    line-height: 40px;
+}
+.mypage-cont{
+	width: calc(100% - 280px);
+    padding: 0;
+    float: right;   
+    margin-top: 50px;
+    
+}
+.mypage-header>h1{
+	font-size: 24px;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+}
+.mypage-header{
+	
+    border-bottom: 3px solid #000000;
+    padding-bottom: 14px;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    position: relative;
+}
+.mypage-table{
+	width: 100%;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.mypage-table td{
+	padding: 15px 0;
+}
+.mypage-table button{
+	height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    color: #000000;
+    min-width: 100px;
+}
+.divpw label{
+	 min-width: 165px;
+    line-height: 32px;	
+}
+.divpw {
+	min-width: 1080px;
+}
+.mypage-table input{
+	margin:0;
+	margin-bottom:10px;
+	width: 290px;
+    padding-right: 76px;
+    height: 32px;
+    padding: 5px 6px;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    font-size: 14px;
+    line-height: 20px;
+}
