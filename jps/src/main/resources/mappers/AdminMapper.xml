@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jps.mapper.AdminMapper">
+	<insert id="insertItem">
+		insert into item (item_category, item_name, item_price, item_img, item_content, item_create_date, item_read_count, item_point) 
+		values(#{item_category}, #{item_name}, #{item_price}, #{item_img}, #{item_content}, now(), #{item_read_count}, #{item_point})
+	</insert>
+	
+	<select id="itemlist" resultType="com.jps.domain.ItemVO">
+		select * from item order by item_num desc
+	</select>
+	
+	<select id="getItemNum" resultType="int">
+		select item_num from item order by item_num desc limit 0,1;
+	</select>
+	
+	<insert id="insertItemDetail">
+		insert into item_detail(item_num, item_size, item_color, item_stock)
+		 values(#{item_num},#{item_size},#{item_color},#{item_stock})
+	</insert>
+	
+</mapper>

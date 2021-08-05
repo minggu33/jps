@@ -19,7 +19,7 @@ $(document).ready(function() {
 						document.fr.idCheck.value = 0;
 					} else {
 						$('#idCheckText').html("사용 가능한 아이디 입니다.");
-						$('#idCheckText').css('color', 'green');
+						$('#idCheckText').css('color', 'skyblue');
 						document.fr.idCheck.value = 1;
 					}
 				}
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		} else {
 			if (valueOfPw == valueOfPw2) {
 				$('#pwCheckText').html("확인이 완료 되었습니다.");
-				$('#pwCheckText').css('color', 'green');
+				$('#pwCheckText').css('color', 'skyblue');
 				document.fr.pwCheck.value = 1;
 			} else {
 				$('#pwCheckText').html("확인 비밀번호가 다릅니다.");
@@ -67,7 +67,7 @@ $(document).ready(function() {
 						document.fr.emailCheck.value = 0;
 					} else {
 						$('#emailCheckText').html("사용 가능한 이메일 입니다.");
-						$('#emailCheckText').css('color', 'green');
+						$('#emailCheckText').css('color', 'skyblue');
 						document.fr.emailCheck.value = 1;
 					}
 				}
@@ -94,7 +94,7 @@ $(document).ready(function() {
 						document.fr.nicknameCheck.value = 0;
 					} else {
 						$('#nicknameCheckText').html("사용 가능한 닉네임 입니다.");
-						$('#nicknameCheckText').css('color', 'green');
+						$('#nicknameCheckText').css('color', 'skyblue');
 						document.fr.nicknameCheck.value = 1;
 					}
 				}
@@ -121,7 +121,7 @@ $(document).ready(function() {
 						document.fr.phoneCheck.value = 0;
 					} else {
 						$('#phoneCheckText').html("사용 가능한 전화번호 입니다.");
-						$('#phoneCheckText').css('color', 'green');
+						$('#phoneCheckText').css('color', 'skyblue');
 						document.fr.phoneCheck.value = 1;
 					}
 				}

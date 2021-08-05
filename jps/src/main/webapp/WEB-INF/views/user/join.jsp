@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>회원가입</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <link href="/resources/jps/css/userjoin.css" rel="stylesheet">
+<link href="/resources/jps/css/jps.css" rel="stylesheet">
 
 </head>
 <body>
