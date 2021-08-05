@@ -16,17 +16,3 @@
 	height: auto;
 	padding-left: 3%;
 }
-
-#submit_button {
-	margin-right: 2%;
-	float: right;
-}
-
-.under_line_solid_gray {
-	border: none;
-	border-bottom: 1px solid gray;
-}
-
-.border_none {
-	border: none;
-}

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.under_line_solid_gray {
+	border: none;
+	border-bottom: 1px solid gray;
+}
+
+.border_none {
+	border: none;
+}
+
+#submit_button {
+	margin-right: 2%;
+	float: right;
+}
+
+.resize_none {
+	resize: none;
+}
