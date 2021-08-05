@@ -95,12 +95,12 @@
     <!--  닉네임 변경  -->
      <tr id="neweNick" style="display:none;">
      	<td> 닉네임 </td>
-     	<td> 
+     	<td colspan="2"> 
 	     	길이는 최대 15자 이내로 작성해주세요. <br>
 			중복 닉네임 불가합니다.<br>
 			이모티콘 및 일부 특수문자 사용 불가합니다. &<>()'/"<br>
 			<input type="text" id="nNick" style="min-width:200px; margin:20px 0;">
-			<span id="nickCheckText"></span><br>
+			<span style="margin-left:20px;" id="nickCheckText"></span><br>
 			<button id="confirmNickbtn" onclick="nickChange()">변경</button>
 			<button id="cancleNickbtn">취소</button>
      	</td>

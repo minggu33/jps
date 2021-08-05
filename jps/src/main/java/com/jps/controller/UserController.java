@@ -201,6 +201,9 @@ public class UserController {
 		PrintWriter out = resp.getWriter();
 		out.print(service.changeNick(user_num,user_nickname));
 		out.close();
+		UserVO infoVO = service.infoUser(user_num);
+		
+		session.setAttribute("userVO", infoVO);
 	}
 	
 	// 좋아요 목록  확인 
