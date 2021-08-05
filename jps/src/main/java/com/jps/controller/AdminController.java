@@ -77,15 +77,16 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
-	public String adminItemListGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception {
+	public String adminItemListGET(Model model) throws Exception {
 		logger.info("C : adminItemListGET() 호출");
 		model.addAttribute("itemlist", service.itemlist());
 		return "/admin/admin_itemList";
 	}
 	
 	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
-	public String adminUserListGET(Model model) {
+	public String adminUserListGET(Model model) throws Exception {
 		logger.info("C : adminUserListGET() 호출");
+		model.addAttribute("userlist", service.userlist());
 		return "/admin/admin_userList";
 	}
 

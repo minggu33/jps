@@ -23,4 +23,8 @@
 		 values(#{item_num},#{item_size},#{item_color},#{item_stock})
 	</insert>
 	
+	<select id="userlist" resultType="com.jps.domain.UserVO">
+		select * from user
+	</select>
+	
 </mapper>

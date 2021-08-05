@@ -28,32 +28,45 @@
 		
 		<table class="userList">
 			<tr>
-				<td class="user_num">회원 번호</td>
+				<td class="user_num" rowspan="2">회원 번호</td>
 				<td class="user_id">ID</td>
 				<td class="user_pw">PW</td>
 				<td class="user_name">이름</td>
 				<td class="user_email">Email</td>
-				<td class="user_nickname">닉네임</td>
-				<td class="user_birth">생년월일</td>
-				<td class="user_gender">성별</td>
-				<td class="user_addr">주소</td>
-				<td class="user_phone">전화번호</td>
-				<td class="user_point">포인트</td>
+				<td class="user_addr" rowspan="2">주소</td>
+				<td class="user_point" rowspan="2">포인트</td>
 				<td class="user_bank">은행</td>
-				<td class="user_account">계좌번호</td>
-				<td class="user_create_date">회원 가입일</td>
-				<td class="user_readcount">마지막 로그인</td>
-				<td class="user_etc">비고</td>
+				<td class="user_join_date">회원 가입일</td>
+				<td class="user_etc" rowspan="2">비고</td>
 			</tr>
-		<c:forEach var="ItemVO" items="${itemlist }">
 			<tr>
-				<td class="item_num">${ItemVO.item_num }</td>
-				<td class="item_name">${ItemVO.item_name }</td>
-				<td class="item_category">${ItemVO.item_category }</td>
-				<td class="item_price">${ItemVO.item_price }</td>
-				<td class="item_create_date"><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				<td class="item_readcount">${ItemVO.item_read_count }</td>
-				<td class="item_etc"></td>
+				<td class="user_gender">성별</td>
+				<td class="user_birth">생년월일</td>
+				<td class="user_nickname">닉네임</td>
+				<td class="user_phone">전화번호</td>
+				<td class="user_account">계좌번호</td>
+				<td class="user_readcount">마지막 로그인</td>
+			</tr>
+		<c:forEach var="UserVO" items="${userlist }">
+			<tr>
+				<td class="user_num" rowspan="2">${UserVO.user_num }</td>
+				<td class="user_id">${UserVO.user_id }</td>
+				<td class="user_pw">${UserVO.user_pw }</td>
+				<td class="user_name">${UserVO.user_name }</td>
+				<td class="user_email">${UserVO.user_email }</td>
+				<td class="user_addr" rowspan="2">${UserVO.user_addr }</td>
+				<td class="user_point" rowspan="2">${UserVO.user_point }</td>
+				<td class="user_bank">${UserVO.user_bank }</td>
+				<td class="user_join_date">${UserVO.user_join_date }</td>
+				<td class="user_etc" rowspan="2">비고</td>
+			</tr>
+			<tr>
+				<td class="user_gender">${UserVO.user_gender }</td>
+				<td class="user_birth">${UserVO.user_birth }</td>
+				<td class="user_nickname">${UserVO.user_nickname }</td>
+				<td class="user_phone">${UserVO.user_phone }</td>
+				<td class="user_account">${UserVO.user_account }</td>
+				<td class="user_late_login">${UserVO.user_late_login }</td>
 			</tr>
 		</c:forEach> 
 		</table>

@@ -18,9 +18,11 @@ public class adminInterceptor implements HandlerInterceptor {
 		if(state != null) {
 			if(state.equals("jpsadmin")) {
 				return true;
-			}			
+			} else {
+				response.sendRedirect("/home");
+			}
 		} else {
-			response.sendRedirect("/user/login");			
+			response.sendRedirect("/user/login");
 		}
 		return false;
 	}

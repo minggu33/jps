@@ -220,11 +220,11 @@ Sidebar Nav
 	border-bottom: 1px solid gray;
 }
 
-.userList tr:first-child td {
+.userList tr:nth-child(1) td, .userList tr:nth-child(2) td {
 	border-bottom: 2px solid gray;
 	background-color: #b9aab9;
 }
 
-.userList tr:not(:first-child):hover {
+.userList tr:not(:first-child):hover, .userList tr:not(:nth-child(2)):hover {
 	background-color: #e7e2e7;
 }

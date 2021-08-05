@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.UserVO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -33,9 +34,14 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public List<ItemVO> itemlist() throws Exception {
+	public List<ItemVO> itemlist() {
 		
 		return sqlSession.selectList(namespace+".itemlist");
+	}
+
+	@Override
+	public List<UserVO> userlist() {
+		return sqlSession.selectList(namespace+".userlist");
 	}
 	
 	

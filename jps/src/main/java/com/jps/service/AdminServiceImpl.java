@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.UserVO;
 import com.jps.persistence.AdminDAO;
 
 @Service
@@ -24,5 +25,12 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public List<ItemVO> itemlist() throws Exception {
 		return adao.itemlist();
-	}	
+	}
+
+	@Override
+	public List<UserVO> userlist() throws Exception {
+		return adao.userlist();
+	}
+	
+	
 }
