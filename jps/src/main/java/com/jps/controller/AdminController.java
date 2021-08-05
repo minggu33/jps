@@ -82,5 +82,11 @@ public class AdminController {
 		model.addAttribute("itemlist", service.itemlist());
 		return "/admin/admin_itemList";
 	}
+	
+	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
+	public String adminUserListGET(Model model) {
+		logger.info("C : adminUserListGET() 호출");
+		return "/admin/admin_userList";
+	}
 
 }

@@ -210,3 +210,21 @@ Sidebar Nav
 .itemList tr:not(:first-child):hover {
 	background-color: #e7e2e7;
 }
+
+.userList {
+	text-align: center;
+}
+
+
+.userList tr td {
+	border-bottom: 1px solid gray;
+}
+
+.userList tr:first-child td {
+	border-bottom: 2px solid gray;
+	background-color: #b9aab9;
+}
+
+.userList tr:not(:first-child):hover {
+	background-color: #e7e2e7;
+}
