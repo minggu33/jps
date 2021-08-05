@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 		UserVO loginVO = udao.loginUser(vo);
 
 		return loginVO;
-	}
+	};
 
 	@Override
 	public UserVO infoUser(String user_num) throws Exception {
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 		System.out.println("S : " + infoVO);
 
 		return infoVO;
-	}
+	};
 
 	@Override
 	public void inserUser(UserVO vo) throws Exception {
@@ -68,4 +68,18 @@ public class UserServiceImpl implements UserService {
 		return udao.checkPhone(user_phone);
 	};
 
+	@Override
+	public int changePw(String user_num,String user_pw) throws Exception {
+		System.out.println("S : changepw(user_nickname) 호출");
+		return udao.changePw(user_num,user_pw);
+	};
+
+	@Override
+	public int changeNick(String user_num, String user_nickname) throws Exception {
+		System.out.println("S : changeNick(user_nickname) 호출");
+		return udao.changeNick(user_num, user_nickname);
+	};
+
+	
+	
 }

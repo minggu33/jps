@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.jps.domain.UserVO"%>
 
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -38,7 +39,9 @@
     Author URL: https://bootstrapmade.com/
   ======================================================= -->	
   
-  
+  <%
+  	String user_num = (String)session.getAttribute("user_num");
+  %>
  
   
 </head>
@@ -74,17 +77,29 @@
 
     </div>
   </div>
-  
+  <%
+  if(user_num == null){
+  %>
+  	<div class="userinfo">
+  		<a href="/user/login">login</a>
+  		<a href="/user/join">join</a>
+  	</div>
+  <%
+  }else{
+  %>
     <div class="userinfo">
       Welcome!  
       <a href="/user/info">${userVO.user_nickname} </a>님 |
       <a href="#">알림 </a> |
-      <a href="#">마이 페이지 </a> |
-      <a href="#">찜 목록 </a> |
-      <a href="#">장바구니 </a>
+      <a href="/user/info">내 정보 </a> |
+      <a href="/user/like">좋아요 </a> |
+      <a href="/user/cart">장바구니 </a> |
+      <a href="/user/logout">로그아웃 </a>
 
     </div>
-  
+   <%
+  }
+   %>
  
   <nav class="navbar navbar-light custom-navbar">
     <div class="container">

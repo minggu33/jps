@@ -20,4 +20,7 @@ public interface UserDAO {
 
 	public int checkPhone(String user_phone);
 
+	public int changePw(String user_num,String user_pw);
+	
+	public int changeNick(String user_num, String user_nickname);
 }
