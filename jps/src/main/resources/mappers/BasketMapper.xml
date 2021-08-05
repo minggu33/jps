@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.jps.mapper.BasketMapper">
+  	<insert id="insert">
+  		insert into basket (user_num, item_num, item_color, item_size, item_count, update_date)
+  		values(#{user_num}, #{item_num}, #{item_color}, #{item_size}, #{item_count}, now())
+  	</insert>
+  </mapper>

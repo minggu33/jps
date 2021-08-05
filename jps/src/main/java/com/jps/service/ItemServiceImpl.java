@@ -7,13 +7,16 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_detailVO;
 import com.jps.persistence.ItemDAO;
+import com.jps.persistence.Item_detailDAO;
 
 @Service
 public class ItemServiceImpl implements ItemService{
 
 	@Inject
 	private ItemDAO idao;
+	private Item_detailDAO iddao;
 	
 	@Override
 	public void item(ItemVO vo) throws Exception{
@@ -25,6 +28,18 @@ public class ItemServiceImpl implements ItemService{
 		return idao.itemlist();
 	}
 
+	@Override
+	public ItemVO read(Integer item_num) throws Exception {
+		return idao.itemdetail(item_num);
+	}
+
+	@Override
+	public void order(Integer item_num) throws Exception {
+		
+		iddao.insertOrder(item_num);
+	}
+
+	
 	
 	
 	
