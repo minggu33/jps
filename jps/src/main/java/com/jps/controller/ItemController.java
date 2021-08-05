@@ -19,8 +19,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.Item_likeVO;
 import com.jps.service.BasketService;
 import com.jps.service.ItemService;
+import com.jps.service.Item_likeService;
 
 @Controller
 @RequestMapping(value = "/item/*")
@@ -31,6 +33,7 @@ public class ItemController {
 	
 	@Inject
 	private ItemService service;
+	private Item_likeService ilservice;
 	
 	@RequestMapping(value = "/item", method = RequestMethod.GET) 
 	public void itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
@@ -56,12 +59,14 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "/itemdetail", method = RequestMethod.GET)
-	public void itemdetailGET(Model model, @RequestParam("item_num") int item_num ) throws Exception {
+	public void itemdetailGET(Model model, Model model2, @RequestParam("item_num") int item_num ) throws Exception {
 		
 		System.out.println(item_num);
 		ItemVO vo = service.read(item_num);
+		// Item_likeVO ivo = ilservice.read(item_num);
 		
 		model.addAttribute("vo", vo);
+		// model2.addAttribute("ivo", ivo);
 	}	
 	
 	@RequestMapping(value="/itemdetail", method = RequestMethod.POST)
