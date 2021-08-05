@@ -48,5 +48,13 @@
 		select exists (select * from user where user_phone=#{user_phone}) as
 		user_phone
 	</select>
-
+	
+	<update id="changePw">
+		update user set user_pw=#{user_pw} where user_num=#{user_num}
+	</update>
+	
+	<update id="changeNick">
+		update user set user_nickname=#{user_nickname} where user_num=#{user_num}
+	</update>
+	
 </mapper>

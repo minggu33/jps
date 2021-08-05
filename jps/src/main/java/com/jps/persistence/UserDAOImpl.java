@@ -80,6 +80,32 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
 
 		return sqlSession.selectOne(namespace + ".checkPhone", user_phone);
+	}
+
+	
+	@Override
+	public int changePw(String user_num, String user_pw) {
+		System.out.println("DAO :  changePw() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
+
+		UserVO vo = new UserVO();
+		vo.setUser_num(user_num);
+		vo.setUser_pw(user_pw);
+		
+		return sqlSession.update(namespace+".changePw",vo);
+	}
+
+	@Override
+	public int changeNick(String user_num, String user_nickname) {
+		System.out.println("DAO :  changeNick() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
+		
+		UserVO vo = new UserVO();
+		vo.setUser_num(user_num);
+		vo.setUser_nickname(user_nickname);
+		
+		return sqlSession.update(namespace+".changeNick", vo);
 	};
 
+	
 }

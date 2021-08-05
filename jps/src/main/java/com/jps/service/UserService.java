@@ -18,4 +18,8 @@ public interface UserService {
 
 	public int checkPhone(String user_phone) throws Exception;
 
+	public int changePw(String user_num,String user_pw) throws Exception;
+	
+	public int changeNick(String user_num,String user_nickname) throws Exception;
+	
 }
