@@ -3,7 +3,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.jps.mapper.Item_likeMapper">
+  	  <insert id="like">
+  	  	insert into item_like(item_num, user_num, likecheck)
+  	  	values(#{item_num}, #{user_num}, 1)
+  	  </insert>
+  
 	  <select id="read" resultType="com.jps.domain.Item_likeVO">
-	  	select * from item_like where user_num=#{user_num }
+	  	select * from item_like where item_num=#{item_num } and user_num=#{user_num}
 	  </select>
   </mapper>

@@ -15,9 +15,16 @@ public class Item_likeServiceImpl implements Item_likeService{
 	
 	
 	@Override
-	public Item_likeVO read(Integer item_num) throws Exception {
-		return ildao.select(item_num);
+	public Item_likeVO read(Item_likeVO ivo) throws Exception {
+		return ildao.select(ivo);
 	}
 
+
+	@Override
+	public void like(String user_num) throws Exception {
+		ildao.like(user_num);
+	}
+
+	
 	
 }

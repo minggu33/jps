@@ -32,7 +32,6 @@ public class ItemDAOImpl implements ItemDAO{
 	@Override
 	public ItemVO itemdetail(Integer item_num) throws Exception {
 		ItemVO vo = sqlSession.selectOne(namespace+".read", item_num);
-		
 		return vo;
 	}
 
