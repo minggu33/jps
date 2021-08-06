@@ -135,9 +135,10 @@
     <tr id="newEmail" style="display:none;">
     	<td>이메일</td>
     	<td colspan="2">
-    		<input type="text" id="nEmail" placeholder="이메일 입력"><button>인증</button><br>
-    		<input type="text" id="nEmailCode" placeholder="인증번호 입력"><br>
-    		<button style="margin-right:15px;">변경</button>
+    		<input type="text" id="nEmail" placeholder="이메일 입력"><button id="sendEmailbtn">인증</button><br>
+    		<input type="text" id="nEmailCode" placeholder="인증번호 입력"> 
+    		<span id="newMail_warn"></span><br>
+    		<button id="newMailConfirmbtn" style="margin-right:15px;">변경</button>
     		<button id="cancleEmailbtn">취소</button>
     	</td>
     </tr>

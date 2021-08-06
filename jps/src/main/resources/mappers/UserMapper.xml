@@ -57,4 +57,8 @@
 		update user set user_nickname=#{user_nickname} where user_num=#{user_num}
 	</update>
 	
+	<update id="changeEmail">
+		update user set user_email=#{user_email} where user_num=#{user_num}
+	</update>
+	
 </mapper>

@@ -22,4 +22,6 @@ public interface UserService {
 	
 	public int changeNick(String user_num,String user_nickname) throws Exception;
 	
+	public int changeEmail(UserVO vo) throws Exception;
+	
 }
