@@ -9,7 +9,7 @@
 <title>관리자 페이지 - 회원 관리</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/jps/js/itemInsert.js"></script>
+
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 <script type="text/javascript">
 	var msg = "${msg }";
@@ -28,7 +28,7 @@
 		
 		<table class="userList">
 			<tr>
-				<td class="user_num" rowspan="2">회원 번호</td>
+				<td class="user_num" rowspan="2">회원<br>번호</td>
 				<td class="user_id">ID</td>
 				<td class="user_pw">PW</td>
 				<td class="user_name">이름</td>
@@ -55,13 +55,32 @@
 				<td class="user_name">${UserVO.user_name }</td>
 				<td class="user_email">${UserVO.user_email }</td>
 				<td class="user_addr" rowspan="2">${UserVO.user_addr }</td>
-				<td class="user_point" rowspan="2">${UserVO.user_point }</td>
+				<td class="user_point" rowspan="2">${UserVO.user_point }
+					<button class="myBtn">Open Modal</button>
+				    <!-- The Modal -->
+				    <div class="myModal">
+				 
+				      <!-- Modal content -->
+				      <div class="modal-content">
+				        <span class="close">&times;</span>                                                               
+				        <p>${UserVO.user_nickname }</p>
+				      </div>
+				 
+				    </div>
+				</td>
 				<td class="user_bank">${UserVO.user_bank }</td>
 				<td class="user_join_date">${UserVO.user_join_date }</td>
-				<td class="user_etc" rowspan="2">비고</td>
+				<td class="user_etc" rowspan="2"></td>
 			</tr>
 			<tr>
-				<td class="user_gender">${UserVO.user_gender }</td>
+				<td class="user_gender">
+					<c:if test="${UserVO.user_gender eq 1}">
+						남
+					</c:if>
+					<c:if test="${UserVO.user_gender eq 2}">
+						여
+					</c:if>
+				</td>
 				<td class="user_birth">${UserVO.user_birth }</td>
 				<td class="user_nickname">${UserVO.user_nickname }</td>
 				<td class="user_phone">${UserVO.user_phone }</td>
@@ -71,6 +90,9 @@
 		</c:forEach> 
 		</table>
 	</div>
+
+ 
+<script src="/resources/jps/js/admin_user.js"></script>
 
 </body>
 </html>
