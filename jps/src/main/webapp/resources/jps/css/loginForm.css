@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.loginForm{
+	text-align: center;
+	margin-bottom:100px;
+}
+.inputdiv label{
+	width:165px;
+	margin: 10px;
+}
+.loginForm h1{
+	margin-bottom:40px;
+}
+#loginbtn,#joinbtn{
+	height: 40px;
+    line-height: 30px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    color: #000000;
+    min-width: 250px;
+    margin:5px;
+}
+.loginForm input{
+	margin:5px;
+	width: 250px;
+    height: 40px;
+	
+}
+a{
+	text-decoration: none;
+	font-size: 14px;
+}
+
+#search{
+	
+    margin: 0 6px;
+    padding: 5px;
+    color: #aaa;
+    vertical-align: middle;
+    
+}
+
+#loginbtn{
+	background-color: black;
+	color: white;
+}
