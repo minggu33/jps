@@ -23,4 +23,6 @@ public interface UserDAO {
 	public int changePw(String user_num,String user_pw);
 	
 	public int changeNick(String user_num, String user_nickname);
+	
+	public int changeEmail(UserVO vo);
 }

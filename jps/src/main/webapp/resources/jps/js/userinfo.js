@@ -29,6 +29,9 @@ var addressFlag = false;
 var address_plusFlag = false;
 var email_Flag = false;
 
+// 이메일 변경 인증 코드 
+let E_code = "";
+
 
 
 $(document).ready(function() {
@@ -96,6 +99,7 @@ $(document).ready(function() {
       		}
 	});
 	
+	// 비밀번호 변경 신규 비밀번호 유효성 검사 
 	$('#npw1').on('keyup',function(){
 		let pw = $('#npw').val();
 		let pw_check = $('#npw1').val();
@@ -194,6 +198,76 @@ $(document).ready(function() {
 		$('#newEmail').hide();
 	});
 	
+	// 이메일 인증 번호 전송
+	$('#sendEmailbtn').click(function(){
+		let email = $('#nEmail').val();
+		
+		alert('인증번호가 발송되었습니다. 확인 후 인증코드 란에 적어주세요.');
+		$.ajax({
+			type:'get',
+			url:'./changeMailCheck?email='+ email,
+			success:function(data){
+				E_code = data;
+			}
+			
+		});
+		
+		
+	});
+	
+	
+	// 이메읿 변경 인증코드 유효성 검사 
+	$('#nEmailCode').on('keyup',function(){
+		let emailCheckNum = $('#nEmailCode').val();
+		let confirmbtn = $('#newMailConfirmbtn');
+								
+				
+				if(E_code != emailCheckNum){
+					$('#newMail_warn').css('color','red');
+					$('#newMail_warn').html('인증번호가 맞지 않습니다. ');
+					confirmbtn.attr("disabled","disabled"); // 맞지않을시 버튼 비활성
+					
+				}else if(emailCheckNum == null){
+					$('#newMail_warn').css('color','red');
+					$('#newMail_warn').html('인증번호가 맞지 않습니다. ');
+					confirmbtn.attr("disabled","disabled"); // 맞지않을시 버튼 비활성
+					
+					
+				}else if(E_code == emailCheckNum){
+					$('#newMail_warn').css('color','skyblue');	
+					$('#newMail_warn').html('인증번호가 확인되었습니다. ');
+					confirmbtn.removeAttr("disabled");
+				}
+		
+	});
+	
+	$('#newMailConfirmbtn').click(function(){
+		let new_email = $('#nEmail').val();
+		let confirmCheck = confirm('이메일을 변경하시겠습니까? ');
+		
+		if(confirmCheck==true){
+			$.ajax({
+				type:'post',
+				url:'./changeEmail',
+				data:{user_email:new_email},
+				success:function(data){
+					if(data==1){
+						alert('이메일 변경 완료 ');
+						location.reload(true);
+					}else{
+						alert('이메일 변경 실패 ');
+					}
+					
+				}
+		});
+		}else{
+			alert('이메일 변경 실패 ');
+		}
+		
+	});
+	
+	
+	
 	
 });
 
@@ -255,3 +329,4 @@ function nickChange(){
 		
 	});
 }
+
