@@ -12,3 +12,5 @@
 	  	select * from item_like where item_num=#{item_num } and user_num=#{user_num}
 	  </select>
   </mapper>
+
+  
