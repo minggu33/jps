@@ -12,6 +12,20 @@ $(function(){
 		});
 	});
 });
+// 좋아요 취소
+$(function(){
+	$(".nojjim").on("click",function(){
+		$.ajax({
+			url:"/item/unlike",
+			type:"post",
+			data:{"item_num":document.fr2.item_num.value},
+			success:function(data){
+				alert("좋아요 취소 완료");
+				location.reload();
+			}
+		});
+	});
+});
 // 장바구니 디테일칸
 $(function(){
 	$(".basket").on("click", function(){
