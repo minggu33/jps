@@ -33,8 +33,16 @@
 	
 	<section class="mypage-cont" >
 	<header class="mypage-header">
-		<h1>장바구니 </h1>
-		<div>상품</div>
+		<h1>Order / Payment </h1>
+		<div class="upper-contents"> 
+		<div class="cart-process">
+		<span class="cart-pagenation_on">장바구니</span>
+		<span class="back-arrow"></span>
+		<span class="cart-pagenation">주문서 작성</span>
+		<span class="back-arrow"></span>
+		<span class="cart-pagenation">주문 완료</span>
+		</div>		
+		</div>
 	</header>
 	
 	

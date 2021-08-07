@@ -1,17 +1,25 @@
 package com.jps.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import java.io.PrintWriter;
+import java.util.Random;
 
 import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
@@ -35,6 +43,9 @@ public class UserController {
 	@Inject
 	private UserService service;
 	
+	// 
+	 @Autowired
+	 private JavaMailSender mailSender;
 	
 	
 	// http://localhost:8080/user/login
@@ -50,7 +61,7 @@ public class UserController {
 	
 	// 로그인페이지(post)
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(UserVO vo, HttpSession session) throws Exception{
+	public String loginPost(UserVO vo, HttpSession session,HttpServletResponse resp) throws Exception{
 		
 		logger.info("C : loginPOST() 페이지 호출 ");
 		
@@ -60,14 +71,20 @@ public class UserController {
 		
 		UserVO loginVO = service.loginUser(vo);
 		
+		
 		if(loginVO == null) {
-			// 비회원/비밀번호 오류
-			// 다시 로그인 페이지로 이동 
-			return "redirect:/user/login";
+			//비회원/비밀번호 오류
+			//다시 로그인 페이지로 이동
+			resp.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('아이디/비밀번호가 일치하지않습니다.'); </script>");
+			out.flush();
 			
+			return "/user/loginForm";
 		}
 		
 		
+		logger.info("#$###############");
 		session.setAttribute("user_num", loginVO.getUser_num());
 		
 		String user_num = loginVO.getUser_num();
@@ -77,6 +94,13 @@ public class UserController {
 		session.setAttribute("userVO", infoVO);
 		System.out.println("userinfo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+infoVO);
 		
+		// 마지막 접속일 업데이트 
+		service.updateLastLogin(user_num);
+		
+		
+		
+		
+		// 관리자 세션 제어 
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
 			session.setAttribute("admin", "jpsadmin");
@@ -201,6 +225,9 @@ public class UserController {
 		PrintWriter out = resp.getWriter();
 		out.print(service.changeNick(user_num,user_nickname));
 		out.close();
+		UserVO infoVO = service.infoUser(user_num);
+		
+		session.setAttribute("userVO", infoVO);
 	}
 	
 	// 좋아요 목록  확인 
@@ -221,6 +248,7 @@ public class UserController {
 			
 		}
 	
+		// 장바구니 페이지 호출
 		@RequestMapping(value = "/cart",method = RequestMethod.GET)
 		public void cartGET(HttpSession session, Model model) throws Exception {
 			
@@ -235,6 +263,92 @@ public class UserController {
 			model.addAttribute("infoVO", infoVO);
 			
 			logger.info("페이지 이동 /user/cart.jsp");
+			
+		}
+		
+		// 이메일 변경 인증코드 보내기
+	    @ResponseBody
+	    @RequestMapping(value = "/changeMailCheck",method = RequestMethod.GET)
+		public String changeMailCheck(String email,HttpSession session, Model model) throws Exception {
+			
+			logger.info("C : changeMailCheck() 호출 ");
+			logger.info("이메일 데이터 전송 확인");
+	        logger.info("인증번호 : " + email);
+			
+			String user_num = (String)session.getAttribute("user_num");
+			
+			
+			/* 이메일 인증 번호(난수) 생성 */
+			Random random = new Random();
+			
+			int checkNum = random.nextInt(888888)+111111;
+			logger.info("인증번호"+checkNum);
+			
+			
+			/* 이메일 보내기 */
+			String setFrom = "jps210713@gmail.com";
+	        String toMail = email;
+	        String title = "이메일 변경  인증 이메일 입니다.";
+	        String content = 
+	                "홈페이지를 방문해주셔서 감사합니다." +
+	                "<br><br>" + 
+	                "인증 번호는 " + checkNum + "입니다." + 
+	                "<br>" + 
+	                "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
+			
+
+	        try {
+	            
+	            MimeMessage message = mailSender.createMimeMessage();
+	            MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+	            helper.setFrom(setFrom);
+	            helper.setTo(toMail);
+	            helper.setSubject(title);
+	            helper.setText(content,true);
+	            mailSender.send(message);
+	            
+	        }catch(Exception e) {
+	            e.printStackTrace();
+	        }
+	        
+	        
+	        String e_num = Integer.toString(checkNum);
+	        
+			// user_num="1";
+			
+			UserVO infoVO = service.infoUser(user_num);
+			
+			model.addAttribute("infoVO", infoVO);
+			
+			return e_num;
+			
+		}
+		
+	    
+	    
+	    @RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
+		public void changeEmailPOST(String user_email, HttpServletResponse resp, HttpSession session) throws Exception {
+			logger.info("C : changeNickPOST() 호출");
+			
+			String user_num = (String)session.getAttribute("user_num");
+			
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			
+			UserVO vo = new UserVO();
+			
+			vo.setUser_num(user_num);
+			vo.setUser_email(user_email);
+			
+			
+			out.print(service.changeEmail(vo));
+			out.close();
+		}
+	    
+		 // 아이디찾기 페이지 호출
+		@RequestMapping(value = "/findId",method = RequestMethod.GET)
+		public void findIdGET(HttpSession session, Model model) throws Exception {
+			logger.info("C : findIdGET() 호출");
 			
 		}
 		

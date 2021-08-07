@@ -24,7 +24,7 @@
     	<dt> 마이 페이지  </dt>
     	<dd><a href="/user/info">내 정보 </a></dd>
     	<dd><a href="/user/like">좋아요 </a></dd>
-    	<dd><a href="#">장바구니 </a></dd>
+    	<dd><a href="/user/cart">장바구니 </a></dd>
     	<dd><a href="#">주문내역 </a></dd>
     	   	
     	</dl>
@@ -95,12 +95,12 @@
     <!--  닉네임 변경  -->
      <tr id="neweNick" style="display:none;">
      	<td> 닉네임 </td>
-     	<td> 
+     	<td colspan="2"> 
 	     	길이는 최대 15자 이내로 작성해주세요. <br>
 			중복 닉네임 불가합니다.<br>
 			이모티콘 및 일부 특수문자 사용 불가합니다. &<>()'/"<br>
 			<input type="text" id="nNick" style="min-width:200px; margin:20px 0;">
-			<span id="nickCheckText"></span><br>
+			<span style="margin-left:20px;" id="nickCheckText"></span><br>
 			<button id="confirmNickbtn" onclick="nickChange()">변경</button>
 			<button id="cancleNickbtn">취소</button>
      	</td>
@@ -135,9 +135,10 @@
     <tr id="newEmail" style="display:none;">
     	<td>이메일</td>
     	<td colspan="2">
-    		<input type="text" id="nEmail" placeholder="이메일 입력"><button>인증</button><br>
-    		<input type="text" id="nEmailCode" placeholder="인증번호 입력"><br>
-    		<button style="margin-right:15px;">변경</button>
+    		<input type="text" id="nEmail" placeholder="이메일 입력"><button id="sendEmailbtn">인증</button><br>
+    		<input type="text" id="nEmailCode" placeholder="인증번호 입력"> 
+    		<span id="newMail_warn"></span><br>
+    		<button id="newMailConfirmbtn" style="margin-right:15px;">변경</button>
     		<button id="cancleEmailbtn">취소</button>
     	</td>
     </tr>

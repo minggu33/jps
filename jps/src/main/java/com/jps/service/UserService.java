@@ -22,4 +22,7 @@ public interface UserService {
 	
 	public int changeNick(String user_num,String user_nickname) throws Exception;
 	
+	public int changeEmail(UserVO vo) throws Exception;
+	
+	public void updateLastLogin(String user_num) throws Exception;
 }
