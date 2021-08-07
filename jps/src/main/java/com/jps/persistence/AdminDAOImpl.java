@@ -48,5 +48,11 @@ public class AdminDAOImpl implements AdminDAO{
 	public int updatePoint(UserVO vo) {
 		return sqlSession.update(namespace+".updatePoint", vo);
 	}
+
+	@Override
+	public int resetPW(String user_num) {
+		return sqlSession.update(namespace+".resetPW", user_num);
+	}
+	
 	
 }

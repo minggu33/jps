@@ -15,5 +15,7 @@ public interface AdminService {
 	public List<UserVO> userlist() throws Exception;
 	
 	public int updatePoint(UserVO vo) throws Exception;
+	
+	public int resetPW(String user_num) throws Exception;
 
 }

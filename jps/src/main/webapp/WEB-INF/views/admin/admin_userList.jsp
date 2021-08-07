@@ -24,7 +24,7 @@
 	<%@ include file="../include/admin_header.jsp"%>
 
 	<div id="adminContent">
-		<h1>상품 목록</h1>
+		<h1>회원 목록</h1>
 		
 		<table class="userList">
 			<tr>
@@ -37,6 +37,7 @@
 				<td class="user_point" rowspan="2">포인트</td>
 				<td class="user_bank">은행</td>
 				<td class="user_join_date">회원 가입일</td>
+				<td class="user_state" rowspan="2">회원 등급</td>
 				<td class="user_etc" rowspan="2">비고</td>
 			</tr>
 			<tr>
@@ -53,13 +54,12 @@
 				<td class="user_id">${UserVO.user_id }</td>
 				<td class="user_pw">********</td>
 				<td class="user_name">${UserVO.user_name }</td>
-				<td class="user_email"><div>${UserVO.user_email }</div></td>
-				<td class="user_addr" rowspan="2"><div>${UserVO.user_addr }</div></td>
+				<td class="user_email"><div class="slideText">${UserVO.user_email }</div></td>
+				<td class="user_addr" rowspan="2"><div class="slideText">${UserVO.user_addr }</div></td>
 				<td class="user_point" rowspan="2">${UserVO.user_point }<br>
 					<button class="myBtn">포인트<br>추가하기</button>
 				    <!-- The Modal -->
 				    <div class="myModal">
-				 
 				      <!-- Modal content -->
 				      <div class="modal-content">
 				        <span class="close">&times;</span>                                                               
@@ -70,13 +70,26 @@
 				        지급 포인트 : <input type="number" step="10" class="modal_user_point" value="0"><button class="updatePoint">지급하기</button>
 				        </p>
 				      </div>
-				 
 				    </div>
 				</td>
 				<td class="user_bank">${UserVO.user_bank }</td>
 				<td class="user_join_date">${UserVO.user_join_date }</td>
+				<td class="user_state" rowspan="2">
+					<c:if test="${UserVO.user_state eq 0}">
+						일반 회원
+					</c:if>
+					<c:if test="${UserVO.user_state eq 1}">
+						일반 회원
+					</c:if>
+					<c:if test="${UserVO.user_state eq 2}">
+						관리자
+					</c:if>
+					<c:if test="${UserVO.user_state eq -10}">
+						탈퇴 유예
+					</c:if>
+				</td>
 				<td class="user_etc" rowspan="2">
-					<button>비밀번호<br>초기화</button>
+					<button class="resetPW">비밀번호<br>초기화</button>
 				</td>
 			</tr>
 			<tr class="user_num_${UserVO.user_num }">
@@ -91,7 +104,7 @@
 				<td class="user_birth">${UserVO.user_birth }</td>
 				<td class="user_nickname">${UserVO.user_nickname }</td>
 				<td class="user_phone">${UserVO.user_phone }</td>
-				<td class="user_account"><div>${UserVO.user_account }</div></td>
+				<td class="user_account"><div class="slideText">${UserVO.user_account }</div></td>
 				<td class="user_late_login">${UserVO.user_late_login }</td>
 			</tr>
 		</c:forEach> 

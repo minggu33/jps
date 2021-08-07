@@ -49,7 +49,7 @@ $(function(){
 	}
 	
 	$(".updatePoint").on("click",function(){
-		var check = confirm(user_nickname.value + "에게 " + user_point.value + "포인트를 지급하시겠습니까?");
+		var check = confirm(user_nickname.value + " 님에게 " + user_point.value + "포인트를 지급하시겠습니까?");
 		if(check){		
 			$.ajax({
 				type: 'post',
@@ -68,6 +68,30 @@ $(function(){
 		} else {
 			alert('취소 되었습니다.');
 			document.getElementsByClassName("modal_user_point")[modall].value = 0;
+		}
+	});
+	
+	$(".resetPW").on("click", function(){
+		modall = $(this).closest('tr').prevAll().length/2 - 1;
+		user_nickname = document.getElementsByClassName("modal_user_nickname")[modall];
+		user_num = document.getElementsByClassName("modal_user_num")[modall];
+		
+		var check = confirm(user_nickname.value+" 님의 비밀번호를 초기화 하시겠습니까?");
+		if(check) {
+			$.ajax ({
+				type: 'post',
+				url: './resetPw',
+				data: {user_num: user_num.value},
+				success: function(data) {
+					if (data == 1) {
+						alert(user_nickname.value+" 님의 비밀번호가 초기화 되었습니다.");
+					} else {
+						alert("비밀번호가 초기화에 실패 하였습니다.");
+					}
+				}
+			});
+		} else {
+			alert("취소 되었습니다.");
 		}
 	});
 });

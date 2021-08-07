@@ -36,6 +36,12 @@ public class AdminServiceImpl implements AdminService{
 	public int updatePoint(UserVO vo) throws Exception {
 		return adao.updatePoint(vo);
 	}
+
+	@Override
+	public int resetPW(String user_num) throws Exception {
+		return adao.resetPW(user_num);
+	}
+	
 	
 	
 }

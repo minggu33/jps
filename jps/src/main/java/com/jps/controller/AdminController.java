@@ -101,7 +101,16 @@ public class AdminController {
 		PrintWriter out = resp.getWriter();
 		out.print(service.updatePoint(vo));
 		out.close();
-		
 	}
 
+	@RequestMapping(value = "/resetPw", method = RequestMethod.POST)
+	public void resetPwPOST(String user_num, HttpServletResponse resp) throws Exception  {
+		logger.info("C : resetPwPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.resetPW(user_num));
+		out.close();
+	}
+	
 }
