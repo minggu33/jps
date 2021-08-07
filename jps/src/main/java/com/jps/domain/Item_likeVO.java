@@ -4,7 +4,7 @@ public class Item_likeVO {
 	
 	private int idx;
 	private int item_num;
-	private int user_num;
+	private String user_num;
 	private int likecheck;
 	public int getIdx() {
 		return idx;
@@ -18,10 +18,10 @@ public class Item_likeVO {
 	public void setItem_num(int item_num) {
 		this.item_num = item_num;
 	}
-	public int getUser_num() {
+	public String getUser_num() {
 		return user_num;
 	}
-	public void setUser_num(int user_num) {
+	public void setUser_num(String user_num) {
 		this.user_num = user_num;
 	}
 	public int getLikecheck() {
@@ -36,6 +36,6 @@ public class Item_likeVO {
 				+ likecheck + "]";
 	}
 	
-	
 
+	
 }

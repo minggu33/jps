@@ -1,11 +1,24 @@
-
-
+// 좋아요 기능
+$(function(){
+	$(".jjim").on("click", function(){
+		$.ajax({
+			url:"/item/like",
+			type:"post",
+			data:{"item_num":document.fr2.item_num.value},
+			success:function(data){
+				alert("좋아요 완료");
+				location.reload();
+			}
+		});
+	});
+});
+// 장바구니 디테일칸
 $(function(){
 	$(".basket").on("click", function(){
 		$(".basket_detail").fadeToggle();
 	});
 });	
-	
+// 장바구니 담기
 $(function(){
 	$(document).on("click",".basket_insert", function(){
 			$.ajax({
@@ -21,7 +34,7 @@ $(function(){
 	});
 
 
-
+// 주문
 function check(){
 	if(document.fr.color.value==""){
 		alert("색상을 선택해주세요.");
@@ -33,13 +46,13 @@ function check(){
 	}
 }
 
-
+// 주문상세정보 입력칸
 $(function(){
 	$(".order").on("click",function(){
 		$(".orderdetail").fadeToggle();
 	});
 });
-
+// 주문하기 유효성
 $(function(){
 	$(document).on("click", ".jjinmak", function(){
 		if(document.fr.color.value == ""){
