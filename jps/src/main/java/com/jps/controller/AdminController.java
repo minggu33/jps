@@ -1,15 +1,17 @@
 package com.jps.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.UserVO;
 import com.jps.service.AdminService;
 
 /**
@@ -88,6 +91,17 @@ public class AdminController {
 		logger.info("C : adminUserListGET() 호출");
 		model.addAttribute("userlist", service.userlist());
 		return "/admin/admin_userList";
+	}
+	
+	@RequestMapping(value = "/updatePoint", method = RequestMethod.POST)
+	public void adminUpdatePointPOST(UserVO vo, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminUpdatePointPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.updatePoint(vo));
+		out.close();
+		
 	}
 
 }

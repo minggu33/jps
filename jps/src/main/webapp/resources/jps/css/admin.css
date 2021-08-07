@@ -213,11 +213,14 @@ Sidebar Nav
 
 .userList {
 	text-align: center;
+	width: 100%;
+	table-layout: fixed;
 }
 
 
 .userList tr td {
 	border-bottom: 1px solid gray;
+	overflow: hidden;
 }
 
 .userList tr:nth-child(1) td, .userList tr:nth-child(2) td {
@@ -225,8 +228,138 @@ Sidebar Nav
 	background-color: #b9aab9;
 }
 
-.userList tr:not(:nth-child(1):nth-child(2)):hover {
+/* .userList [class*=user_num_]:hover { */
+/* 	background-color: #e7e2e7; */
+/* } */
+
+.userList tr:not(:nth-child(2n)):hover,
+.userList tr:not(:nth-child(2n)):hover + tr{
 	background-color: #e7e2e7;
+}
+
+.userList .user_num {
+	width: 5%;
+}
+
+.userList .user_id {
+	width: 10%;
+}
+
+.userList .user_pw {
+	width: 10%;
+}
+
+.userList .user_name {
+	width: 10%;
+}
+
+.userList .user_email {
+	width: 10%;
+}
+
+.userList .user_addr {
+	width: 15%;
+}
+
+.userList .user_point {
+	width: 10%;
+}
+
+.userList .user_bank {
+	width: 10%;
+}
+
+.userList .user_join_date {
+	width: 10%;
+}
+
+.userList .user_etc {
+	width: 10%;
+}
+
+.userList .user_gender {
+	width: 10%;
+}
+
+.userList .user_birth {
+	width: 10%;
+}
+
+.userList .user_nickname {
+	width: 10%;
+}
+
+.userList .user_phone {
+	width: 10%;
+}
+
+.userList .user_account {
+	width: 10%;
+}
+
+.userList .user_account div {
+    width: 100px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.userList .user_late_login {
+	width: 10%;
+}
+
+.userList div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+
+.userList div:hover {
+  margin:0;
+  padding-left:100%;
+  display: inline-block;
+  white-space:nowrap;
+    -webkit-animation-name:marquee;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration:10s;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-name:marquee;
+    -moz-animation-timing-function:linear;
+    -moz-animation-duration:10s;
+    -moz-animation-iteration-count:infinite;
+    -ms-animation-name:marquee;
+    -ms-animation-timing-function:linear;
+    -ms-animation-duration:10s;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-name:marquee;
+    -o-animation-timing-function:linear;
+    -o-animation-duration:10s;
+    -o-animation-iteration-count:infinite;
+    animation-name:marquee;
+    animation-timing-function:linear;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes marquee {
+  from   { -webkit-transform: translate(0%);}
+  99%,to { -webkit-transform: translate(-100%);}
+}
+@-moz-keyframes marquee {
+  from   { -moz-transform: translate(0%);}
+  99%,to { -moz-transform: translate(-100%);}
+}
+@-ms-keyframes marquee {
+  from   { -ms-transform: translate(0%);}
+  99%,to { -ms-transform: translate(-100%);}
+}
+@-o-keyframes marquee {
+  from   { -o-transform: translate(0%);}
+  99%,to { -o-transform: translate(-100%);}
+}
+@keyframes marquee {
+  from   { transform: translate(0%);}
+  99%,to { transform: translate(-100%);}
 }
 
  /* The Modal (background) */

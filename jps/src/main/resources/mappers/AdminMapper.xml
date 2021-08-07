@@ -27,4 +27,8 @@
 		select * from user
 	</select>
 	
+	<update id="updatePoint">
+		update user set user_point=user_point+#{user_point} where user_num=#{user_num}
+	</update>
+	
 </mapper>

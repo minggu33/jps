@@ -44,6 +44,9 @@ public class AdminDAOImpl implements AdminDAO{
 		return sqlSession.selectList(namespace+".userlist");
 	}
 	
-	
+	@Override
+	public int updatePoint(UserVO vo) {
+		return sqlSession.update(namespace+".updatePoint", vo);
+	}
 	
 }

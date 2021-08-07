@@ -7,6 +7,9 @@ var btn = document.getElementsByClassName("myBtn")[0];
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var user_num;
+var user_point;
+
 var modall = 0;
 
 $(function(){
@@ -22,8 +25,11 @@ $(function(){
 		// Get the <span> element that closes the modal
 		span = document.getElementsByClassName("close")[modall];
 		
-		console.log(span);
+		user_nickname = document.getElementsByClassName("modal_user_nickname")[modall];
 		
+		user_num = document.getElementsByClassName("modal_user_num")[modall];
+		
+		user_point = document.getElementsByClassName("modal_user_point")[modall];
 		
 		// When the user clicks on the button, open the modal
 		// $(".myModal:nth-child("+modall+")").css("display","block");
@@ -41,4 +47,27 @@ $(function(){
 			modal.style.display = "none";
 		}
 	}
+	
+	$(".updatePoint").on("click",function(){
+		var check = confirm(user_nickname.value + "에게 " + user_point.value + "포인트를 지급하시겠습니까?");
+		if(check){		
+			$.ajax({
+				type: 'post',
+				url: './updatePoint',
+				data: { user_num: user_num.value, user_point: user_point.value},
+				success: function(data) {
+					if (data == 1) {
+						alert("지급이 완료 되었습니다.");
+						location.reload();
+					} else {
+						alert("지급에 실패 하였습니다.");
+						document.getElementsByClassName("modal_user_point")[modall].value = 0;
+					}
+				}
+			});
+		} else {
+			alert('취소 되었습니다.');
+			document.getElementsByClassName("modal_user_point")[modall].value = 0;
+		}
+	});
 });

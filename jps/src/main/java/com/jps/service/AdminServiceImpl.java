@@ -31,6 +31,11 @@ public class AdminServiceImpl implements AdminService{
 	public List<UserVO> userlist() throws Exception {
 		return adao.userlist();
 	}
+
+	@Override
+	public int updatePoint(UserVO vo) throws Exception {
+		return adao.updatePoint(vo);
+	}
 	
 	
 }

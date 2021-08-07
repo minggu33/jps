@@ -13,5 +13,7 @@ public interface AdminService {
 	public List<ItemVO> itemlist() throws Exception;
 	
 	public List<UserVO> userlist() throws Exception;
+	
+	public int updatePoint(UserVO vo) throws Exception;
 
 }

@@ -13,4 +13,6 @@ public interface AdminDAO {
 	public List<ItemVO> itemlist();
 	
 	public List<UserVO> userlist();
+	
+	public int updatePoint(UserVO vo);
 }
