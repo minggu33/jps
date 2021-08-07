@@ -3,7 +3,7 @@ package com.jps.domain;
 public class BasketVO {
 	
 	private int basket_idx;
-	private int user_num;
+	private String user_num;
 	private int item_num;
 	private String item_color;
 	private String item_size;
@@ -15,10 +15,10 @@ public class BasketVO {
 	public void setBasket_idx(int basket_idx) {
 		this.basket_idx = basket_idx;
 	}
-	public int getUser_num() {
+	public String getUser_num() {
 		return user_num;
 	}
-	public void setUser_num(int user_num) {
+	public void setUser_num(String user_num) {
 		this.user_num = user_num;
 	}
 	public int getItem_num() {
@@ -59,5 +59,6 @@ public class BasketVO {
 	}
 	
 	
+
 
 }
