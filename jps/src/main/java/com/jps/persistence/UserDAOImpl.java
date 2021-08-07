@@ -105,6 +105,14 @@ public class UserDAOImpl implements UserDAO {
 		vo.setUser_nickname(user_nickname);
 		
 		return sqlSession.update(namespace+".changeNick", vo);
+	}
+
+	@Override
+	public int changeEmail(UserVO vo) {
+		System.out.println("DAO :  changeEmail() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
+	
+		return sqlSession.update(namespace+".changeEmail", vo);
 	};
 
 	

@@ -78,6 +78,13 @@ public class UserServiceImpl implements UserService {
 	public int changeNick(String user_num, String user_nickname) throws Exception {
 		System.out.println("S : changeNick(user_nickname) 호출");
 		return udao.changeNick(user_num, user_nickname);
+	}
+
+	@Override
+	public int changeEmail(UserVO vo) throws Exception {
+		System.out.println("S : changeEmail(vo) 호출 ");
+		
+		return udao.changeEmail(vo);
 	};
 
 	
