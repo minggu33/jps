@@ -61,4 +61,8 @@
 		update user set user_email=#{user_email} where user_num=#{user_num}
 	</update>
 	
+	<update id="updateLastLogin">
+		update user set user_late_login=now() where user_num=#{user_num}
+	</update>
+	
 </mapper>

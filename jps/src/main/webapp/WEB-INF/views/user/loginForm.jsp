@@ -5,34 +5,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>로그인</title>
-<style type="text/css">
-.loginForm{
-	text-align: center;
-	margin-bottom:100px;
-}
-.inputdiv label{
-	width:165px;
-	margin: 10px;
-}
-.loginForm h1{
-	margin-bottom:40px;
-}
-.loginForm button{
-	height: 32px;
-    line-height: 30px;
-    padding-top: 0;
-    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
-    border: 1px solid #e5e5e5;
-    background-color: #ffffff;
-    color: #000000;
-    min-width: 100px;
-    margin-right:30px;
-}
 
-</style>
-
-
-
+<link href="/resources/jps/css/loginForm.css" rel="stylesheet">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 <%@ include file="../include/header.jsp" %>
@@ -44,17 +19,20 @@
 
   <form action="/user/login" method="post">
   <div class="inputdiv">
-    <label>아이디 </label> 
-    <input type="text" name="user_id"><br>
-
+    
+    
+    <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해 주세요."><br>
   
-    <label>비밀번호 </label>
-    <input type="password" name="user_pw"><br>
+    <input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력해 주세요."><br>
     </div>
     <br>
     
-    <button type="submit" >로그인</button>
-    <button type="button"
+    <div id="search">
+    <a href="/user/findId" >아이디 찾기 </a> ㅣ 
+    <a href="#"> 비밀번호 찾기 </a>
+    </div>
+    <button type="submit" id="loginbtn" >로그인</button><br>
+    <button type="button" id="joinbtn"
         onclick="location.href='/user/join'">회원가입</button>
     
     

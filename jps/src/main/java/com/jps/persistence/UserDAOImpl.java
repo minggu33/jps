@@ -113,6 +113,15 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
 	
 		return sqlSession.update(namespace+".changeEmail", vo);
+	}
+
+	@Override
+	public void updateLastLogin(String user_num) {
+		System.out.println("DAO :  updateLastLogin() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
+		
+		sqlSession.update(namespace+".updateLastLogin", user_num);
+		
 	};
 
 	

@@ -1,5 +1,7 @@
 package com.jps.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import java.io.PrintWriter;
 import java.util.Random;
 
@@ -59,7 +61,7 @@ public class UserController {
 	
 	// 로그인페이지(post)
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(UserVO vo, HttpSession session) throws Exception{
+	public String loginPost(UserVO vo, HttpSession session,HttpServletResponse resp) throws Exception{
 		
 		logger.info("C : loginPOST() 페이지 호출 ");
 		
@@ -69,14 +71,20 @@ public class UserController {
 		
 		UserVO loginVO = service.loginUser(vo);
 		
+		
 		if(loginVO == null) {
-			// 비회원/비밀번호 오류
-			// 다시 로그인 페이지로 이동 
-			return "redirect:/user/login";
+			//비회원/비밀번호 오류
+			//다시 로그인 페이지로 이동
+			resp.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('아이디/비밀번호가 일치하지않습니다.'); </script>");
+			out.flush();
 			
+			return "/user/loginForm";
 		}
 		
 		
+		logger.info("#$###############");
 		session.setAttribute("user_num", loginVO.getUser_num());
 		
 		String user_num = loginVO.getUser_num();
@@ -86,6 +94,13 @@ public class UserController {
 		session.setAttribute("userVO", infoVO);
 		System.out.println("userinfo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+infoVO);
 		
+		// 마지막 접속일 업데이트 
+		service.updateLastLogin(user_num);
+		
+		
+		
+		
+		// 관리자 세션 제어 
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
 			session.setAttribute("admin", "jpsadmin");
@@ -330,6 +345,11 @@ public class UserController {
 			out.close();
 		}
 	    
-		
+		 // 아이디찾기 페이지 호출
+		@RequestMapping(value = "/findId",method = RequestMethod.GET)
+		public void findIdGET(HttpSession session, Model model) throws Exception {
+			logger.info("C : findIdGET() 호출");
+			
+		}
 		
 }

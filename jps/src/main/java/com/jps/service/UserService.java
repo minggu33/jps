@@ -24,4 +24,5 @@ public interface UserService {
 	
 	public int changeEmail(UserVO vo) throws Exception;
 	
+	public void updateLastLogin(String user_num) throws Exception;
 }
