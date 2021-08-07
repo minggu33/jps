@@ -1,8 +1,7 @@
 package com.jps.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,14 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
-import com.jps.service.BasketService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
 
@@ -33,6 +29,8 @@ public class ItemController {
 	
 	@Inject
 	private ItemService service;
+	
+	@Inject
 	private Item_likeService ilservice;
 	
 	@RequestMapping(value = "/item", method = RequestMethod.GET) 
@@ -59,14 +57,23 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "/itemdetail", method = RequestMethod.GET)
-	public void itemdetailGET(Model model, Model model2, @RequestParam("item_num") int item_num ) throws Exception {
+	public void itemdetailGET(Model model, @RequestParam("item_num") int item_num, HttpSession session ) throws Exception {
+		String user_num = (String) session.getAttribute("user_num");
 		
 		System.out.println(item_num);
 		ItemVO vo = service.read(item_num);
-		// Item_likeVO ivo = ilservice.read(item_num);
+		Item_likeVO ivo  = new Item_likeVO();
+		
+		ivo.setUser_num(user_num);
+		ivo.setItem_num(item_num);
+		
+		System.out.println("회원번호"+user_num);
+		System.out.println("상품번호"+item_num);
+		
+		ivo = ilservice.read(ivo);
 		
 		model.addAttribute("vo", vo);
-		// model2.addAttribute("ivo", ivo);
+		model.addAttribute("ivo", ivo);
 	}	
 	
 	@RequestMapping(value="/itemdetail", method = RequestMethod.POST)
@@ -75,6 +82,10 @@ public class ItemController {
 		
 		return "redirect:/item/order";
 	}
-	
-	
+	@RequestMapping(value="/like", method = RequestMethod.POST)
+	public void itemlikePOST(Item_likeVO ilvo, HttpSession session, HttpServletResponse resp) throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		System.out.println("회원 번호 : "+user_num);
+		ilservice.like(user_num);
+	}
 }
