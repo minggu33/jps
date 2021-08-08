@@ -15,14 +15,20 @@ public class Item_likeServiceImpl implements Item_likeService{
 	
 	
 	@Override
-	public Item_likeVO read(Item_likeVO ivo) throws Exception {
+	public int read(Item_likeVO ivo) throws Exception {
 		return ildao.select(ivo);
 	}
 
 
 	@Override
-	public void like(String user_num) throws Exception {
-		ildao.like(user_num);
+	public void like(Item_likeVO ilvo) throws Exception {
+		ildao.like(ilvo);
+	}
+
+
+	@Override
+	public void unlike(Item_likeVO ilvo) throws Exception {
+		ildao.unlike(ilvo);
 	}
 
 	

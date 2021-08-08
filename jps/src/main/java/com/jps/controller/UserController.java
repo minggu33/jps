@@ -3,6 +3,7 @@ package com.jps.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -104,6 +107,7 @@ public class UserController {
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
 			session.setAttribute("admin", "jpsadmin");
+			return "redirect:/admin";
 		}
 		
 		System.out.println("로그인 완료!~~~~~~~~~₩");
@@ -258,9 +262,17 @@ public class UserController {
 			
 			// user_num="1";
 			
-			UserVO infoVO = service.infoUser(user_num);
 			
-			model.addAttribute("infoVO", infoVO);
+			// 나의 장바구니 목록 불러오기 
+			model.addAttribute("BasketList", service.getMyBasketList(user_num));
+			
+			// 아이템 정보 불러오기
+			// model.addAttribute("itemList", service.getMyItemList(user_num));
+			
+			// 유저 정보 저장 
+			model.addAttribute("infoVO", service.infoUser(user_num));
+			
+			
 			
 			logger.info("페이지 이동 /user/cart.jsp");
 			
@@ -351,5 +363,7 @@ public class UserController {
 			logger.info("C : findIdGET() 호출");
 			
 		}
+		
+		
 		
 }

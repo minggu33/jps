@@ -65,4 +65,7 @@
 		update user set user_late_login=now() where user_num=#{user_num}
 	</update>
 	
+	<select id="getMyBasketList" resultType="com.jps.domain.BasketVO">
+		select * from basket where user_num=#{user_num}
+	</select>
 </mapper>
