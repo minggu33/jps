@@ -13,5 +13,5 @@ public interface ItemService {
 	
 	public ItemVO read(Integer item_num) throws Exception;
 	
-	public void order(Integer item_num) throws  Exception;
+	public void order(Integer item_num) throws Exception;
 }

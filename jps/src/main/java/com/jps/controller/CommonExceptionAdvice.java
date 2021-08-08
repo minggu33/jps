@@ -29,16 +29,16 @@ public class CommonExceptionAdvice {
 	*/
 	
 	
-	@ExceptionHandler(Exception.class)
-	public ModelAndView common(Exception e) {
-		System.out.println(e.toString());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/test"); //예외를 보여주는 view 페이지 이름
-		mav.addObject("e", e);
-		
-		
-		return mav;
-	}
+//	@ExceptionHandler(Exception.class)
+//	public ModelAndView common(Exception e) {
+//		System.out.println(e.toString());
+//		
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("/test"); //예외를 보여주는 view 페이지 이름
+//		mav.addObject("e", e);
+//		
+//		
+//		return mav;
+//	}
 
 }
