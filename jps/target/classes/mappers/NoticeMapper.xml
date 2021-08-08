@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jps.mapper.NoticeMapper">
+	<insert id="noticeWrite">
+		insert into notice (notice_subject, notice_content, notice_count, notice_date, notice_file, notice_important) 
+		values(#{notice_subject}, #{notice_content}, #{notice_count}, now(), #{notice_file}, #{notice_important})
+	</insert>
+	
+	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
+		select * from notice
+	</select>
+	
+	<select id="noticecontent" resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_num=#{notice_num }
+	</select>
+	
+	<select id="noticemodify" resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_num=#{notice_num }
+	</select>
+	
+	<update id="noticeupdate">
+		update notice set notice_subject=#{notice_subject}, notice_content=#{notice_content} where notice_num=#{notice_num}
+	</update>
+	
+	<delete id="noticedelete">
+		delete from notice where notice_num=#{notice_num}
+	</delete>
+	
+	
+
+	
+	
+</mapper>
