@@ -101,4 +101,9 @@ public class ItemController {
 		ilvo.setUser_num(user_num);
 		ilservice.unlike(ilvo);
 	}
+	
+	@RequestMapping(value="/order", method = RequestMethod.GET)
+	public void itemorderGET()throws Exception{
+		System.out.println("주문상세페이지 호출");
+	}
 }

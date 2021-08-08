@@ -21,9 +21,9 @@
   <div class="inputdiv">
     
     
-    <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해 주세요."><br>
+    <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해 주세요." style="text-align: center;"><br>
   
-    <input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력해 주세요."><br>
+    <input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력해 주세요." style="text-align: center;"><br>
     </div>
     <br>
     

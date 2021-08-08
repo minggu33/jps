@@ -6,7 +6,6 @@ $(function(){
 			type:"post",
 			data:{"item_num":document.fr2.item_num.value},
 			success:function(data){
-				alert("좋아요 완료");
 				location.reload();
 			}
 		});
@@ -20,7 +19,6 @@ $(function(){
 			type:"post",
 			data:{"item_num":document.fr2.item_num.value},
 			success:function(data){
-				alert("좋아요 취소 완료");
 				location.reload();
 			}
 		});

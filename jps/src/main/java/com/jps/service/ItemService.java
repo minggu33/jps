@@ -3,7 +3,7 @@ package com.jps.service;
 import java.util.List;
 
 import com.jps.domain.ItemVO;
-import com.jps.domain.Item_detailVO;
+
 
 public interface ItemService {
 
