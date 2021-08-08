@@ -1,5 +1,7 @@
 package com.jps.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -59,6 +61,8 @@ public class ItemController {
 	@RequestMapping(value = "/itemdetail", method = RequestMethod.GET)
 	public void itemdetailGET(Model model, @RequestParam("item_num") int item_num, HttpSession session ) throws Exception {
 		String user_num = (String) session.getAttribute("user_num");
+
+		
 		
 		System.out.println(item_num);
 		ItemVO vo = service.read(item_num);
@@ -70,10 +74,10 @@ public class ItemController {
 		System.out.println("회원번호"+user_num);
 		System.out.println("상품번호"+item_num);
 		
-		ivo = ilservice.read(ivo);
+		int ivo_cnt = ilservice.read(ivo);
 		
 		model.addAttribute("vo", vo);
-		model.addAttribute("ivo", ivo);
+		model.addAttribute("ivo_cnt", ivo_cnt);
 	}	
 	
 	@RequestMapping(value="/itemdetail", method = RequestMethod.POST)
@@ -85,7 +89,16 @@ public class ItemController {
 	@RequestMapping(value="/like", method = RequestMethod.POST)
 	public void itemlikePOST(Item_likeVO ilvo, HttpSession session, HttpServletResponse resp) throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
-		System.out.println("회원 번호 : "+user_num);
-		ilservice.like(user_num);
+		System.out.println("like 동작 회원 번호 : "+user_num);
+		ilvo.setUser_num(user_num);
+		ilservice.like(ilvo);
+	}
+	
+	@RequestMapping(value="/unlike", method = RequestMethod.POST)
+	public void itemunlikePOST(Item_likeVO ilvo, HttpSession session, HttpServletResponse resp)throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		System.out.println("unlike 동작 회원번호 :"+user_num);
+		ilvo.setUser_num(user_num);
+		ilservice.unlike(ilvo);
 	}
 }

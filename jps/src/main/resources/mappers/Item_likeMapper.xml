@@ -8,9 +8,13 @@
   	  	values(#{item_num}, #{user_num}, 1)
   	  </insert>
   
-	  <select id="read" resultType="com.jps.domain.Item_likeVO">
-	  	select * from item_like where item_num=#{item_num } and user_num=#{user_num}
+	  <select id="read" resultType="int">
+	  	select count(*) from item_like where item_num=#{item_num } and user_num=#{user_num}
 	  </select>
+	  
+	  <delete id="unlike">
+	  	delete from item_like where item_num=#{item_num} and user_num=#{user_num}
+	  </delete>
   </mapper>
 
   

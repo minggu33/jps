@@ -17,15 +17,20 @@ public class Item_likeDAOImpl implements Item_likeDAO{
 		= "com.jps.mapper.Item_likeMapper";
 	
 	@Override
-	public Item_likeVO select(Item_likeVO ivo) throws Exception {
+	public int select(Item_likeVO ivo) throws Exception {
 		
 		return sqlSession.selectOne(namespace+".read", ivo);
 		
 	}
 
 	@Override
-	public void like(String user_num) throws Exception {
-		sqlSession.insert(namespace+".like", user_num);
+	public void like(Item_likeVO ilvo) throws Exception {
+		sqlSession.insert(namespace+".like", ilvo);
+	}
+
+	@Override
+	public void unlike(Item_likeVO ilvo) throws Exception {
+		sqlSession.delete(namespace+".unlike", ilvo);
 	}
 
 	
