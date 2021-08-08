@@ -1,5 +1,8 @@
 package com.jps.persistence;
 
+import java.util.List;
+
+import com.jps.domain.BasketVO;
 import com.jps.domain.UserVO;
 
 public interface UserDAO {
@@ -27,4 +30,6 @@ public interface UserDAO {
 	public int changeEmail(UserVO vo);
 	
 	public void updateLastLogin(String user_num);
+	
+	public List<BasketVO> getMyBasketList(String user_num);
 }

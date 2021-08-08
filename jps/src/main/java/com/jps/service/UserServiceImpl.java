@@ -1,9 +1,12 @@
 package com.jps.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.jps.domain.BasketVO;
 import com.jps.domain.UserVO;
 import com.jps.persistence.UserDAO;
 
@@ -90,9 +93,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateLastLogin(String user_num) throws Exception {
 		System.out.println("S : updateLastLogin(user_num) 호출 ");
-		System.out.println("S : updateLastLogin(user_num) 호출@!@!@!@@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@ ");
 		
 		udao.updateLastLogin(user_num);
+	}
+
+	@Override
+	public List<BasketVO> getMyBasketList(String user_num) throws Exception {
+		System.out.println("S : getMyBasketList(user_num) 호출 ");
+		
+		return udao.getMyBasketList(user_num);	
 	};
 
 	

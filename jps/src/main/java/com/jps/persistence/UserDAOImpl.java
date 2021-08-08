@@ -1,10 +1,13 @@
 package com.jps.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jps.domain.BasketVO;
 import com.jps.domain.UserVO;
 
 @Repository
@@ -122,6 +125,14 @@ public class UserDAOImpl implements UserDAO {
 		
 		sqlSession.update(namespace+".updateLastLogin", user_num);
 		
+	}
+
+	@Override
+	public List<BasketVO> getMyBasketList(String user_num) {
+		System.out.println("DAO :  getMyBasketList() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
+		
+		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
 	};
 
 	
