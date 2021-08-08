@@ -4,8 +4,10 @@ import com.jps.domain.Item_likeVO;
 
 public interface Item_likeService {
 
-	public Item_likeVO read(Item_likeVO ivo) throws Exception;
+	public int read(Item_likeVO ivo) throws Exception;
 	
-	public void like(String user_num) throws Exception;
+	public void like(Item_likeVO ilvo) throws Exception;
+	
+	public void unlike(Item_likeVO ilvo) throws Exception;
 	
 }
