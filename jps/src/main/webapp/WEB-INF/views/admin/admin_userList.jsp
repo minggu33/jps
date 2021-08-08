@@ -76,7 +76,7 @@
 				<td class="user_join_date">${UserVO.user_join_date }</td>
 				<td class="user_state" rowspan="2">
 					<c:if test="${UserVO.user_state eq 0}">
-						일반 회원
+						일반 회원(이메일 미인증)
 					</c:if>
 					<c:if test="${UserVO.user_state eq 1}">
 						일반 회원
@@ -87,6 +87,39 @@
 					<c:if test="${UserVO.user_state eq -10}">
 						탈퇴 유예
 					</c:if>
+					
+					<button class="userStateBtn">등급<br>변경하기</button>
+				    <!-- The Modal -->
+				    <div class="state_modal">
+				      <!-- Modal content -->
+				      <div class="state_modal-content">
+				        <span class="state_close">&times;</span>                                                               
+				        <p>${UserVO.user_nickname }(${UserVO.user_name })<br>
+				        현재 등급 : 
+				        <c:if test="${UserVO.user_state eq 0}">
+						일반 회원(이메일 미인증)
+						</c:if>
+						<c:if test="${UserVO.user_state eq 1}">
+							일반 회원
+						</c:if>
+						<c:if test="${UserVO.user_state eq 2}">
+							관리자
+						</c:if>
+						<c:if test="${UserVO.user_state eq -10}">
+							탈퇴 유예
+						</c:if><br>
+						변경 등급 : 
+				        <select class="update_state">
+				        	<option value="0">일반 회원(이메일 미인증)</option>
+				        	<option value="1">일반 회원</option>
+				        	<option value="2">관리자</option>
+				        	<option value="-10">탈퇴 유예</option>
+				        </select>
+				        <button class="updateUserState">변경하기</button>
+				        </p>
+				      </div>
+				    </div>
+				    
 				</td>
 				<td class="user_etc" rowspan="2">
 					<button class="resetPW">비밀번호<br>초기화</button>

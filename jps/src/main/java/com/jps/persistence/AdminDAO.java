@@ -17,4 +17,6 @@ public interface AdminDAO {
 	public int updatePoint(UserVO vo);
 	
 	public int resetPW(String user_num);
+	
+	public int updateState(UserVO vo);
 }

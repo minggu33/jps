@@ -35,4 +35,8 @@
 		update user set user_pw="asd123" where user_num=#{user_num}
 	</update>
 	
+	<update id="updateState">
+		update user set user_state=#{user_state} where user_num=#{user_num}
+	</update>
+	
 </mapper>

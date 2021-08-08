@@ -1,6 +1,5 @@
 package com.jps.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -113,4 +112,13 @@ public class AdminController {
 		out.close();
 	}
 	
+	@RequestMapping(value = "/updateState", method = RequestMethod.POST)
+	public void updateStatePOST(UserVO vo, HttpServletResponse resp) throws Exception {
+		logger.info("C : updateStatePOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.updateState(vo));
+		out.close();
+	}
 }

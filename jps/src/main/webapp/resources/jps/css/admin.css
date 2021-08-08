@@ -237,6 +237,11 @@ Sidebar Nav
 	background-color: #e7e2e7;
 }
 
+.userList tr:not(:nth-child(2n-1)):hover,
+.userList tr:not(:nth-child(2n-1)):hover {
+	background-color: #e7e2e7;
+}
+
 .userList .user_num {
 	width: 4%;
 }
@@ -394,6 +399,46 @@ Sidebar Nav
 }
 
 .close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+ /* The Modal (background) */
+.state_modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.state_modal:nth-child(n) {
+	display: none; /* Hidden by default */
+}
+
+/* Modal Content/Box */
+.state_modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */                          
+}
+
+/* The Close Button */
+.state_close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.state_close:hover, .state_close:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
