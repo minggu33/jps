@@ -133,7 +133,21 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
 		
 		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
-	};
+	}
 
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".loginUser", vo);
+		
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		sqlSession.insert(namespace+".drop", Integer.parseInt(user_num));
+		
+	}
+
+	
+	
 	
 }

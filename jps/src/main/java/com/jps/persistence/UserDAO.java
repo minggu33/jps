@@ -32,4 +32,8 @@ public interface UserDAO {
 	public void updateLastLogin(String user_num);
 	
 	public List<BasketVO> getMyBasketList(String user_num);
+	
+	public UserVO drop(UserVO vo) throws Exception;
+	
+	public void event(String user_num) throws Exception;
 }

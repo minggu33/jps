@@ -364,6 +364,44 @@ public class UserController {
 			
 		}
 		
+		// 회원탈퇴
+		@RequestMapping(value = "/drop", method = RequestMethod.GET)
+		public void dropGET(HttpSession session) throws Exception {
+			System.out.println("회원탈퇴 페이지 요청");
+		}
 		
-		
+		@RequestMapping(value="/drop", method = RequestMethod.POST)
+		public String dropPOST(UserVO vo, HttpSession session, HttpServletResponse resp) throws Exception{
+			String user_num = (String) session.getAttribute("user_num");
+			
+			System.out.println("회원탈퇴 요청 회원번호 : "+user_num);
+			vo.setUser_num(user_num);
+			
+			UserVO loginVO = service.drop(vo);
+			
+			
+			
+			if(loginVO == null) {
+				resp.setContentType("text/html; charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>alert('아이디/비밀번호가 일치하지않습니다.'); ");
+				out.println("location.href='/user/info';</script>");
+				out.flush();
+				
+				return null;
+			}
+			
+			// 유저테이블 user_state값 -10으로 변경해주는거 추가
+			System.out.println("실행");
+			service.event(user_num);
+			
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('한달뒤에 정상처리 됩니다.');");
+			out.println("location.href='/home';</script>");
+			out.flush();
+
+			
+			return null;
+		}
 }

@@ -102,7 +102,18 @@ public class UserServiceImpl implements UserService {
 		System.out.println("S : getMyBasketList(user_num) 호출 ");
 		
 		return udao.getMyBasketList(user_num);	
-	};
+	}
+
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return udao.drop(vo);
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		
+		udao.event(user_num);
+	}
 
 	
 	
