@@ -22,5 +22,11 @@ public class BasketDAOImpl implements BasketDAO{
 		
 	}
 
+	@Override
+	public void delete(BasketVO bvo) throws Exception {
+		sqlSession.delete(namespace+".delete", bvo);
+	}
+
+	
 	
 }
