@@ -1,6 +1,6 @@
 $(function() {
 	$(".append").on("click", function() {
-		var t = "<input type='file' name='item_img'>";
+		var t = "<input type='file' name='uploadfile'>";
 		$(".box").html(t);
 		$(".box").fadeToggle();
 	});
