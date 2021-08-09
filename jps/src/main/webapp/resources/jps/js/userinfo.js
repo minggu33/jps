@@ -330,3 +330,22 @@ function nickChange(){
 	});
 }
 
+
+// 장바구니 삭제 ajax
+$(function(){
+	$(document).on("click","[id*=bkd]",function(){
+        	var trNum = $(this).closest('tr').prevAll().length;
+        	var inputvalue = document.getElementsByClassName('basket_item_num')[trNum];
+  	
+		$.ajax({
+			url:"/basket/basketdelete",
+			type:"post",
+			data:{"item_num":inputvalue.value},
+			success:function(){
+				alert("장바구니 out!!");
+				location.reload();
+			}
+		});
+	});
+});
+

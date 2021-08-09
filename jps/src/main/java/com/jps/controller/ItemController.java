@@ -91,7 +91,7 @@ public class ItemController {
 		String user_num = (String) session.getAttribute("user_num");
 		System.out.println("like 동작 회원 번호 : "+user_num);
 		ilvo.setUser_num(user_num);
-		ilservice.like(ilvo);
+		ilservice.like(ilvo); 
 	}
 	
 	@RequestMapping(value="/unlike", method = RequestMethod.POST)

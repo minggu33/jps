@@ -8,4 +8,8 @@
   		insert into basket (user_num, item_num, item_color, item_size, item_count, update_date)
   		values(#{user_num}, #{item_num}, #{item_color}, #{item_size}, #{item_count}, now())
   	</insert>
+  	
+  	<delete id="delete">
+  		delete from basket where item_num=#{item_num} and user_num=#{user_num }
+  	</delete>
   </mapper>
