@@ -1,5 +1,8 @@
 package com.jps.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("UserVO")
 public class UserVO {
 	
 	private String user_num;

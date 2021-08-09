@@ -3,6 +3,7 @@ package com.jps.persistence;
 import java.util.List;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 
 public interface UserDAO {
@@ -32,4 +33,8 @@ public interface UserDAO {
 	public void updateLastLogin(String user_num);
 	
 	public List<BasketVO> getMyBasketList(String user_num);
+	
+	public List<ItemVO> getMyItemList(String user_num);
+	
+	public List<ItemVO> getmbList(String user_num);
 }

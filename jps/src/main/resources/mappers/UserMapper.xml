@@ -68,4 +68,31 @@
 	<select id="getMyBasketList" resultType="com.jps.domain.BasketVO">
 		select * from basket where user_num=#{user_num}
 	</select>
+	
+	<select id="getMyItemList" resultType="com.jps.domain.ItemVO">
+		select * from item where item_num in (select item_num from basket where user_num=#{user_num})
+	</select>
+	
+		
+<!-- 		<resultMap type="com.jps.BasketVO" id="BasketVO"> -->
+<!-- 		<result column="item_size" property="item_size"/> -->
+<!-- 		<result column="item_color" property="item_color"/> -->
+<!-- 		<result column="item_count" property="item_count"/>		 -->
+<!-- 		</resultMap> -->
+	
+<!-- 		<resultMap type="ItemVO" id="itemmap"> -->
+<!-- 		<result column="item_num" property="item_num" /> -->
+<!-- 		<result column="item_name" property="item_name" /> -->
+<!-- 		<result column="item_img" property="item_img" /> -->
+<!-- 		<result column="item_point" property="item_point" /> -->
+<!-- 		<collection property="com.jps.BasketVO" resultMap="BasketVO" /> -->
+<!-- 		</resultMap> -->
+	
+<!-- 	<select id="getmbList" parameterType="ItemVO" resultMap="itemmap" > -->
+<!-- 		select item_num, item_name, item_price, item_img, item_point, item_size, item_color, item_count from item natural join basket where user_num = #{user_num}  -->
+<!-- 	</select> -->
+	
+	
+	
+	
 </mapper>
