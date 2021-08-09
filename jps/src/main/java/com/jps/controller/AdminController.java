@@ -64,6 +64,11 @@ public class AdminController {
 		String item_img = "";
 		
 		for(int i=0; i<uploadfile.length; i++) {
+			
+			if(uploadfile[i] == null) {
+				continue;
+			}
+			
 			item_img += saveFile(uploadfile[i], req.getRealPath("/"));
 			
 			if(i == (uploadfile.length - 1)) {
@@ -100,8 +105,11 @@ public class AdminController {
 	}
 	
 	private String saveFile(MultipartFile file, String realpath){
+		
+		UUID uuid = UUID.randomUUID();
+		
 	    // 파일 이름 변경
-	    String saveName = file.getOriginalFilename();
+	    String saveName = uuid + "_" + file.getOriginalFilename();
 
 	    logger.info("saveName: {}",saveName);
 	    logger.info(realpath+UPLOAD_PATH);

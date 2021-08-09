@@ -31,9 +31,13 @@
 					<option value="shoes">신발</option>
 				</select> <br>
 				<input type="number" placeholder="가격을 작성해주세요" step="100" min="0" name="item_price" class="under_line_solid_gray"> <br>
-				<input type="file" name="uploadfile" class="border_none under_line_solid_gray">
-				<input type="button" class="append border_none" value="파일추가">
-				<div class="box" style="display: none"></div>
+				<table id="file">
+					<tr>
+						<td><input type="file" name="uploadfile" class="border_none under_line_solid_gray"></td>
+						<td><input type="button" value="삭제하기" class="deleteFile border_none"></td>
+					</tr>
+				</table>
+				<input type="button" class="insertImg border_none" value="파일추가">
 				<hr>
 				<table id="stock">
 					<tr>
