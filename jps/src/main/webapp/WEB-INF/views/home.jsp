@@ -17,16 +17,17 @@
       <div class="container">
         <div class="row mb-5 align-items-center">
           <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-            <h2>Hey, I'm Johan Stanworth</h2>
-            <p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>
+            <h2>Hi, it's our Best Items.</h2>
+            <p class="mb-0">Creative &amp; Reliable Goods Provided</p>
           </div>
           <div class="col-md-12 col-lg-6 text-left text-lg-right" data-aos="fade-up" data-aos-delay="100">
             <div id="filters" class="filters">
               <a href="#" data-filter="*" class="active">All</a>
-              <a href="#" data-filter=".web">Web</a>
-              <a href="#" data-filter=".design">Design</a>
-              <a href="#" data-filter=".branding">Branding</a>
-              <a href="#" data-filter=".photography">Photography</a>
+              <a href="#" data-filter=".web">Top</a>
+              <a href="#" data-filter=".design">Bottom</a>
+              <a href="#" data-filter=".branding">Outer</a>
+              <a href="#" data-filter=".photography">Shoes</a>
+              <a href="#" data-filter=".hat">Hat</a>
             </div>
           </div>
         </div>
@@ -218,8 +219,6 @@
   </main>
 
 
-
-<P>  The time on the server is ${serverTime}. </P>
 
 <%@ include file="include/footer.jsp" %>
 </body>
