@@ -1,5 +1,8 @@
 package com.jps.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("BasketVO")
 public class BasketVO {
 	
 	private int basket_idx;

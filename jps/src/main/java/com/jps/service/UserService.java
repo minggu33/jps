@@ -3,6 +3,7 @@ package com.jps.service;
 import java.util.List;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 
 public interface UserService {
@@ -30,4 +31,8 @@ public interface UserService {
 	public void updateLastLogin(String user_num) throws Exception;
 	
 	public List<BasketVO> getMyBasketList(String user_num) throws Exception;
+	
+	public List<ItemVO> getMyItemList(String user_num) throws Exception;
+	
+	public List<ItemVO> getmbList(String user_num) throws Exception;
 }

@@ -18,7 +18,6 @@
 		select * from item where item_num=#{item_num }
 	</select>
 	
-
 	
 	
 </mapper>
