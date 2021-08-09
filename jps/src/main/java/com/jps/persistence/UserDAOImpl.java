@@ -145,9 +145,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<ItemVO> getmbList(String user_num) {
+	public List<BasketVO> getmbList(String user_num) {
 		System.out.println("DAO :  getmbList() 호출");
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		System.out.println("DAO : " + sqlSession.selectList(namespace+".getmbList", user_num));
 		
 		return sqlSession.selectList(namespace+".getmbList", user_num);
 	};
