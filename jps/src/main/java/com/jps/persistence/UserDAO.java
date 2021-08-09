@@ -3,6 +3,7 @@ package com.jps.persistence;
 import java.util.List;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 
 public interface UserDAO {
@@ -36,4 +37,9 @@ public interface UserDAO {
 	public UserVO drop(UserVO vo) throws Exception;
 	
 	public void event(String user_num) throws Exception;
+
+	public List<ItemVO> getMyItemList(String user_num);
+	
+	public List<ItemVO> getmbList(String user_num);
+
 }

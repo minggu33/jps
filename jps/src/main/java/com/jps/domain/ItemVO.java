@@ -2,6 +2,9 @@ package com.jps.domain;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("ItemVO")
 public class ItemVO {
 
 	

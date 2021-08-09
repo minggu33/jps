@@ -3,6 +3,7 @@ package com.jps.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -267,7 +268,16 @@ public class UserController {
 			model.addAttribute("BasketList", service.getMyBasketList(user_num));
 			
 			// 아이템 정보 불러오기
-			// model.addAttribute("itemList", service.getMyItemList(user_num));
+			model.addAttribute("ItemList", service.getMyItemList(user_num));
+			
+//			model.addAttribute("mbList", service.getmbList(user_num));
+//			List BasketList = service.getMyBasketList(user_num);
+//			List ItemList =  service.getMyItemList(user_num);
+//			
+//			ItemList.add(BasketList);
+//					
+//			
+//			model.addAttribute("mblist", ItemList);
 			
 			// 유저 정보 저장 
 			model.addAttribute("infoVO", service.infoUser(user_num));

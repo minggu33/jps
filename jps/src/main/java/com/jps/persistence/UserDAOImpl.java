@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 
 @Repository
@@ -134,6 +135,22 @@ public class UserDAOImpl implements UserDAO {
 		
 		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
 	}
+	@Override
+	public List<ItemVO> getMyItemList(String user_num) {
+		System.out.println("DAO :  getMyItemList() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		return sqlSession.selectList(namespace+".getMyItemList", user_num);
+	}
+
+	@Override
+	public List<ItemVO> getmbList(String user_num) {
+		System.out.println("DAO :  getmbList() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		return sqlSession.selectList(namespace+".getmbList", user_num);
+	};
+
 
 	@Override
 	public UserVO drop(UserVO vo) throws Exception {
