@@ -12,7 +12,7 @@
 			<ul>
 				<li><a href="#"><i class="ion-bag"></i> <span>회원 관리</span></a>
 					<ul class="nav-flyout">
-						<li><a href="#"><i class="ion-ios-color-filter-outline"></i>회원 전체 보기</a>
+						<li><a href="/admin/userlist"><i class="ion-ios-color-filter-outline"></i>회원 전체 보기</a>
 						</li>
 						<li><a href="#"><i class="ion-ios-clock-outline"></i>탈퇴 회원 보기</a>
 						</li>

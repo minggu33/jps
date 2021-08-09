@@ -213,18 +213,233 @@ Sidebar Nav
 
 .userList {
 	text-align: center;
+	width: 100%;
+	table-layout: fixed;
 }
 
 
 .userList tr td {
 	border-bottom: 1px solid gray;
+	overflow: hidden;
 }
 
-.userList tr:first-child td {
+.userList tr:nth-child(1) td, .userList tr:nth-child(2) td {
 	border-bottom: 2px solid gray;
 	background-color: #b9aab9;
 }
 
-.userList tr:not(:first-child):hover {
+/* .userList [class*=user_num_]:hover { */
+/* 	background-color: #e7e2e7; */
+/* } */
+
+.userList tr:not(:nth-child(2n)):hover,
+.userList tr:not(:nth-child(2n)):hover + tr{
 	background-color: #e7e2e7;
+}
+
+.userList tr:not(:nth-child(2n-1)):hover,
+.userList tr:not(:nth-child(2n-1)):hover {
+	background-color: #e7e2e7;
+}
+
+.userList .user_num {
+	width: 4%;
+}
+
+.userList .user_id {
+	width: 9%;
+}
+
+.userList .user_pw {
+	width: 9%;
+}
+
+.userList .user_name {
+	width: 9%;
+}
+
+.userList .user_email {
+	width: 9%;
+}
+
+.userList .user_addr {
+	width: 15%;
+}
+
+.userList .user_point {
+	width: 10%;
+}
+
+.userList .user_bank {
+	width: 9%;
+}
+
+.userList .user_join_date {
+	width: 9%;
+}
+
+.userList .user_etc {
+	width: 9%;
+}
+
+.userList .user_gender {
+	width: 9%;
+}
+
+.userList .user_birth {
+	width: 9%;
+}
+
+.userList .user_nickname {
+	width: 9%;
+}
+
+.userList .user_phone {
+	width: 9%;
+}
+
+.userList .user_account {
+	width: 9%;
+}
+
+.userList .user_late_login {
+	width: 9%;
+}
+
+.userList .user_state {
+	width: 9%;
+}
+
+.userList .slideText {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+
+.userList .slideText:hover {
+  margin:0;
+  padding-left:100%;
+  display: inline-block;
+  white-space:nowrap;
+    -webkit-animation-name:marquee;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration:7s;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-name:marquee;
+    -moz-animation-timing-function:linear;
+    -moz-animation-duration:7s;
+    -moz-animation-iteration-count:infinite;
+    -ms-animation-name:marquee;
+    -ms-animation-timing-function:linear;
+    -ms-animation-duration:7s;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-name:marquee;
+    -o-animation-timing-function:linear;
+    -o-animation-duration:7s;
+    -o-animation-iteration-count:infinite;
+    animation-name:marquee;
+    animation-timing-function:linear;
+    animation-duration:7s;
+    animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes marquee {
+  from   { -webkit-transform: translate(0%);}
+  99%,to { -webkit-transform: translate(-100%);}
+}
+@-moz-keyframes marquee {
+  from   { -moz-transform: translate(0%);}
+  99%,to { -moz-transform: translate(-100%);}
+}
+@-ms-keyframes marquee {
+  from   { -ms-transform: translate(0%);}
+  99%,to { -ms-transform: translate(-100%);}
+}
+@-o-keyframes marquee {
+  from   { -o-transform: translate(0%);}
+  99%,to { -o-transform: translate(-100%);}
+}
+@keyframes marquee {
+  from   { transform: translate(0%);}
+  99%,to { transform: translate(-100%);}
+}
+
+ /* The Modal (background) */
+.myModal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.myModal:nth-child(n) {
+	display: none; /* Hidden by default */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */                          
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+ /* The Modal (background) */
+.state_modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.state_modal:nth-child(n) {
+	display: none; /* Hidden by default */
+}
+
+/* Modal Content/Box */
+.state_modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */                          
+}
+
+/* The Close Button */
+.state_close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.state_close:hover, .state_close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
 }
