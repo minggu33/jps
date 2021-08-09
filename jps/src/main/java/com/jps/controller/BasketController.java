@@ -31,5 +31,14 @@ public class BasketController {
 		
 	}
 	
+	@RequestMapping(value="/basketdelete", method = RequestMethod.POST)
+	public void basketdeletePOST(BasketVO bvo, HttpSession session, HttpServletResponse resp) throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		System.out.println(user_num+"장바구니 목록 삭제");
+		bvo.setUser_num(user_num);
+		
+		bservice.basketdelete(bvo);
+	}
+	
 	
 }
