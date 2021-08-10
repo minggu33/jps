@@ -135,7 +135,6 @@ public class UserDAOImpl implements UserDAO {
 		
 		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
 	}
-
 	@Override
 	public List<ItemVO> getMyItemList(String user_num) {
 		System.out.println("DAO :  getMyItemList() 호출");
@@ -145,12 +144,29 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<ItemVO> getmbList(String user_num) {
+	public List<BasketVO> getmbList(String user_num) {
 		System.out.println("DAO :  getmbList() 호출");
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		System.out.println("DAO : " + sqlSession.selectList(namespace+".getmbList", user_num));
 		
 		return sqlSession.selectList(namespace+".getmbList", user_num);
 	};
 
+
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".loginUser", vo);
+		
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		sqlSession.insert(namespace+".drop", Integer.parseInt(user_num));
+		
+	}
+
+	
+	
 	
 }

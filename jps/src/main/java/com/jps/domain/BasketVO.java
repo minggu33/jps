@@ -12,6 +12,7 @@ public class BasketVO {
 	private String item_size;
 	private int item_count;
 	private String update_date;
+	private ItemVO itemvo;
 	public int getBasket_idx() {
 		return basket_idx;
 	}
@@ -54,14 +55,16 @@ public class BasketVO {
 	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
+	public ItemVO getItemvo() {
+		return itemvo;
+	}
+	public void setItemvo(ItemVO itemvo) {
+		this.itemvo = itemvo;
+	}
 	@Override
 	public String toString() {
 		return "BasketVO [basket_idx=" + basket_idx + ", user_num=" + user_num + ", item_num=" + item_num
 				+ ", item_color=" + item_color + ", item_size=" + item_size + ", item_count=" + item_count
-				+ ", update_date=" + update_date + "]";
+				+ ", update_date=" + update_date + ", itemvo=" + itemvo + "]";
 	}
-	
-	
-
-
 }

@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
-		select * from notice
+		select * from notice order by notice_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="noticecontent" resultType="com.jps.domain.NoticeVO">
@@ -29,6 +29,24 @@
 	<delete id="noticedelete">
 		delete from notice where notice_num=#{notice_num}
 	</delete>
+	
+	<update id="addreadcount">
+		update notice set notice_count = notice_count+1 where notice_num=#{notice_num}
+	</update>	
+	
+	<select id="noticecount" resultType="int">
+		select count(*) from notice
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
