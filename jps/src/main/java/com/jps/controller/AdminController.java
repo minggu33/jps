@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.UserVO;
+import com.jps.domain.searchVO;
 import com.jps.service.AdminService;
 
 /**
@@ -65,7 +66,7 @@ public class AdminController {
 		
 		for(int i=0; i<uploadfile.length; i++) {
 			
-			if(uploadfile[i] == null) {
+			if(uploadfile[i].getOriginalFilename() == "") {
 				continue;
 			}
 			
@@ -135,9 +136,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
-	public String adminUserListGET(Model model) throws Exception {
+	public String adminUserListGET(Model model, searchVO vo) throws Exception {
 		logger.info("C : adminUserListGET() 호출");
-		model.addAttribute("userlist", service.userlist());
+		
+		vo.setPageSize(5);
+		
+		vo.setPageInfo(vo, service.getUserCnt());
+		
+		model.addAttribute("userlist", service.userlist(vo));
 		return "/admin/admin_userList";
 	}
 	
@@ -169,5 +175,12 @@ public class AdminController {
 		PrintWriter out = resp.getWriter();
 		out.print(service.updateState(vo));
 		out.close();
+	}
+	
+	@RequestMapping(value = "/noticelist", method = RequestMethod.GET)
+	public String adminNoticeListGET(Model model) throws Exception {
+		logger.info("C : adminNoticeListGET() 호출");
+		model.addAttribute("noticelist", service.noticelist());
+		return "/admin/admin_noticeList";
 	}
 }

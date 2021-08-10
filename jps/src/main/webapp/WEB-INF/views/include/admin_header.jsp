@@ -30,7 +30,7 @@
 				<li><a href="#"><i class="ion-ios-briefcase-outline"></i> <span
 						class="">게시판 관리</span></a>
 					<ul class="nav-flyout">
-						<li><a href="#"><i class="ion-ios-flame-outline"></i>전체 게시글</a>
+						<li><a href="/admin/noticelist"><i class="ion-ios-flame-outline"></i>전체 게시글</a>
 						</li>
 						<li><a href="#"><i class="ion-ios-lightbulb-outline"></i>신고 게시글</a>
 						</li>
