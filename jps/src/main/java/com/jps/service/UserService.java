@@ -31,8 +31,13 @@ public interface UserService {
 	public void updateLastLogin(String user_num) throws Exception;
 	
 	public List<BasketVO> getMyBasketList(String user_num) throws Exception;
+
+	public UserVO drop(UserVO vo) throws Exception;
 	
+	public void event(String user_num) throws Exception;
+
 	public List<ItemVO> getMyItemList(String user_num) throws Exception;
 	
 	public List<ItemVO> getmbList(String user_num) throws Exception;
+
 }

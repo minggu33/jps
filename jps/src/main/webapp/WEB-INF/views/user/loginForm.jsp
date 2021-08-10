@@ -34,8 +34,6 @@
     <button type="submit" id="loginbtn" >로그인</button><br>
     <button type="button" id="joinbtn"
         onclick="location.href='/user/join'">회원가입</button>
-    
-    
   </form>
 
 
