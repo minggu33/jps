@@ -1,10 +1,6 @@
 package com.jps.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -23,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jps.domain.BasketVO;
-import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -265,12 +259,13 @@ public class UserController {
 			
 			
 			// 나의 장바구니 목록 불러오기 
-			model.addAttribute("BasketList", service.getMyBasketList(user_num));
+//			model.addAttribute("BasketList", service.getMyBasketList(user_num));
 			
 			// 아이템 정보 불러오기
-			model.addAttribute("ItemList", service.getMyItemList(user_num));
+//			model.addAttribute("ItemList", service.getMyItemList(user_num));
 			
-//			model.addAttribute("mbList", service.getmbList(user_num));
+			model.addAttribute("mbList", service.getmbList(user_num));
+			
 //			List BasketList = service.getMyBasketList(user_num);
 //			List ItemList =  service.getMyItemList(user_num);
 //			

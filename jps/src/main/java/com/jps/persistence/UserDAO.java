@@ -40,6 +40,5 @@ public interface UserDAO {
 
 	public List<ItemVO> getMyItemList(String user_num);
 	
-	public List<ItemVO> getmbList(String user_num);
-
+	public List<BasketVO> getmbList(String user_num);
 }

@@ -38,6 +38,6 @@ public interface UserService {
 
 	public List<ItemVO> getMyItemList(String user_num) throws Exception;
 	
-	public List<ItemVO> getmbList(String user_num) throws Exception;
+	public List<BasketVO> getmbList(String user_num) throws Exception;
 
 }
