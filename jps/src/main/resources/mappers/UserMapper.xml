@@ -69,6 +69,16 @@
 		select * from basket where user_num=#{user_num}
 	</select>
 	
+
+<!-- 	<sql id="drop"> -->
+<!-- 		create event if not exists de_#{user_num} on schedule at current_timestamp+interval 1 month do delete from user where user_num = #{user_num} -->
+<!-- 	</sql> -->
+	
+	<select id="drop" resultType="java.util.Map" parameterType="java.lang.Integer">
+		create event if not exists de_#{user_num} on schedule at current_timestamp+interval 1 month do delete from user where user_num = #{user_num}
+	</select>
+
+
 	<select id="getMyItemList" resultType="com.jps.domain.ItemVO">
 		select * from item where item_num in (select item_num from basket where user_num=#{user_num})
 	</select>
@@ -93,8 +103,6 @@
 	<select id="getmbList" parameterType="String" resultMap="BasketVO" >
 		select item_num, item_name, update_date, item_price, item_img, item_point, item_size, item_color, item_count from item natural join basket where user_num = #{user_num} 
 	</select>
-	
-	
 	
 	
 </mapper>

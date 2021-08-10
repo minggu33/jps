@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jps.domain.NoticeVO;
+import com.jps.domain.searchVO;
 import com.jps.persistence.NoticeDAO;
 
 @Service
@@ -24,11 +25,11 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	@Override
-	public List<NoticeVO> noticelist() throws Exception {
+	public List<NoticeVO> noticelist(searchVO vo) throws Exception {
 		
 		System.out.println("S : noticelist() 호출");
 		
-		return ndao.noticelist();
+		return ndao.noticelist(vo);
 	}
 	
 	@Override
@@ -65,7 +66,23 @@ public class NoticeServiceImpl implements NoticeService {
 		
 	}
 	
+	@Override
+	public void addreadcount(int notice_num) throws Exception {
+		
+		System.out.println("S : noticeaddreadcount(notice_num) 호출");
+		
+		ndao.addreadcount(notice_num);
+		
+	}
 	
+	@Override
+	public int noticecount() throws Exception {
+		
+		System.out.println("S : noticecount() 호출");
+		
+		return ndao.noticecount();
+		
+	}
 	
 	
 	

@@ -106,6 +106,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return udao.drop(vo);
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		
+		udao.event(user_num);
+	}
+
 	public List<ItemVO> getMyItemList(String user_num) throws Exception {
 		System.out.println("S : getMyItemList(user_num) 호출 ");		
 		
@@ -118,6 +128,7 @@ public class UserServiceImpl implements UserService {
 		System.out.println("S : " + udao.getmbList(user_num));
 		return udao.getmbList(user_num);
 	};
+
 
 	
 	

@@ -34,6 +34,10 @@ public interface UserDAO {
 	
 	public List<BasketVO> getMyBasketList(String user_num);
 	
+	public UserVO drop(UserVO vo) throws Exception;
+	
+	public void event(String user_num) throws Exception;
+
 	public List<ItemVO> getMyItemList(String user_num);
 	
 	public List<BasketVO> getmbList(String user_num);

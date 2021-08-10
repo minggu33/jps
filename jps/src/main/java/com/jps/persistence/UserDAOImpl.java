@@ -135,7 +135,6 @@ public class UserDAOImpl implements UserDAO {
 		
 		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
 	}
-
 	@Override
 	public List<ItemVO> getMyItemList(String user_num) {
 		System.out.println("DAO :  getMyItemList() 호출");
@@ -154,5 +153,20 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectList(namespace+".getmbList", user_num);
 	};
 
+
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".loginUser", vo);
+		
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		sqlSession.insert(namespace+".drop", Integer.parseInt(user_num));
+		
+	}
+
+	
+	
 	
 }
