@@ -60,30 +60,35 @@
 		 	<th>상품명(옵션)</th>
 		 	<th>판매가</th>
 		 	<th>주문금액<br>(적립예정)</th>
-		 	<th>회원 할인</th>
 		 	<th>수량</th>
 		 	<th>주문관리</th>
-		 	<th>배송비/ 배송형태</th>
 		 </tr>
 	 </thead>
 	  <c:forEach var="il" items="${mbList }" varStatus="status" >	  
 	 <tr>
 
-	 		<td>${il.itemvo.item_num }	<input type="hidden" value="${il.itemvo.item_num }" name="in" class="basket_item_num">
-	 		</td>
 
 	 		<td>${status.count }</td>
-
-	 		<td>${il.update_date }</td>
-	 		<td>${il.itemvo.item_name }</td>
-	 		<td>${il.itemvo.item_price }</td>
-	 		<td>${il.itemvo.item_price }</td>
+			<td></td>
+	 	
+	 		<td>
 	 		
-	
-	 		<td> </td>
+	 		${il.itemvo.item_name }
+	 		
+	 		</td>
+
+	 		<td>${il.itemvo.item_price }</td>
+	 		<td>${il.itemvo.item_price }</td>
 	 		<td></td>
 	 		<td></td>
+
+	 		
+
+	 		
+	 		
+
 	 			<td>
+	 			<input type="hidden" value="${il.itemvo.item_num }" name="in" class="basket_item_num">
 	 			  <button id="bkd${il.itemvo.item_num }">
 	 			  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
 				  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
