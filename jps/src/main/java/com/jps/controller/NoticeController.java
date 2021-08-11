@@ -1,6 +1,12 @@
 package com.jps.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,21 +33,95 @@ public class NoticeController {
 	@Inject
 	private NoticeService service;
 	
-	@RequestMapping(value = "/noticelist", method = RequestMethod.GET)
-	public String noticeListGET(Model model, searchVO vo) throws Exception {
+	@RequestMapping(value = "/noticelist", method = {RequestMethod.GET,RequestMethod.POST})
+	public String noticeList(Model model, searchVO vo, HttpServletRequest req) throws Exception {
 		
-		logger.info("C: noticeListGET() 호출");
+		logger.info("C: noticeList() 호출");
 		
-		vo.setPageInfo(vo,service.noticecount());
+		List<NoticeVO> noticelist = null;
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println(vo.toString());
+
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		if(vo.getType() == 1) {
+
+			vo.setPageInfo(vo, service.noticeCountOfSubject(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfSubject(vo));
+			
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 2) {
+			
+			vo.setPageInfo(vo, service.noticeCountOfContent(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfContent(vo));
+		
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 3) {
+			
+			vo.setPageInfo(vo, service.noticeCountOfSC(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfSC(vo));
+		
+			model.addAttribute("type", "search");
+		} else {
+			
+			vo.setPageInfo(vo,service.noticecount());
+			noticelist = service.noticelist(vo);
+			model.addAttribute("noticelist", noticelist);
+			System.out.println("검색안함...");
+		}
+		
+
+		model.addAttribute("searchVO", vo);
 		
 		System.out.println("C : "+vo);
 		
-		
-		model.addAttribute("noticelist", service.noticelist(vo));
-		model.addAttribute("searchVO", vo);
-		
 		return "/notice/noticelist";
 	}
+	
+//	@RequestMapping(value = "/noticelist", method = RequestMethod.POST)
+//	public String noticeListPOST(Model model, searchVO vo) throws Exception {
+//		
+//		logger.info("C: noticeListPOST() 호출");
+//		
+//		List<NoticeVO> noticelist = null;
+//		
+//		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+//		System.out.println(vo.toString());
+//		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+//		
+//		if(vo.getType() == 1) {
+//			
+//			vo.setPageInfo(vo, service.noticeCountOfSubject(vo));
+//			model.addAttribute("noticelist", service.noticeSearchOfSubject(vo));
+//			model.addAttribute("type", "search");
+//		} else if(vo.getType() == 2) {
+//			
+//			vo.setPageInfo(vo, service.noticeCountOfContent(vo));
+//			model.addAttribute("noticelist", service.noticeSearchOfContent(vo));
+//		
+//			model.addAttribute("type", "search");
+//		} else if(vo.getType() == 3) {
+//			
+//			vo.setPageInfo(vo, service.noticeCountOfSC(vo));
+//			model.addAttribute("noticelist", service.noticeSearchOfSC(vo));
+//		
+//			model.addAttribute("type", "search");
+//		} else {
+//			
+//			vo.setPageInfo(vo,service.noticecount());
+//			noticelist = service.noticelist(vo);
+//			model.addAttribute("noticelist", noticelist);
+//			System.out.println("검색안함...");
+//		}
+//		
+//
+//		model.addAttribute("searchVO", vo);
+//		
+//		System.out.println("C : "+vo);
+//		
+//		return "/notice/noticelist";
+//	}
+	
 	
 	@RequestMapping(value = "/noticeWrite", method = RequestMethod.GET)
 	public void noticeWriteGET() {

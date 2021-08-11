@@ -38,6 +38,30 @@
 		select count(*) from notice
 	</select>
 	
+	<select id="noticeSearchOfSubject"  resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_subject like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeSearchOfContent" resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_content like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeSearchOfSC" resultType="com.jps.domain.NoticeVO">
+		select * from notice where concat(notice_subject, notice_content) like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeCountOfSubject" resultType="int">
+		select count(*) from notice where notice_subject like '%${search}%'
+	</select>
+	
+	<select id="noticeCountOfContent" resultType="int">
+		select count(*) from notice where notice_content like '%${search}%'
+	</select>
+	
+	<select id="noticeCountOfSC" resultType="int">
+		select count(*) notice where concat(notice_subject, notice_content) like '%${search}%'
+	</select>
+	
 	
 	
 	

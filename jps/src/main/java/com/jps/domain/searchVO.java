@@ -5,13 +5,14 @@ public class searchVO {
 	private int pageNum;
 	private int pageSize;
 	private String search;
-	private String type;
+	private int type;
 	private String category;
 	private int startRow;
 	private final int pageBlock = 5;
 	private int cnt;
 	private int pageCount;
-	
+	private int startPage;
+	private int endPage;
 	
 	
 	public void setCnt(int cnt) {
@@ -39,7 +40,7 @@ public class searchVO {
 	}
 	public void setPageSize(int pageSize) {
 		if(pageSize == 0) {
-			this.pageSize = 10;
+			this.pageSize = 5;
 		} else {
 			this.pageSize = pageSize;
 		}
@@ -50,10 +51,10 @@ public class searchVO {
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	public String getCategory() {
@@ -78,12 +79,41 @@ public class searchVO {
 		this.pageCount = cnt/pageSize + (cnt % pageSize == 0? 0 : 1);
 	}
 	
+	public int getStartPage() {
+		return startPage;
+	}
+	public void setStartPage() {
+		this.startPage = ((pageNum-1) / pageBlock) * pageBlock + 1 ;
+	}
+	public int getEndPage() {
+		return endPage;
+	}
+	public void setEndPage() {
+		
+		this.endPage = startPage + pageBlock -1;
+		
+		if(endPage > pageCount) {
+			this.endPage = pageCount;
+		}
+	}
+	
+	
 	public void setPageInfo(searchVO vo, int cnt) {
 		setCnt(cnt);
 		setPageNum(vo.getPageNum());
 		setPageSize(vo.getPageSize());
 		setStartRow(pageNum, pageSize);
 		setPageCount();
+		setStartPage();
+		setEndPage();
 	}
+	@Override
+	public String toString() {
+		return "searchVO [pageNum=" + pageNum + ", pageSize=" + pageSize + ", search=" + search + ", type=" + type
+				+ ", category=" + category + ", startRow=" + startRow + ", pageBlock=" + pageBlock + ", cnt=" + cnt
+				+ ", pageCount=" + pageCount + ", startPage=" + startPage + ", endPage=" + endPage + "]";
+	}
+	
+	
 
 }
