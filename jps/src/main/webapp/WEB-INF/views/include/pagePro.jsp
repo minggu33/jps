@@ -5,62 +5,45 @@
 
 	<div id="pageProcess">
 	
-	<c:choose>
-
-		<c:when test="${type eq 'search'}">
-			
 			<c:if test="${searchVO.startPage > searchVO.pageBlock}">
-				<a href="?pageNum=${searchVO.startPage - searchVO.pageBlock }&pageSize=${searchVO.pageSize }&type=${searchVO.type }&search=${searchVO.search }" >[이전]</a>
+				<a onclick="searchFunc(${searchVO.startPage - searchVO.pageBlock });" >[이전]</a>
 			</c:if>
 			
 			<c:forEach begin="${searchVO.startPage }" end="${searchVO.endPage }" var="p">
-				<a href="?pageNum=${p }&pageSize=${searchVO.pageSize }&type=${searchVO.type }&search=${searchVO.search }">[${p }]</a>
+				<a onclick="searchFunc(${p });">[${p }]</a>
 			</c:forEach>
 			
 			<c:if test="${searchVO.endPage < searchVO.pageCount}">
-				<a href="?pageNum=${searchVO.startPage + searchVO.pageBlock }&pageSize=${searchVO.pageSize }&type=${searchVO.type }&search=${searchVO.search }" >[다음]</a>
+				<a onclick="searchFunc(${searchVO.startPage + searchVO.pageBlock });">[다음]</a>
 			</c:if>
 			
 			<form name="searchFr" method="post">
+				<input type="hidden" name="pageNum" value="${searchVO.pageNum }">
+				<input type="hidden" name="pageSize" value="${searchVO.pageSize }">
+			
 				<select name="type">
-					<option value="1">제목</option>
-					<option value="2">내용</option>
-					<option value="3">제목+내용</option>
+					<option value="1"
+						<c:if test="${searchVO.type == 1}">
+							selected
+						</c:if>
+					>제목</option>
+					<option value="2"
+						<c:if test="${searchVO.type == 2}">
+							selected
+						</c:if>
+					>내용</option>
+					<option value="3"
+						<c:if test="${searchVO.type == 3}">
+							selected
+						</c:if>
+					>제목+내용</option>
 				</select>
 				
-				<input type="search" name="search" value=""><input type="submit" value="검색하기">
+				<input type="search" name="search" value="${searchVO.search }"><input type="submit" value="검색하기">
 			</form>
-		</c:when>
-		
-		<c:otherwise>
-			<c:if test="${searchVO.startPage > searchVO.pageBlock}">
-				<a href="?pageNum=${searchVO.startPage - searchVO.pageBlock }&pageSize=${searchVO.pageSize }" >[이전]</a>
-			</c:if>
-			
-			<c:forEach begin="${searchVO.startPage }" end="${searchVO.endPage }" var="p">
-				<a href="?pageNum=${p }&pageSize=${searchVO.pageSize }">[${p }]</a>
-			</c:forEach>
-			
-			<c:if test="${searchVO.endPage < searchVO.pageCount}">
-				<a href="?pageNum=${searchVO.startPage + searchVO.pageBlock }&pageSize=${searchVO.pageSize }" >[다음]</a>
-			</c:if>
-			
-			<form name="searchFr" method="post">
-				<select name="type">
-					<option value="1">제목</option>
-					<option value="2">내용</option>
-					<option value="3">제목+내용</option>
-				</select>
-				
-				<input type="search" name="search"><input type="submit" value="검색하기">
-			</form>
-		</c:otherwise>
-	
-	</c:choose>
 
 
-
-	
+	<script src="/resources/jps/js/pageProcess.js"></script>
 	
 	
 	</div>

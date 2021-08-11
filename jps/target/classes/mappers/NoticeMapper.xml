@@ -59,7 +59,7 @@
 	</select>
 	
 	<select id="noticeCountOfSC" resultType="int">
-		select count(*) notice where concat(notice_subject, notice_content) like '%${search}%'
+		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
 	</select>
 	
 	
