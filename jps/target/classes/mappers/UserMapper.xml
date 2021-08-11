@@ -72,7 +72,7 @@
 
 <!-- 	<sql id="drop"> -->
 <!-- 		create event if not exists de_#{user_num} on schedule at current_timestamp+interval 1 month do delete from user where user_num = #{user_num} -->
-<!-- 	</sql> -->
+<!-- 	</sql> --> 
 	
 	<select id="drop" resultType="java.util.Map" parameterType="java.lang.Integer">
 		create event if not exists de_#{user_num} on schedule at current_timestamp+interval 1 month do delete from user where user_num = #{user_num}
