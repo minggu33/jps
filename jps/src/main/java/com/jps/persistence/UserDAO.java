@@ -42,4 +42,9 @@ public interface UserDAO {
 	
 	public List<ItemVO> getmbList(String user_num);
 
+	public void changeUser_state(String user_num);
+	
+	public void cancel(UserVO vo);
+	
+	public void change1(String user_num);
 }

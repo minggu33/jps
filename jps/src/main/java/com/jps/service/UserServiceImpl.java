@@ -126,9 +126,26 @@ public class UserServiceImpl implements UserService {
 	public List<ItemVO> getmbList(String user_num) throws Exception {
 		System.out.println("S : getmbList(user_num) 호출 ");	
 		return udao.getmbList(user_num);
-	};
+	}
 
+	@Override
+	public void change(String user_num) throws Exception {
+		udao.changeUser_state(user_num);
+	}
 
+	@Override
+	public void cancel(UserVO vo) throws Exception {
+		udao.cancel(vo);
+	}
+
+	@Override
+	public void change1(String user_num) throws Exception {
+		udao.change1(user_num);
+	}
+
+	
+	
+	
 	
 	
 }

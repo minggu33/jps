@@ -39,5 +39,11 @@ public interface UserService {
 	public List<ItemVO> getMyItemList(String user_num) throws Exception;
 	
 	public List<ItemVO> getmbList(String user_num) throws Exception;
+	
+	public void change(String user_num) throws Exception;
+	
+	public void cancel(UserVO vo) throws Exception;
+	
+	public void change1(String user_num) throws Exception;
 
 }

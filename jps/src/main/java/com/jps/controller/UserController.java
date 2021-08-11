@@ -376,8 +376,13 @@ public class UserController {
 		
 		// 회원탈퇴
 		@RequestMapping(value = "/drop", method = RequestMethod.GET)
-		public void dropGET(HttpSession session) throws Exception {
+		public void dropGET(HttpSession session, Model model) throws Exception {
 			System.out.println("회원탈퇴 페이지 요청");
+			String user_num = (String) session.getAttribute("user_num");
+			UserVO infoVO = service.infoUser(user_num);
+			
+			model.addAttribute("infoVO", infoVO);
+
 		}
 		
 		@RequestMapping(value="/drop", method = RequestMethod.POST)
@@ -401,7 +406,10 @@ public class UserController {
 				return null;
 			}
 			
-			// 유저테이블 user_state값 -10으로 변경해주는거 추가
+			// 유저테이블 user_state값 -10으로 변경
+			service.change(user_num);
+			// 유저테이블 user_state값 -10으로 변경
+			
 			System.out.println("실행");
 			service.event(user_num);
 			
@@ -413,5 +421,28 @@ public class UserController {
 
 			
 			return null;
+		}
+		
+		@RequestMapping(value="/cancel", method=RequestMethod.POST)
+		public void cancelPOST(HttpSession session, HttpServletResponse resp, UserVO vo) throws Exception{
+			String user_num = (String) session.getAttribute("user_num");
+			
+			System.out.println("회원탈퇴취소 요청 회원번호 : "+user_num);
+			vo.setUser_num(user_num);
+			
+			UserVO loginVO = service.drop(vo);
+			
+			System.out.println("요청정보 : "+loginVO);
+			
+			if(loginVO == null) {
+				resp.setContentType("text/html; charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("1");
+				out.flush();
+			}else {
+			
+			service.cancel(vo);
+			service.change1(user_num);
+			}
 		}
 }

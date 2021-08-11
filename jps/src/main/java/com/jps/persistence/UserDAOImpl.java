@@ -164,6 +164,22 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
+	@Override
+	public void changeUser_state(String user_num) {
+		sqlSession.update(namespace+".change", user_num);
+	}
+
+	@Override
+	public void cancel(UserVO vo) {
+		sqlSession.insert(namespace+".cancel", Integer.parseInt(vo.getUser_num()));
+	}
+
+	@Override
+	public void change1(String user_num) {
+		sqlSession.update(namespace+".change1", user_num);
+	}
+
+	
 	
 	
 	
