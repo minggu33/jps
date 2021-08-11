@@ -28,25 +28,26 @@
 		
 		<table class="noticeList">
 			<tr>
-				<td class="notice_num">글 번호</td>
-				<td class="notice_name">글 제목</td>
-				<td class="notice_category">글 작성일</td>
-				<td class="notice_price">글</td>
-				<td class="notice_create_date">글</td>
-				<td class="notice_readcount">조회수</td>
+				<td class="notice_num">번호</td>
+				<td class="notice_subject">글 제목</td>
+				<td class="notice_date">글 작성일</td>
+				<td class="notice_count">조회수</td>
+				<td class="notice_d">신고 횟수</td>
+				<td class="notice_delete">삭제</td>
 				<td class="notice_etc">비고</td>
 			</tr>
-<%-- 		<c:forEach var="NoticeVO" items="${noticelist }"> --%>
-<!-- 			<tr> -->
-<%-- 				<td class="notice_num">${NoticeVO.item_num }</td> --%>
-<%-- 				<td class="notice_name">${NoticeVO.item_name }</td> --%>
-<%-- 				<td class="notice_category">${NoticeVO.item_category }</td> --%>
-<%-- 				<td class="notice_price">${NoticeVO.item_price }</td> --%>
-<%-- 				<td class="notice_create_date"><fmt:formatDate value="${NoticeVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td> --%>
-<%-- 				<td class="notice_readcount">${NoticeVO.item_read_count }</td> --%>
-<!-- 				<td class="notice_etc"></td> -->
-<!-- 			</tr> -->
-<%-- 		</c:forEach>  --%>
+		<c:forEach var="NoticeVO" items="${noticelist }">
+			<tr>
+				<td class="notice_num">${NoticeVO.notice_num }</td>
+				<td class="notice_subject">${NoticeVO.notice_subject }</td>
+				<td class="notice_date">${NoticeVO.notice_date }</td>
+				<td class="notice_count">${NoticeVO.notice_count }</td>
+				<td class="notice_d"></td>
+				<td class="notice_delete"></td>
+				<td class="notice_etc"></td>
+			
+			</tr>
+		</c:forEach> 
 		</table>
 	</div>
 

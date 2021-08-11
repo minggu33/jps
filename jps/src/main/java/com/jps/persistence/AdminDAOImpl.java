@@ -48,9 +48,7 @@ public class AdminDAOImpl implements AdminDAO{
 	
 	@Override
 	public List<NoticeVO> noticelist() {
-		// return sqlSession.selectList(namespace+".noticelist");
-		
-		return null;
+		return sqlSession.selectList(namespace+".noticelist");
 	}
 	
 	@Override
