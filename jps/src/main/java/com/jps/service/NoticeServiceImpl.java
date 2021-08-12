@@ -85,10 +85,53 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo) throws Exception {
+
+		System.out.println("S : noticeSearchOfSubject() 호출");
+		
+		return ndao.noticeSearchOfSubject(vo);
+	}
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo) throws Exception {
+		
+		System.out.println("S : noticeSearchOfContent() 호출");
+		
+		return ndao.noticeSearchOfContent(vo);
+	}
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo) throws Exception {
+
+		System.out.println("S : noticeSearchOfSC() 호출");
+		
+		return ndao.noticeSearchOfSC(vo);
+	}
 	
+	@Override
+	public int noticeCountOfSubject(searchVO vo) throws Exception {
+		
+		System.out.println("S : noticeCountOfSubject() 호출");
+		
+		return ndao.noticeCountOfSubject(vo);
+	}
 	
+	@Override
+	public int noticeCountOfContent(searchVO vo) throws Exception {
+
+		System.out.println("S : noticeCountOfContent() 호출");
+		
+		return ndao.noticeCountOfContent(vo);
+	}
+	
+	@Override
+	public int noticeCountOfSC(searchVO vo) throws Exception {
+
+		System.out.println("S : noticeCountOfSC() 호출");
+		
+		return ndao.noticeCountOfSC(vo);
+	}
 	
 	
 	

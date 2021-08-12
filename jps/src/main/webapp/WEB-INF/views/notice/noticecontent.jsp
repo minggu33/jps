@@ -18,19 +18,19 @@
 	<table class="table" style="width: 1000px;">
 		<tr>	
 			<th>작성일</th>
-			<td>${vo.notice_date }</td>
+			<td id="noticecontent-td">${vo.notice_date }</td>
 			<th>조회수</th>
-			<td>${vo.notice_count }</td>
+			<td id="noticecontent-td">${vo.notice_count }</td>
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td colspan="3">${vo.notice_subject }</td>
+			<td colspan="3" id="noticecontent-td">${vo.notice_subject }</td>
 		</tr>
 		<tr>
 			<th colspan="4">공지사항 내용</th>
 		</tr>
 		<tr>
-			<td colspan="4" rowspan="2" style="height: 200px;">${vo.notice_content }</td>
+			<td colspan="4" rowspan="2" style="height: 200px;" id="noticecontent-td">${vo.notice_content }</td>
 		</tr>
 	</table>
 	

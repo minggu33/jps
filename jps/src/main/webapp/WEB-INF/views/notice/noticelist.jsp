@@ -18,7 +18,13 @@
 
 	<input type="submit" class="noticelist-write" value="글쓰기" onclick="location.href='./noticeWrite'" >
 	
-	<table class="table" style="width: 1300px; text-align: center;">
+	<!-- 리스트 갯수 -->
+	<jsp:include page="../include/listCntPro.jsp">
+		<jsp:param value="${searchVO }" name="searchVO"/>
+	</jsp:include>
+	<!-- 리스트 갯수 -->
+	
+	<table class="table" >
 		<tr>
 			<th>글 번호</th>
 			<th>제목</th>
@@ -28,26 +34,20 @@
 	<c:forEach var="NoticeVO" items="${noticelist }">
 		<tr>
 			<td width="100px;">${NoticeVO.notice_num }</td>
-			<td><a href="./noticecontent?notice_num=${NoticeVO.notice_num }">${NoticeVO.notice_subject }</a></td>
+			<td><a href="./noticecontent?notice_num=${NoticeVO.notice_num }&page_Num=${searchVO.pageNum}">${NoticeVO.notice_subject }</a></td>
 			<td>${NoticeVO.notice_date }</td>
 			<td>${NoticeVO.notice_count }</td>
 		</tr>
 	</c:forEach>	
 	</table>
 	
-	<c:if test="${searchVO.startRow } > ${searchVO.pageBlock }">
-		<a href="./noticelist?pageNum=${searchVO.startPage- searchVO.pageBlock }  " >[이전]</a>
-	</c:if>
+	<!-- 페이징처리 -->
+	<jsp:include page="../include/pagePro.jsp">
+		<jsp:param value="${searchVO }" name="searchVO"/>
+		<jsp:param value="${type }" name="type"/>
+	</jsp:include>
+	<!-- 페이징처리 -->
 	
-	<c:forTokens var="searchVO" items="${searchVO.pageCount }" delims=" ">
-		<a href="./noticelist?pageNum=${searchVO.pageCount }">[ ${searchVO.pageCount } ]</a>
-	</c:forTokens>
-	
-	
-	
-	<br>
-	공지사항 총개수 : ${searchVO.cnt }<br>
-	페이지 카운트 : ${searchVO.pageCount }
 
 <%@ include file="../include/footer.jsp" %>
 </body>

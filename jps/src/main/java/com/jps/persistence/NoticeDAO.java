@@ -23,4 +23,16 @@ public interface NoticeDAO {
 	
 	public int noticecount();
 	
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo);
+
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo);
+	
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo);
+	
+	public int noticeCountOfSubject(searchVO vo);
+	
+	public int noticeCountOfContent(searchVO vo);
+	
+	public int noticeCountOfSC(searchVO vo);
+	
 }

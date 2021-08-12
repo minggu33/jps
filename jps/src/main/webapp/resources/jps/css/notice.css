@@ -5,17 +5,14 @@
 }
 
 .table{
-/* 	text-align: center; */
-	width: 1200px;
+ 	text-align: center; 
+	width: 1200px !important; 
 	margin: auto;
 	margin-bottom: 10%;
 }
 
-.table1{
-/* 	text-align: center; */
-	width: 1200px;
-	margin: auto;
-	margin-bottom: 10%;
+.table #noticecontent-td {
+	text-align: left;
 }
 
 .table th {
