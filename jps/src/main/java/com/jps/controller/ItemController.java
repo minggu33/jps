@@ -100,10 +100,12 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model)throws Exception{
+	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model,ItemVO vo)throws Exception{
 		model.addAttribute("odvo", odvo);
+		model.addAttribute("vo", vo);
 		
 		System.out.println("주문상세페이지 호출");
-		
+		// 배열로 가져오게 수정
 	}
+	
 }

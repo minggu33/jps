@@ -92,10 +92,10 @@
 			<option value="105">105</option>
 		</select>
 		<br>
-		Count : <input type="number" name="count" id="count" value="1">
+		Count : <input type="number" name="order_detail_stock" id="count" value="1">
 		<br>
 		<input type="button" class="jjinmak" value="주문신청">
-		<input type="hidden" id="item_price" value="${vo.item_price}">
+		<input type="hidden" id="item_price" value="${vo.item_price}" name="item_price">
 		<div class="ni" style="display: none;">
 			Price : <content id="price"></content>
 			<br>
