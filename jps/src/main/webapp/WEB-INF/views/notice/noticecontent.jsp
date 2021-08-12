@@ -30,6 +30,10 @@
 			<th colspan="4">공지사항 내용</th>
 		</tr>
 		<tr>
+			<th>첨부파일</th>
+			<td colspan="3"><a href="location.href=./noticefiledown">${vo.notice_file }</a></td>
+		</tr>
+		<tr>
 			<td colspan="4" rowspan="2" style="height: 200px;" id="noticecontent-td">${vo.notice_content }</td>
 		</tr>
 	</table>
@@ -42,7 +46,7 @@
 		<input type="hidden" name="notice_num" value="${vo.notice_num}">
 	</form>
 	<form action="./noticedelete" class="noticecontent-form">
-		<input type="button" value="삭제" onclick="return confirm('공지사항을 삭제하시겠습니까?')">
+		<input type="submit" value="삭제" onclick="return confirm('공지사항을 삭제하시겠습니까?')">
 		<input type="hidden" name="notice_num" value="${vo.notice_num}">
 	</form>
 	
