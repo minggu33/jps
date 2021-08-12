@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!-- header -->
 <%@ include file="../include/header.jsp" %>
 <!-- header -->
@@ -55,7 +57,7 @@
                 <h3>${ItemVO.item_name }</h3>
                 <span>${ItemVO.item_category }</span>
               </div>
-              <img class="img-fluid" src="/resources/tmp/img/img_6.jpg">
+              <img class="img-fluid" src="/resources/jps/upload/insertItem/${fn:split(ItemVO.item_img,',')[0]}">
             </a>
           </div>
         </c:forEach>

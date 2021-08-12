@@ -1,5 +1,7 @@
 package com.jps.interceptor;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,9 +20,15 @@ public class adminInterceptor implements HandlerInterceptor {
 		if(state != null) {
 			if(state.equals("jpsadmin")) {
 				return true;
-			}			
+			} else {
+				response.sendRedirect("/home");
+			}
 		} else {
-			response.sendRedirect("/user/login");			
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script type=\"text/javascript\">alert('입장 권한이 없습니다.');");
+			out.print("location.href='/user/login'</script>");
+			out.close();
 		}
 		return false;
 	}

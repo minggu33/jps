@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jps.domain.NoticeVO;
+import com.jps.domain.searchVO;
 
 @Repository
 public class NoticeDAOImpl implements NoticeDAO{
@@ -28,9 +29,9 @@ public class NoticeDAOImpl implements NoticeDAO{
 	}
 	
 	@Override
-	public List<NoticeVO> noticelist() {
+	public List<NoticeVO> noticelist(searchVO vo) {
 		
-		return sqlSession.selectList(namespace+".noticelist");
+		return sqlSession.selectList(namespace+".noticelist", vo);
 	}
 	
 	@Override
@@ -66,7 +67,24 @@ public class NoticeDAOImpl implements NoticeDAO{
 		
 	}
 	
+	@Override
+	public void addreadcount(int notice_num) {
+		
+		sqlSession.update(namespace+".addreadcount", notice_num);
+		
+		System.out.println("DAO : 조회수 증가 + 1");
+		
+	}
 	
+	@Override
+	public int noticecount() {
+		
+		int count = sqlSession.selectOne(namespace+".noticecount");
+		
+		System.out.println("DAO : 공지사항 글 개수 카운트");
+		
+		return count;
+	}
 	
 	
 	

@@ -23,4 +23,20 @@
 		 values(#{item_num},#{item_size},#{item_color},#{item_stock})
 	</insert>
 	
+	<select id="userlist" resultType="com.jps.domain.UserVO">
+		select * from user
+	</select>
+	
+	<update id="updatePoint">
+		update user set user_point=user_point+#{user_point} where user_num=#{user_num}
+	</update>
+	
+	<update id="resetPW">
+		update user set user_pw="asd123" where user_num=#{user_num}
+	</update>
+	
+	<update id="updateState">
+		update user set user_state=#{user_state} where user_num=#{user_num}
+	</update>
+	
 </mapper>
