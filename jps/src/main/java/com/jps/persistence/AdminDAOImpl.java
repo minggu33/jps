@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.NoticeVO;
 import com.jps.domain.UserVO;
+import com.jps.domain.searchVO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -40,8 +42,13 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public List<UserVO> userlist() {
-		return sqlSession.selectList(namespace+".userlist");
+	public List<UserVO> userlist(searchVO vo) {
+		return sqlSession.selectList(namespace+".userlist", vo);
+	}
+	
+	@Override
+	public List<NoticeVO> noticelist() {
+		return sqlSession.selectList(namespace+".noticelist");
 	}
 	
 	@Override
@@ -57,6 +64,26 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public int updateState(UserVO vo) {
 		return sqlSession.update(namespace+".updateState", vo);
+	}
+
+	@Override
+	public int getUserCnt() {
+		return sqlSession.selectOne(namespace+".userCnt");
+	}
+
+	@Override
+	public int getItemCnt() {
+		return sqlSession.selectOne(namespace+".itemCnt");
+	}
+
+	@Override
+	public int getNoticeCnt() {
+		return sqlSession.selectOne(namespace+".noticeCnt");
+	}
+
+	@Override
+	public void insertNotice(NoticeVO vo) {
+		sqlSession.insert(namespace+".insertNotice", vo);
 	}
 	
 	

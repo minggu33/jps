@@ -24,7 +24,11 @@
 	</insert>
 	
 	<select id="userlist" resultType="com.jps.domain.UserVO">
-		select * from user
+		select * from user limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
+		select * from notice
 	</select>
 	
 	<update id="updatePoint">
@@ -39,4 +43,20 @@
 		update user set user_state=#{user_state} where user_num=#{user_num}
 	</update>
 	
+	<select id="userCnt" resultType="int">
+		select count(*) from user
+	</select>
+	
+	<select id="itemCnt" resultType="int">
+		select count(*) from item
+	</select>
+	
+	<select id="noticeCnt" resultType="int">
+		select count(*) from notice
+	</select>
+	
+	<insert id="insertNotice">
+		insert into notice (notice_subject, notice_content, notice_count, notice_date, notice_file, notice_important) 
+		values(#{notice_subject}, #{notice_content}, #{notice_count}, now(), #{notice_file}, #{notice_important})
+	</insert>
 </mapper>
