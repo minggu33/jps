@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<link href="/resources/jps/css/pagePro.css" rel="stylesheet">
 <body>
-
 	<div id="pageProcess">
 	
 			<c:if test="${searchVO.startPage > searchVO.pageBlock}">

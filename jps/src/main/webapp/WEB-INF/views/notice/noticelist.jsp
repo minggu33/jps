@@ -24,7 +24,7 @@
 	</jsp:include>
 	<!-- 리스트 갯수 -->
 	
-	<table class="table" style="width: 1300px; text-align: center;">
+	<table class="table" >
 		<tr>
 			<th>글 번호</th>
 			<th>제목</th>
@@ -47,7 +47,6 @@
 		<jsp:param value="${type }" name="type"/>
 	</jsp:include>
 	<!-- 페이징처리 -->
-	${searchVO.cnt }
 	
 
 <%@ include file="../include/footer.jsp" %>
