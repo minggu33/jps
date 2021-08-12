@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.NoticeVO;
 import com.jps.domain.UserVO;
+import com.jps.domain.searchVO;
 import com.jps.persistence.AdminDAO;
 
 @Service
@@ -28,8 +30,13 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<UserVO> userlist() throws Exception {
-		return adao.userlist();
+	public List<UserVO> userlist(searchVO vo) throws Exception {
+		return adao.userlist(vo);
+	}
+	
+	@Override
+	public List<NoticeVO> noticelist() throws Exception {
+		return adao.noticelist();
 	}
 
 	@Override
@@ -46,7 +53,25 @@ public class AdminServiceImpl implements AdminService{
 	public int updateState(UserVO vo) throws Exception {
 		return adao.updateState(vo);
 	}
-	
-	
+
+	@Override
+	public int getUserCnt() throws Exception {
+		return adao.getUserCnt();
+	}
+
+	@Override
+	public int getItemCnt() throws Exception {
+		return adao.getItemCnt();
+	}
+
+	@Override
+	public int getNoticeCnt() throws Exception {
+		return adao.getNoticeCnt();
+	}
+
+	@Override
+	public void insertNotice(NoticeVO vo) throws Exception {
+		adao.insertNotice(vo);
+	}
 	
 }

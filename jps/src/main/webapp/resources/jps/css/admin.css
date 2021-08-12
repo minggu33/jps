@@ -364,6 +364,51 @@ Sidebar Nav
   99%,to { transform: translate(-100%);}
 }
 
+.noticeList {
+	text-align: center;
+}
+
+.noticeList .notice_num{
+	width: 5%;
+}
+
+.noticeList .notice_subject{
+	width: 40%;
+}
+
+.noticeList .notice_date{
+	width: 15%;
+}
+
+.noticeList .notice_count{
+	width: 10%;
+}
+
+.noticeList .notice_d{
+	width: 10%;
+}
+
+.noticeList .notice_delete{
+	width: 10%;
+}
+
+.noticeList .notice_etc{
+	width: 10%;
+}
+
+.noticeList tr td {
+	border-bottom: 1px solid gray;
+}
+
+.noticeList tr:first-child td {
+	border-bottom: 2px solid gray;
+	background-color: #b9aab9;
+}
+
+.noticeList tr:not(:first-child):hover {
+	background-color: #e7e2e7;
+}
+
  /* The Modal (background) */
 .myModal {
 	position: fixed; /* Stay in place */

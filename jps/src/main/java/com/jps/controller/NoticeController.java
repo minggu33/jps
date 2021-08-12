@@ -1,13 +1,11 @@
 package com.jps.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
-import java.util.ArrayList;
+import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +29,8 @@ public class NoticeController {
 	// http://localhost:8090/notice/noticelist
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 	
+	private static final String UPLOAD_PATH = "/resources/jps/upload";
+	
 	@Inject
 	private NoticeService service;
 	
@@ -42,9 +41,6 @@ public class NoticeController {
 		
 		List<NoticeVO> noticelist = null;
 		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println(vo.toString());
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		if(vo.getType() == 1) {
 
 			vo.setPageInfo(vo, service.noticeCountOfSubject(vo));
@@ -78,50 +74,6 @@ public class NoticeController {
 		
 		return "/notice/noticelist";
 	}
-	
-//	@RequestMapping(value = "/noticelist", method = RequestMethod.POST)
-//	public String noticeListPOST(Model model, searchVO vo) throws Exception {
-//		
-//		logger.info("C: noticeListPOST() 호출");
-//		
-//		List<NoticeVO> noticelist = null;
-//		
-//		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//		System.out.println(vo.toString());
-//		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//		
-//		if(vo.getType() == 1) {
-//			
-//			vo.setPageInfo(vo, service.noticeCountOfSubject(vo));
-//			model.addAttribute("noticelist", service.noticeSearchOfSubject(vo));
-//			model.addAttribute("type", "search");
-//		} else if(vo.getType() == 2) {
-//			
-//			vo.setPageInfo(vo, service.noticeCountOfContent(vo));
-//			model.addAttribute("noticelist", service.noticeSearchOfContent(vo));
-//		
-//			model.addAttribute("type", "search");
-//		} else if(vo.getType() == 3) {
-//			
-//			vo.setPageInfo(vo, service.noticeCountOfSC(vo));
-//			model.addAttribute("noticelist", service.noticeSearchOfSC(vo));
-//		
-//			model.addAttribute("type", "search");
-//		} else {
-//			
-//			vo.setPageInfo(vo,service.noticecount());
-//			noticelist = service.noticelist(vo);
-//			model.addAttribute("noticelist", noticelist);
-//			System.out.println("검색안함...");
-//		}
-//		
-//
-//		model.addAttribute("searchVO", vo);
-//		
-//		System.out.println("C : "+vo);
-//		
-//		return "/notice/noticelist";
-//	}
 	
 	
 	@RequestMapping(value = "/noticeWrite", method = RequestMethod.GET)
@@ -208,30 +160,22 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/noticefiledown")
-	public void noticefiledown(@RequestParam Map<String, Object> map, HttpServletResponse response) throws Exception {
+	public void noticefiledown(@RequestParam Map<String, Object> map, HttpServletResponse response, HttpServletRequest req) throws Exception {
 		
+		logger.info("C: noticefiledown(map) 호출");
 		 Map<String, Object> resultMap = service.noticefiledown(map);
 
-	        String storedFileName = (String) resultMap.get("STORED_FILE_NAME");
-
-	        String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
-
+	        String notice_file = (String) resultMap.get("notice_file");
 	        
-
 	        // 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
 
-	        byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("D:\\IT\\board2_upload\\"+storedFileName));
+	        byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(req.getRealPath("/")+UPLOAD_PATH+"/insertNotice/"+notice_file));
 
 	        response.setContentType("application/octet-stream");
-
 	        response.setContentLength(fileByte.length);
-
-	        response.setHeader("Content-Disposition",  "attachment; fileName=\""+URLEncoder.encode(originalFileName, "UTF-8")+"\";");
-
+	        response.setHeader("Content-Disposition",  "attachment; fileName=\""+URLEncoder.encode(notice_file, "UTF-8")+"\";");
 	        response.getOutputStream().write(fileByte);
-
 	        response.getOutputStream().flush(); //flush() 메소드는 데이터를 비워주는 역할
-
 	        response.getOutputStream().close(); //close() 메소드는 닫아주는 역할
 
 	}
