@@ -436,7 +436,7 @@ public class UserController {
 			
 			if(loginVO == null) {
 				resp.setContentType("text/html; charset=utf-8");
-				PrintWriter out = resp.getWriter(); 
+				PrintWriter out = resp.getWriter();
 				out.println("1");
 				out.flush();
 			}else {
