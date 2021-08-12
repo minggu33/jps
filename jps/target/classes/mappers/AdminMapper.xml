@@ -24,11 +24,11 @@
 	</insert>
 	
 	<select id="userlist" resultType="com.jps.domain.UserVO">
-		select * from user limit #{startRow} , #{pageSize}
+		select * from user order by user_num limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
-		select * from notice
+		select * from notice order by notice_num desc;
 	</select>
 	
 	<update id="updatePoint">
