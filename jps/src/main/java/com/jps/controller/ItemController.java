@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
+import com.jps.domain.Order_detailVO;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
 
@@ -80,12 +83,6 @@ public class ItemController {
 		model.addAttribute("ivo_cnt", ivo_cnt);
 	}	
 	
-	@RequestMapping(value="/itemdetail", method = RequestMethod.POST)
-	public String itemdetailPOST(Item_detailVO dvo, RedirectAttributes rttr, Model model) throws Exception {
-		
-		
-		return "redirect:/item/order";
-	}
 	@RequestMapping(value="/like", method = RequestMethod.POST)
 	public void itemlikePOST(Item_likeVO ilvo, HttpSession session, HttpServletResponse resp) throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
@@ -102,8 +99,11 @@ public class ItemController {
 		ilservice.unlike(ilvo);
 	}
 	
-	@RequestMapping(value="/order", method = RequestMethod.GET)
-	public void itemorderGET()throws Exception{
+	@RequestMapping(value="/order", method = RequestMethod.POST)
+	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model)throws Exception{
+		model.addAttribute("odvo", odvo);
+		
 		System.out.println("주문상세페이지 호출");
+		
 	}
 }

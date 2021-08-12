@@ -74,17 +74,17 @@
 		</form>
 	</div>
 	<div class="orderdetail" style="display: none;">
-	<form name="fr" action="./itemdetail" method="post" onsubmit="return check();">
+	<form name="fr" action="./order" method="post" onsubmit="return check();">
 	Name : ${vo.item_name }
 	<br>
-		Color : <select name="color">
+		Color : <select name="order_detail_color">
 				<option value="">Choose color</option>
 				<option value="black">Black</option>
 				<option value="white">White</option>
 				<option value="gray">Gray</option>
 			</select>
 			<br>
-		Size : <select name="size">
+		Size : <select name="order_detail_size">
 			<option value="">Choose size</option>
 			<option value="90">90</option>
 			<option value="95">95</option>
