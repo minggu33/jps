@@ -153,6 +153,7 @@
       <td>가입일자</td>
       <td><strong>${infoVO.user_join_date }</strong></td>
     </tr>
+    
     </tbody>
   </table>
   

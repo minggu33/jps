@@ -83,6 +83,20 @@
 		select * from item where item_num in (select item_num from basket where user_num=#{user_num})
 	</select>
 	
+
+	<update id="change">
+		update user set user_state=-10 where user_num=#{user_num}
+	</update>
+	
+	<select id="cancel" resultType="java.util.Map" parameterType="java.lang.Integer">
+		drop event de_#{user_num }
+	</select>
+	
+	<update id="change1">
+		update user set user_state=1 where user_num=#{user_num}
+	</update>
+	
+
 	
 	<resultMap type="com.jps.domain.ItemVO" id="ItemVO">
 		<result column="item_num" property="item_num" />
@@ -90,6 +104,7 @@
 		<result column="item_img" property="item_img" />
 		<result column="item_point" property="item_point" />
 		<result column="item_price" property="item_price" />
+>>>>>>> branch 'master' of https://github.com/minggu33/jps.git
 		
 	</resultMap>
 	
