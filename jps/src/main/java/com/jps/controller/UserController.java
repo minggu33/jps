@@ -47,7 +47,7 @@ public class UserController {
 	
 	
 	// http://localhost:8080/user/login
-	// 로그인페이지(get)
+	// 로그인페이지(get) 
 	@RequestMapping(value="/login", method= RequestMethod.GET)
 	public String loginGET() throws Exception{
 		logger.info("C : loginGET() 페이지 호출 ");
