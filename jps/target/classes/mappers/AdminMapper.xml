@@ -55,4 +55,8 @@
 		select count(*) from notice
 	</select>
 	
+	<insert id="insertNotice">
+		insert into notice (notice_subject, notice_content, notice_count, notice_date, notice_file, notice_important) 
+		values(#{notice_subject}, #{notice_content}, #{notice_count}, now(), #{notice_file}, #{notice_important})
+	</insert>
 </mapper>

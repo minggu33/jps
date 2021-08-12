@@ -29,5 +29,7 @@ public interface AdminService {
 	public int getItemCnt() throws Exception;
 	
 	public int getNoticeCnt() throws Exception;
+	
+	public void insertNotice(NoticeVO vo) throws Exception;
 
 }

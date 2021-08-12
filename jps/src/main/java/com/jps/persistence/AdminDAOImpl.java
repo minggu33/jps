@@ -80,6 +80,11 @@ public class AdminDAOImpl implements AdminDAO{
 	public int getNoticeCnt() {
 		return sqlSession.selectOne(namespace+".noticeCnt");
 	}
+
+	@Override
+	public void insertNotice(NoticeVO vo) {
+		sqlSession.insert(namespace+".insertNotice", vo);
+	}
 	
 	
 	

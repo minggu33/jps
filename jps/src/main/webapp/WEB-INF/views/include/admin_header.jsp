@@ -32,6 +32,8 @@
 					<ul class="nav-flyout">
 						<li><a href="/admin/noticelist"><i class="ion-ios-flame-outline"></i>전체 게시글</a>
 						</li>
+						<li><a href="/admin/insertnotice"><i class="ion-ios-flame-outline"></i>공지사항 쓰기</a>
+						</li>
 						<li><a href="#"><i class="ion-ios-lightbulb-outline"></i>신고 게시글</a>
 						</li>
 					</ul></li>

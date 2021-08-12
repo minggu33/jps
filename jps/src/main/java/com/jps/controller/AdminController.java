@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.NoticeVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 import com.jps.service.AdminService;
@@ -36,7 +37,7 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	private static final String UPLOAD_PATH = "/resources/jps/upload/insertItem";
+	private static final String UPLOAD_PATH = "/resources/jps/upload";
 	
 	@Inject
 	private AdminService service;
@@ -70,7 +71,7 @@ public class AdminController {
 				continue;
 			}
 			
-			item_img += saveFile(uploadfile[i], req.getRealPath("/"));
+			item_img += saveFile(uploadfile[i], req.getRealPath("/"), "/insertItem");
 			
 			if(i == (uploadfile.length - 1)) {
 				break;
@@ -105,7 +106,7 @@ public class AdminController {
 		return "redirect:/admin/itemlist";
 	}
 	
-	private String saveFile(MultipartFile file, String realpath){
+	private String saveFile(MultipartFile file, String realpath, String mainpath){
 		
 		UUID uuid = UUID.randomUUID();
 		
@@ -116,7 +117,7 @@ public class AdminController {
 	    logger.info(realpath+UPLOAD_PATH);
 
 	    // 저장할 File 객체를 생성(껍데기 파일)
-	    File saveFile = new File(realpath+UPLOAD_PATH,saveName); // 저장할 폴더 이름, 저장할 파일 이름
+	    File saveFile = new File(realpath+UPLOAD_PATH+mainpath,saveName); // 저장할 폴더 이름, 저장할 파일 이름
 
 	    try {
 	        file.transferTo(saveFile); // 업로드 파일에 saveFile이라는 껍데기 입힘
@@ -182,5 +183,25 @@ public class AdminController {
 		logger.info("C : adminNoticeListGET() 호출");
 		model.addAttribute("noticelist", service.noticelist());
 		return "/admin/admin_noticeList";
+	}
+	
+	@RequestMapping(value = "/insertnotice", method = RequestMethod.GET)
+	public String adminInsertNoticeGET() {
+		logger.info("C : adminInsertNoticeGET() 호출");
+		return "/admin/admin_insertNotice";
+	}
+	
+	@RequestMapping(value = "/insertnotice", method = RequestMethod.POST)
+	public String adminInsertNoticePOST(NoticeVO vo, MultipartFile uploadfile,
+			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
+		logger.info("C : adminInsertNoticePOST() 호출");
+		
+		vo.setNotice_file(saveFile(uploadfile, req.getRealPath("/"), "/insertNotice"));
+		
+		service.insertNotice(vo);
+		
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/admin/noticelist";
 	}
 }

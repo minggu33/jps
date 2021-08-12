@@ -68,7 +68,10 @@ public class AdminServiceImpl implements AdminService{
 	public int getNoticeCnt() throws Exception {
 		return adao.getNoticeCnt();
 	}
-	
-	
+
+	@Override
+	public void insertNotice(NoticeVO vo) throws Exception {
+		adao.insertNotice(vo);
+	}
 	
 }

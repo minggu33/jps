@@ -29,4 +29,6 @@ public interface AdminDAO {
 	public int getItemCnt();
 
 	public int getNoticeCnt();
+	
+	public void insertNotice(NoticeVO vo);
 }
