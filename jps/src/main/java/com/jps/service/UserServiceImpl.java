@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 import com.jps.persistence.UserDAO;
 
@@ -102,8 +103,50 @@ public class UserServiceImpl implements UserService {
 		System.out.println("S : getMyBasketList(user_num) 호출 ");
 		
 		return udao.getMyBasketList(user_num);	
-	};
+	}
 
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return udao.drop(vo);
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		
+		udao.event(user_num);
+	}
+
+	public List<ItemVO> getMyItemList(String user_num) throws Exception {
+		System.out.println("S : getMyItemList(user_num) 호출 ");		
+		
+		return udao.getMyItemList(user_num);
+	}
+
+	@Override
+	public List<BasketVO> getmbList(String user_num) throws Exception {
+		System.out.println("S : getmbList(user_num) 호출 ");
+		System.out.println("S : " + udao.getmbList(user_num));
+		return udao.getmbList(user_num);
+	}
+
+	@Override
+	public void change(String user_num) throws Exception {
+		udao.changeUser_state(user_num);
+	}
+
+	@Override
+	public void cancel(UserVO vo) throws Exception {
+		udao.cancel(vo);
+	}
+
+	@Override
+	public void change1(String user_num) throws Exception {
+		udao.change1(user_num);
+	}
+
+	
+	
+	
 	
 	
 }

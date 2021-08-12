@@ -330,3 +330,40 @@ function nickChange(){
 	});
 }
 
+
+// 장바구니 삭제 ajax
+$(function(){
+	$(document).on("click","[id*=bkd]",function(){
+        	var trNum = $(this).closest('tr').prevAll().length;
+        	var inputvalue = document.getElementsByClassName('basket_item_num')[trNum];
+  	
+		$.ajax({
+			url:"/basket/basketdelete",
+			type:"post",
+			data:{"item_num":inputvalue.value},
+			success:function(){
+				alert("장바구니 out!!");
+				location.reload();
+			}
+		});
+	});
+});
+
+$(function(){
+	$(document).on("click",".cancel", function(){
+			$.ajax({
+				url:"/user/cancel",
+				type:"post",
+				data:{"user_id":document.fr.user_id.value, "user_pw":document.fr.user_pw.value},
+				success:function(data){
+					if(data == 1){
+						alert("정보 불일치");
+						history.back();
+					}else{
+					alert("탈퇴 취소 완료.");
+					location.href="/user/info";
+					}
+				}
+			});
+	});
+});

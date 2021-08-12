@@ -35,10 +35,10 @@ public class ItemController {
 	@Inject
 	private Item_likeService ilservice;
 	
-	@RequestMapping(value = "/item", method = RequestMethod.GET) 
+	// @RequestMapping(value = "/item", method = RequestMethod.GET) 
 	public void itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
 	
-	@RequestMapping(value ="/item", method=RequestMethod.POST)
+	// @RequestMapping(value ="/item", method=RequestMethod.POST)
 	public String itemPOST(ItemVO vo, RedirectAttributes rttr, Model model, HttpSession session) throws Exception {
 		String user_num = (String) session.getAttribute("user_num");
 		
@@ -91,7 +91,7 @@ public class ItemController {
 		String user_num = (String) session.getAttribute("user_num");
 		System.out.println("like 동작 회원 번호 : "+user_num);
 		ilvo.setUser_num(user_num);
-		ilservice.like(ilvo);
+		ilservice.like(ilvo); 
 	}
 	
 	@RequestMapping(value="/unlike", method = RequestMethod.POST)

@@ -8,11 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jps.domain.BasketVO;
+import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-
+ 
 	@Inject
 	private SqlSession sqlSession;
 
@@ -133,7 +134,55 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");
 		
 		return sqlSession.selectList(namespace+".getMyBasketList", user_num);
+	}
+	@Override
+	public List<ItemVO> getMyItemList(String user_num) {
+		System.out.println("DAO :  getMyItemList() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		return sqlSession.selectList(namespace+".getMyItemList", user_num);
+	}
+
+	@Override
+	public List<BasketVO> getmbList(String user_num) {
+		System.out.println("DAO :  getmbList() 호출");
+		System.out.println("DAO :  DB연결 sqlSession, mapper 사용 sql구문 실행");		
+		
+		System.out.println("DAO : " + sqlSession.selectList(namespace+".getmbList", user_num));
+		
+		return sqlSession.selectList(namespace+".getmbList", user_num);
 	};
 
+
+	@Override
+	public UserVO drop(UserVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".loginUser", vo);
+		
+	}
+
+	@Override
+	public void event(String user_num) throws Exception {
+		sqlSession.insert(namespace+".drop", Integer.parseInt(user_num));
+		
+	}
+
+	@Override
+	public void changeUser_state(String user_num) {
+		sqlSession.update(namespace+".change", user_num);
+	}
+
+	@Override
+	public void cancel(UserVO vo) {
+		sqlSession.insert(namespace+".cancel", Integer.parseInt(vo.getUser_num()));
+	}
+
+	@Override
+	public void change1(String user_num) {
+		sqlSession.update(namespace+".change1", user_num);
+	}
+
+	
+	
+	
 	
 }

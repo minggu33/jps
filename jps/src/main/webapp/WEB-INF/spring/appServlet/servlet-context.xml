@@ -43,5 +43,10 @@
 			<beans:ref bean="adminInterceptor" />
 		</interceptor>
 	</interceptors>
+	
+	<!-- 브라우저가 multipart/form-data 데이터로 보내는
+    파일을 처리하기 위한 MultipartResolver 클래스를 bean으로 등록 -->
+	<beans:bean id="multipartResolver"
+            class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 </beans:beans>

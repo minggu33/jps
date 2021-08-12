@@ -1,9 +1,6 @@
 package com.jps.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -22,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jps.domain.BasketVO;
-import com.jps.domain.ItemVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -264,10 +259,20 @@ public class UserController {
 			
 			
 			// 나의 장바구니 목록 불러오기 
-			model.addAttribute("BasketList", service.getMyBasketList(user_num));
+//			model.addAttribute("BasketList", service.getMyBasketList(user_num));
 			
 			// 아이템 정보 불러오기
-			// model.addAttribute("itemList", service.getMyItemList(user_num));
+//			model.addAttribute("ItemList", service.getMyItemList(user_num));
+			
+			model.addAttribute("mbList", service.getmbList(user_num));
+			
+//			List BasketList = service.getMyBasketList(user_num);
+//			List ItemList =  service.getMyItemList(user_num);
+//			
+//			ItemList.add(BasketList);
+//					
+//			
+//			model.addAttribute("mblist", ItemList);
 			
 			// 유저 정보 저장 
 			model.addAttribute("infoVO", service.infoUser(user_num));
@@ -364,6 +369,75 @@ public class UserController {
 			
 		}
 		
+		// 회원탈퇴
+		@RequestMapping(value = "/drop", method = RequestMethod.GET)
+		public void dropGET(HttpSession session, Model model) throws Exception {
+			System.out.println("회원탈퇴 페이지 요청");
+			String user_num = (String) session.getAttribute("user_num");
+			UserVO infoVO = service.infoUser(user_num);
+			
+			model.addAttribute("infoVO", infoVO);
+
+		}
 		
+		@RequestMapping(value="/drop", method = RequestMethod.POST)
+		public String dropPOST(UserVO vo, HttpSession session, HttpServletResponse resp) throws Exception{
+			String user_num = (String) session.getAttribute("user_num");
+			
+			System.out.println("회원탈퇴 요청 회원번호 : "+user_num);
+			vo.setUser_num(user_num);
+			
+			UserVO loginVO = service.drop(vo);
+			
+			
+			
+			if(loginVO == null) {
+				resp.setContentType("text/html; charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>alert('아이디/비밀번호가 일치하지않습니다.'); ");
+				out.println("location.href='/user/info';</script>");
+				out.flush();
+				
+				return null;
+			}
+			
+			// 유저테이블 user_state값 -10으로 변경
+			service.change(user_num);
+			// 유저테이블 user_state값 -10으로 변경
+			
+			System.out.println("실행");
+			service.event(user_num);
+			
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('한달뒤에 정상처리 됩니다.');");
+			out.println("location.href='/home';</script>");
+			out.flush();
+
+			
+			return null;
+		}
 		
+		@RequestMapping(value="/cancel", method=RequestMethod.POST)
+		public void cancelPOST(HttpSession session, HttpServletResponse resp, UserVO vo) throws Exception{
+			String user_num = (String) session.getAttribute("user_num");
+			
+			System.out.println("회원탈퇴취소 요청 회원번호 : "+user_num);
+			vo.setUser_num(user_num);
+			
+			UserVO loginVO = service.drop(vo);
+			
+			System.out.println("요청정보 : "+loginVO);
+			
+			if(loginVO == null) {
+				resp.setContentType("text/html; charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("1");
+				out.flush();
+			}else {
+			
+			service.cancel(vo);
+			service.change1(user_num);
+			}
+		}
 }

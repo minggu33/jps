@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>${vo.item_category }</td>
-			<td>${vo.item_price } ₩</td>
+			<td>${vo.item_price } </td>
 			<td>${vo.item_create_date }</td>
 		</tr>
 	</table>
