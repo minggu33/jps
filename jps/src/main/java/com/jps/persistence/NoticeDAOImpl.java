@@ -86,8 +86,46 @@ public class NoticeDAOImpl implements NoticeDAO{
 		return count;
 	}
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목검색 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfSubject", vo);
+	}
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 내용검색 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfContent", vo);
+	}
 	
+	@Override
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목+내용 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfSC", vo);
+	}
+	
+	@Override
+	public int noticeCountOfSubject(searchVO vo) {
+		System.out.println("DAO : 공지사항 제목검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfSubject", vo);
+	}
+	
+	@Override
+	public int noticeCountOfContent(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 내용검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfContent", vo);
+	}
+	
+	@Override
+	public int noticeCountOfSC(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목+내용검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfSC", vo);
+	}
 	
 	
 	

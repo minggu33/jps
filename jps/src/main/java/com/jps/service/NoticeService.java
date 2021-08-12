@@ -23,4 +23,18 @@ public interface NoticeService {
 	
 	public int noticecount() throws Exception;
 	
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo) throws Exception;
+	
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo) throws Exception;
+	
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo) throws Exception;
+	
+	public int noticeCountOfSubject(searchVO vo) throws Exception;
+	
+	public int noticeCountOfContent(searchVO vo) throws Exception;
+	
+	public int noticeCountOfSC(searchVO vo) throws Exception;
+	
+	
+	
 }

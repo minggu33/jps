@@ -39,6 +39,13 @@ public interface UserDAO {
 	public void event(String user_num) throws Exception;
 
 	public List<ItemVO> getMyItemList(String user_num);
+
+	public void changeUser_state(String user_num);
 	
+	public void cancel(UserVO vo);
+	
+	public void change1(String user_num);
+
 	public List<BasketVO> getmbList(String user_num);
+
 }
