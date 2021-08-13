@@ -20,6 +20,8 @@
             <h2>Hi, it's our Best Items.</h2>
             <p class="mb-0">Creative &amp; Reliable Goods Provided</p>
           </div>
+              <a href="/notice/noticelist" data-aos="fade-up">공지사항</a>
+              
           <div class="col-md-12 col-lg-6 text-left text-lg-right" data-aos="fade-up" data-aos-delay="100">
             <div id="filters" class="filters">
               <a href="#" data-filter="*" class="active">All</a>
