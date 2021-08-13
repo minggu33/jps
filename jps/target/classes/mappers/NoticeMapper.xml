@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
-		select * from notice order by notice_num desc limit #{startRow} , #{pageSize}
+		select * from notice order by notice_important desc, notice_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="noticecontent" resultType="com.jps.domain.NoticeVO">

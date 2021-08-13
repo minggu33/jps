@@ -31,7 +31,7 @@ public class NoticeDAOImpl implements NoticeDAO{
 	
 	@Override
 	public List<NoticeVO> noticelist(searchVO vo) {
-		
+		System.out.println("DAO :  noticelist(vo) 호출");
 		return sqlSession.selectList(namespace+".noticelist", vo);
 	}
 	

@@ -32,13 +32,17 @@
 	text-align: center;
 }
 
+#noticelist-important {
+	width: 5% !important;
+}
+
 .noticecontent-h3 {
 	text-align: center;
 	margin-bottom: 30px;
 }
 
 .noticecontent-btn {
-	margin-left: 70%;
+	margin-left: 77%;
 	margin-bottom: 3%;
 }
 
