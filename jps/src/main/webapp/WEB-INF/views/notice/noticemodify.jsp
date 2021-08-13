@@ -14,6 +14,7 @@
 	<h3 class="noticemodify-h3"> 공지사항 수정 </h3>
 	
 	<form class="noticemodify-form" method="post">
+		<input type="checkbox" id="noticemodify-important" name="notice_important" value="1"> 중요 <br>
 		제목 : <input type="text" class="noticemodify-subject" name="notice_subject" value="${vo.notice_subject }">
 		<br><br>
 		내용 : <br>
