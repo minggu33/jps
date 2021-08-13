@@ -142,6 +142,14 @@
 			</tr>
 		</c:forEach> 
 		</table>
+		
+		<!-- 페이징처리 -->
+		<jsp:include page="../include/pagePro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+			<jsp:param value="${type }" name="type"/>
+		</jsp:include>
+		<!-- 페이징처리 -->
+		
 	</div>
 
  
