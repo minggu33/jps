@@ -36,7 +36,7 @@ $(function(){
 			$.ajax({
 				url:"/basket/basket",
 				type:"post",
-				data:{"item_num":document.fr2.item_num.value, "item_color":document.fr2.basket_color.value, "item_size":document.fr2.basket_size.value, "item_count":document.fr2.basket_count.value},
+				data:{"item_num":document.fr2.item_num.value, "item_detail_idx":document.fr2.item_detail_idx.value, "item_count":document.fr2.basket_count.value},
 				success:function(data){
 					alert("장바구니 담기 완료");
 					location.reload();						

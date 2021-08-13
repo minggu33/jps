@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,15 +50,18 @@
 	<div class="cart-cont">
 	<div class="cart-count">
 	전체 
-	<strong>${BasketList.size() }</strong>
+	<strong>${mbList.size() }</strong>
 	개	
 	</div>
 	
-	 <table border="1">
+	 <table class="cart-table">
 	 <thead>
 		 <tr>
 		 	<th>번호</th>
-		 	<th>checkbox</th>
+		 	<th style="cursor: pointer;">
+		 	<input type="checkbox" class="chk_all">
+		 	</th>
+		 	<th>상품</th>
 		 	<th>상품명(옵션)</th>
 		 	<th>판매가</th>
 		 	<th>주문금액<br>(적립예정)</th>
@@ -69,23 +74,25 @@
 
 
 	 		<td>${status.count }</td>
-			<td></td>
+			<td>
+			<input type="checkbox" class="chk">
+			</td>
 	 	
 	 		<td>
-	 		
-	 		${il.itemvo.item_name }
+	 	 <img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(il.itemvo.item_img,',')[0]}">
+			</td>
+			<td style="text-align: left; padding-left:15px; ">
+	 		<strong>${il.itemvo.item_name }&nbsp;(${il.item_color} )</strong>
+	 		<br>
+	 		size:${il.item_size }
 	 		
 	 		</td>
 
 	 		<td>${il.itemvo.item_price }</td>
 	 		<td>${il.itemvo.item_price }</td>
-	 		<td></td>
-	 		<td></td>
-
+	 		<td>${il.item_count }</td>
 	 		
 
-	 		
-	 		
 
 	 			<td>
 	 			<input type="hidden" value="${il.itemvo.item_num }" name="in" class="basket_item_num">

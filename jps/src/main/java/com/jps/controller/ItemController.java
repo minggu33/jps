@@ -86,6 +86,7 @@ public class ItemController {
 		
 		model.addAttribute("vo", vo);
 		model.addAttribute("ivo_cnt", ivo_cnt);
+		model.addAttribute("idL",service.getItemDetail(item_num));
 	}	
 	
 	@RequestMapping(value="/like", method = RequestMethod.POST)
