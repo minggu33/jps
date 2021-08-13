@@ -67,12 +67,10 @@ $(function(){
 // 주문하기 유효성
 $(function(){
 	$(document).on("click", ".jjinmak", function(){
-		if(document.fr.order_detail_color.value == ""){
-		alert("색상을 선택해주세요.");
+		if(document.fr.order_detail_stock.value == ""){
+		alert("옵션을 선택해주세요.");
 		return false;
-			}else if(document.fr.order_detail_size.value==""){
-				alert("사이즈를 선택해주세요.");
-				return false;
+			
 			}else if(document.fr.count.value==""){
 				alert("수량을 작성해주세요.");
 				return false;

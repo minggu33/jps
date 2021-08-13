@@ -108,7 +108,7 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
+	public void itemorderGET(Order_detailVO odvo,Item_detailVO idvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
 		String referer = (String) req.getHeader("REFERER");
 		System.out.println("이전페이지 주소"+referer);
@@ -118,6 +118,15 @@ public class ItemController {
 			model.addAttribute("mbList", uservice.getmbList(user_num));
 			
 		}else {
+			int idx = idvo.getItem_detail_idx();
+			Item_detailVO idVO = new Item_detailVO();
+			idVO = service.getItemSC(idx);
+			
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println(idx);
+			
+			odvo.setOrder_detail_color(idVO.getItem_color());
+			odvo.setOrder_detail_size(idVO.getItem_size());
 			model.addAttribute("odvo", odvo);
 			model.addAttribute("vo", vo);
 		}
