@@ -49,7 +49,7 @@ public interface UserService {
 
 	public List<BasketVO> getmbList(String user_num) throws Exception;
 	
-	public List<Item_likeVO> like(String user_num) throws Exception;
+	public List<ItemVO> like(String user_num) throws Exception;
 
 
 }

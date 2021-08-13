@@ -49,6 +49,6 @@ public interface UserDAO {
 
 	public List<BasketVO> getmbList(String user_num);
 	
-	public List<Item_likeVO> like(String user_num);
+	public List<ItemVO> like(String user_num);
 
 }

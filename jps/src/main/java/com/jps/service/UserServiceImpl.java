@@ -146,7 +146,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<Item_likeVO> like(String user_num) throws Exception {
+	public List<ItemVO> like(String user_num) throws Exception {
 		
 		
 		return udao.like(user_num);

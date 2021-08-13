@@ -240,13 +240,15 @@ public class UserController {
 			
 			// user_num="1";
 			
-			UserVO infoVO = service.infoUser(user_num);
+			/*
+			 * UserVO infoVO = service.infoUser(user_num);
+			 * 
+			 * model.addAttribute("infoVO", infoVO);
+			 */
 			
-			model.addAttribute("infoVO", infoVO);
 			
-			Item_likeVO ilvo = (Item_likeVO) service.like(user_num);
+			model.addAttribute("ilvo", service.like(user_num));
 			
-			model.addAttribute("ilvo", ilvo);
 			
 			
 			logger.info("페이지 이동 /user/like.jsp");

@@ -183,7 +183,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<Item_likeVO> like(String user_num) {
+	public List<ItemVO> like(String user_num) {
 		return sqlSession.selectList(namespace+".like", user_num);
 	}
 
