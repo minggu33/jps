@@ -1,6 +1,7 @@
 package com.jps.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,7 +31,7 @@ public class NoticeDAOImpl implements NoticeDAO{
 	
 	@Override
 	public List<NoticeVO> noticelist(searchVO vo) {
-		
+		System.out.println("DAO :  noticelist(vo) 호출");
 		return sqlSession.selectList(namespace+".noticelist", vo);
 	}
 	
@@ -127,7 +128,14 @@ public class NoticeDAOImpl implements NoticeDAO{
 		return sqlSession.selectOne(namespace+".noticeCountOfSC", vo);
 	}
 	
-	
+	@Override
+	public Map<String, Object> noticefiledown(Map<String, Object> map) {
+
+		System.out.println("DAO : 파일 다운로드");
+		
+		return sqlSession.selectOne(namespace+".noticefiledown", map );
+		
+	}
 	
 	
 	

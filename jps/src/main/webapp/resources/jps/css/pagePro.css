@@ -1,2 +1,28 @@
 @charset "UTF-8";
 
+#pageProcess {
+	margin: 0 auto;
+	width: fit-content;
+}
+
+#pageProcess .pageNum {
+	text-align: center;
+}
+
+#pageProcess a {
+	cursor: pointer;
+}
+
+#listCnt {
+	text-align: right;
+	margin-right: 18.5%;
+}
+
+#adminContent #listCnt {
+	text-align: right;
+	margin-right: 0;
+}
+
+.clear {
+	clear: both;
+}

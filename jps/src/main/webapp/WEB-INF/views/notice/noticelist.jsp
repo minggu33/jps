@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,13 +31,19 @@
 			<th>제목</th>
 			<th>작성날짜</th>
 			<th>조회수</th>
+			<th id="noticelist-important">중요</th>
 		</tr>
 	<c:forEach var="NoticeVO" items="${noticelist }">
 		<tr>
 			<td width="100px;">${NoticeVO.notice_num }</td>
 			<td><a href="./noticecontent?notice_num=${NoticeVO.notice_num }&page_Num=${searchVO.pageNum}">${NoticeVO.notice_subject }</a></td>
-			<td>${NoticeVO.notice_date }</td>
+			<td>${fn:substringBefore(NoticeVO.notice_date, " ") }</td>
 			<td>${NoticeVO.notice_count }</td>
+			<td>
+				<c:if test="${NoticeVO.notice_important eq '1' }">
+					<c:out value="⭐"/>
+				</c:if>
+			</td>
 		</tr>
 	</c:forEach>	
 	</table>

@@ -131,3 +131,20 @@
 .cart-table th{
 	width: auto;	
 }
+.button_order{
+	display: table-cell;
+    width: 32%;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background: #000;
+    border: 1px solid #000;
+}
+.cart-btn{
+		margin: 5% 0;
+	    text-align: center;
+	
+}

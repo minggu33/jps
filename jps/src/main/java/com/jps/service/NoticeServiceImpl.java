@@ -1,6 +1,7 @@
 package com.jps.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -133,7 +134,14 @@ public class NoticeServiceImpl implements NoticeService {
 		return ndao.noticeCountOfSC(vo);
 	}
 	
-	
+	@Override
+	public Map<String, Object> noticefiledown(Map<String, Object> map) throws Exception {
+		
+		System.out.println("S : noticefiledown() 호출");
+		
+		return ndao.noticefiledown(map);
+		
+	}
 	
 	
 	

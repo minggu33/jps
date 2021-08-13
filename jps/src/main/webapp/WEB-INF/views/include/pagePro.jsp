@@ -4,7 +4,7 @@
 <link href="/resources/jps/css/pagePro.css" rel="stylesheet">
 <body>
 	<div id="pageProcess">
-	
+		<div class="pageNum">
 			<c:if test="${searchVO.startPage > searchVO.pageBlock}">
 				<a onclick="searchFunc(${searchVO.startPage - searchVO.pageBlock });" >[이전]</a>
 			</c:if>
@@ -16,12 +16,17 @@
 			<c:if test="${searchVO.endPage < searchVO.pageCount}">
 				<a onclick="searchFunc(${searchVO.startPage + searchVO.pageBlock });">[다음]</a>
 			</c:if>
-			
-			<form name="searchFr" method="post">
+		</div>
+			<form name="searchFr" method="post" onsubmit="return searchCheck()">
 				<input type="hidden" name="pageNum" value="${searchVO.pageNum }">
 				<input type="hidden" name="pageSize" value="${searchVO.pageSize }">
 			
 				<select name="type">
+					<option value="0"
+						<c:if test="${searchVO.type == 0}">
+							selected
+						</c:if>
+					>전체 보기</option>
 					<option value="1"
 						<c:if test="${searchVO.type == 1}">
 							selected
