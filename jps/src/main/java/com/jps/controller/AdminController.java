@@ -129,22 +129,23 @@ public class AdminController {
 	    return saveName;
 	}
 	
-	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
-	public String adminItemListGET(Model model) throws Exception {
+	@RequestMapping(value = "/itemlist", method = {RequestMethod.GET, RequestMethod.POST})
+	public String adminItemList(Model model, searchVO vo) throws Exception {
 		logger.info("C : adminItemListGET() 호출");
+		vo.setPageInfo(vo, service.getItemCnt());
 		model.addAttribute("itemlist", service.itemlist());
+		model.addAttribute("searchVO", vo);
 		return "/admin/admin_itemList";
 	}
 	
-	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
-	public String adminUserListGET(Model model, searchVO vo) throws Exception {
-		logger.info("C : adminUserListGET() 호출");
-		
-		vo.setPageSize(5);
+	@RequestMapping(value = "/userlist", method = {RequestMethod.GET, RequestMethod.POST})
+	public String adminUserList(Model model, searchVO vo) throws Exception {
+		logger.info("C : adminUserList() 호출");
 		
 		vo.setPageInfo(vo, service.getUserCnt());
 		
 		model.addAttribute("userlist", service.userlist(vo));
+		model.addAttribute("searchVO", vo);
 		return "/admin/admin_userList";
 	}
 	

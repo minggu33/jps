@@ -9,7 +9,6 @@
 <title>관리자 페이지 - 상품 목록</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/jps/js/itemInsert.js"></script>
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 <script type="text/javascript">
 	var msg = "${msg }";
@@ -26,7 +25,13 @@
 	<div id="adminContent">
 		<h1>공지사항 목록</h1>
 		
-		<table class="noticeList">
+		<!-- 리스트 갯수 -->
+		<jsp:include page="../include/listCntPro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+		</jsp:include>
+		<!-- 리스트 갯수 -->
+		
+		<table class="noticeList clear">
 			<tr>
 				<td class="notice_num">번호</td>
 				<td class="notice_subject">글 제목</td>
@@ -49,6 +54,13 @@
 			</tr>
 		</c:forEach> 
 		</table>
+		
+		<!-- 페이징처리 -->
+		<jsp:include page="../include/pagePro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+			<jsp:param value="${type }" name="type"/>
+		</jsp:include>
+		<!-- 페이징처리 -->
 	</div>
 
 </body>

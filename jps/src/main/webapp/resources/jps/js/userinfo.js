@@ -367,3 +367,13 @@ $(function(){
 			});
 	});
 });
+
+// 체크박스 전체선택 function
+$('#chk_all').click(function(){
+	if($("input:checkbox[id='chk_all']").prop("checked")){
+		$("input[type=checkbox]").prop("checked",true);
+	}else{
+		$("input[type=checkbox]").prop("checked",false);
+	}
+});
+

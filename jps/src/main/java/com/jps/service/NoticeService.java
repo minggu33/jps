@@ -1,6 +1,7 @@
 package com.jps.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jps.domain.NoticeVO;
 import com.jps.domain.searchVO;
@@ -35,6 +36,6 @@ public interface NoticeService {
 	
 	public int noticeCountOfSC(searchVO vo) throws Exception;
 	
-	
+	public Map<String, Object> noticefiledown(Map<String, Object> map) throws Exception;
 	
 }

@@ -26,7 +26,13 @@
 	<div id="adminContent">
 		<h1>상품 목록</h1>
 		
-		<table class="itemList">
+		<!-- 리스트 갯수 -->
+		<jsp:include page="../include/listCntPro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+		</jsp:include>
+		<!-- 리스트 갯수 -->
+		
+		<table class="itemList clear">
 			<tr>
 				<td class="item_num">상품 번호</td>
 				<td class="item_name">상품명</td>
@@ -48,6 +54,13 @@
 			</tr>
 		</c:forEach> 
 		</table>
+		
+		<!-- 페이징처리 -->
+		<jsp:include page="../include/pagePro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+			<jsp:param value="${type }" name="type"/>
+		</jsp:include>
+		<!-- 페이징처리 -->
 	</div>
 
 </body>

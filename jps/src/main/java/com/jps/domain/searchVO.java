@@ -40,7 +40,7 @@ public class searchVO {
 	}
 	public void setPageSize(int pageSize) {
 		if(pageSize == 0) {
-			this.pageSize = 5;
+			this.pageSize = 10;
 		} else {
 			this.pageSize = pageSize;
 		}
