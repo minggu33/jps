@@ -9,7 +9,7 @@
 	<center>
     <h2>주문상세</h2>
     <form action="#" method="post">
-
+	
     <input type="hidden" value="${user_num }">
     Color : <input type="text" value="${odvo.order_detail_color }" readonly="readonly" style="text-align: center;" >
     <br>
@@ -18,6 +18,12 @@
     Count : <input type="number" value="${odvo.order_detail_stock }" readonly="readonly" style="text-align: center;">
 	<br>
 	Price : <input type="number" value="${vo.item_price*odvo.order_detail_stock }" readonly="readonly" style="text-align: center;">
+	
+	
+	<strong>${BasketList.size() }</strong>
+	 <c:forEach var="il" items="${mbList }" varStatus="status" >
+		<input type="text" value="${il.itemvo.item_price }">
+	</c:forEach>
 	<br>
 	<br>
 	<br>

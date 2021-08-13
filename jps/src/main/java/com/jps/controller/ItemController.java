@@ -3,6 +3,7 @@ package com.jps.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -17,13 +18,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
 import com.jps.domain.OrderVO;
 import com.jps.domain.Order_detailVO;
+import com.jps.service.BasketService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
+import com.jps.service.UserService;
 
 @Controller
 @RequestMapping(value = "/item/*")
@@ -34,6 +38,7 @@ public class ItemController {
 	
 	@Inject
 	private ItemService service;
+	private UserService uservice;
 	
 	@Inject
 	private Item_likeService ilservice;
@@ -100,12 +105,21 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model,ItemVO vo)throws Exception{
-		model.addAttribute("odvo", odvo);
-		model.addAttribute("vo", vo);
+	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		String referer = (String) req.getHeader("REFERER");
+		System.out.println("이전페이지 주소"+referer);
 		
-		System.out.println("주문상세페이지 호출");
-		// 배열로 가져오게 수정
+		if(referer.equals("http://localhost:8088/user/cart")) {
+			System.out.println("장바구니 주문");
+			model.addAttribute("mbList", uservice.getmbList(user_num));
+			model.addAttribute("infoVO", uservice.infoUser(user_num));
+			
+		}else {
+			model.addAttribute("odvo", odvo);
+			model.addAttribute("vo", vo);
+		}
+
 	}
 	
 }

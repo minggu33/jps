@@ -101,7 +101,9 @@
 	
 	
 	 </table>
-	 
+	 <form action="/item/order" method="post">
+	 <input type="submit" value="주문">
+	 </form>
 	
 	
 	
