@@ -23,7 +23,7 @@
 				제목 : <input type="text" name="notice_subject" class="under_line_solid_gray">
 				<input type="checkbox" name="notice_important" value="1" class="noticewrite-important">중요<br>
 				첨부파일 : <input type="file" name="uploadfile" class="under_line_solid_gray"><br>
-				내용 <br><textarea rows="20" cols="165" name="notice_content" class="resize_none"></textarea>
+				내용 <br><textarea rows="20" cols="150" name="notice_content" class="resize_none"></textarea>
 				<hr>
 				<div id="submit_button">
 					<input type="submit" value="글쓰기" class="border_none">

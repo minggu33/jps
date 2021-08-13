@@ -11,13 +11,14 @@ body, html {
 	margin-left: 280px;
 	margin-top: 50px;
 	line-height: 2em;
+	height: 700px;
+    overflow-y: scroll;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
 body {
   font-family: "Lato";
   font-size: 100%;
-  overflow-y: scroll;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

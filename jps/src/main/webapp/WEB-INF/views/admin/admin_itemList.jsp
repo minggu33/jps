@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,7 @@
 		<table class="itemList clear">
 			<tr>
 				<td class="item_num">상품 번호</td>
-				<td class="item_name">상품명</td>
+				<td class="item_name" colspan="2">상품명</td>
 				<td class="item_category">카테고리</td>
 				<td class="item_price">가격</td>
 				<td class="item_create_date">상품등록일</td>
@@ -45,9 +46,10 @@
 		<c:forEach var="ItemVO" items="${itemlist }">
 			<tr>
 				<td class="item_num">${ItemVO.item_num }</td>
-				<td class="item_name">${ItemVO.item_name }</td>
+				<td class="item_img"><img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(ItemVO.item_img,',')[0]}"></td>
+				<td class="item_name_sub"><a href="./updateItem?item_num=${ItemVO.item_num }">${ItemVO.item_name }</a></td>
 				<td class="item_category">${ItemVO.item_category }</td>
-				<td class="item_price">${ItemVO.item_price }</td>
+				<td class="item_price"><fmt:formatNumber value="${ItemVO.item_price }" type="number" /></td>
 				<td class="item_create_date"><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td class="item_readcount">${ItemVO.item_read_count }</td>
 				<td class="item_etc"></td>

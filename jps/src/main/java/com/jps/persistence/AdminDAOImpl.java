@@ -1,6 +1,7 @@
 package com.jps.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -36,9 +37,23 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public List<ItemVO> itemlist() {
-		
-		return sqlSession.selectList(namespace+".itemlist");
+	public List<ItemVO> itemlist(searchVO vo) {
+		return sqlSession.selectList(namespace+".itemlist", vo);
+	}
+	
+	@Override
+	public List<ItemVO> itemSearchOfSubject(searchVO vo) {
+		return sqlSession.selectList(namespace+".itemSearchOfSubject", vo);
+	}
+	
+	@Override
+	public List<ItemVO> itemSearchOfContent(searchVO vo) {
+		return sqlSession.selectList(namespace+".itemSearchOfContent", vo);
+	}
+	
+	@Override
+	public List<ItemVO> itemSearchOfSC(searchVO vo) {
+		return sqlSession.selectList(namespace+".itemSearchOfSC", vo);
 	}
 
 	@Override
@@ -47,8 +62,49 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	
 	@Override
-	public List<NoticeVO> noticelist() {
-		return sqlSession.selectList(namespace+".noticelist");
+	public List<NoticeVO> noticelist(searchVO vo) {
+		return sqlSession.selectList(namespace+".noticelist", vo);
+	}
+	
+	@Override
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목검색 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfSubject", vo);
+	}
+	
+	@Override
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 내용검색 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfContent", vo);
+	}
+	
+	@Override
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목+내용 목록 출력");
+		return sqlSession.selectList(namespace+".noticeSearchOfSC", vo);
+	}
+	
+	@Override
+	public int noticeCountOfSubject(searchVO vo) {
+		System.out.println("DAO : 공지사항 제목검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfSubject", vo);
+	}
+	
+	@Override
+	public int noticeCountOfContent(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 내용검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfContent", vo);
+	}
+	
+	@Override
+	public int noticeCountOfSC(searchVO vo) {
+
+		System.out.println("DAO : 공지사항 제목+내용검색 카운트");
+		return sqlSession.selectOne(namespace+".noticeCountOfSC", vo);
 	}
 	
 	@Override
@@ -72,8 +128,23 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public int getItemCnt() {
+	public int itemCount() {
 		return sqlSession.selectOne(namespace+".itemCnt");
+	}
+	
+	@Override
+	public int itemCountOfSubject(searchVO vo) {
+		return sqlSession.selectOne(namespace+".itemCountOfSubject", vo);
+	}
+	
+	@Override
+	public int itemCountOfContent(searchVO vo) {
+		return sqlSession.selectOne(namespace+".itemCountOfContent", vo);
+	}
+	
+	@Override
+	public int itemCountOfSC(searchVO vo) {
+		return sqlSession.selectOne(namespace+".itemCountOfSC", vo);
 	}
 
 	@Override
@@ -85,7 +156,10 @@ public class AdminDAOImpl implements AdminDAO{
 	public void insertNotice(NoticeVO vo) {
 		sqlSession.insert(namespace+".insertNotice", vo);
 	}
-	
-	
+
+	@Override
+	public List<Map<String, Object>> readItemInfo(String item_num) {
+		return sqlSession.selectList(namespace+".getItemJoinList", item_num);
+	}
 	
 }

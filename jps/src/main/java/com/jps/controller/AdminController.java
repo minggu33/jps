@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -132,9 +133,33 @@ public class AdminController {
 	@RequestMapping(value = "/itemlist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String adminItemList(Model model, searchVO vo) throws Exception {
 		logger.info("C : adminItemListGET() 호출");
-		vo.setPageInfo(vo, service.getItemCnt());
-		model.addAttribute("itemlist", service.itemlist());
+		
+		if(vo.getType() == 1) {
+
+			vo.setPageInfo(vo, service.itemCountOfSubject(vo));
+			model.addAttribute("itemlist", service.itemSearchOfSubject(vo));
+			
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 2) {
+			
+			vo.setPageInfo(vo, service.itemCountOfContent(vo));
+			model.addAttribute("itemlist", service.itemSearchOfContent(vo));
+		
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 3) {
+			
+			vo.setPageInfo(vo, service.itemCountOfSC(vo));
+			model.addAttribute("itemlist", service.itemSearchOfSC(vo));
+		
+			model.addAttribute("type", "search");
+		} else {
+			
+			vo.setPageInfo(vo,service.itemCount());
+			model.addAttribute("itemlist", service.itemlist(vo));
+		}
+		
 		model.addAttribute("searchVO", vo);
+		
 		return "/admin/admin_itemList";
 	}
 	
@@ -179,10 +204,36 @@ public class AdminController {
 		out.close();
 	}
 	
-	@RequestMapping(value = "/noticelist", method = RequestMethod.GET)
-	public String adminNoticeListGET(Model model) throws Exception {
+	@RequestMapping(value = "/noticelist", method = {RequestMethod.GET, RequestMethod.POST})
+	public String adminNoticeListGET(Model model, searchVO vo) throws Exception {
 		logger.info("C : adminNoticeListGET() 호출");
-		model.addAttribute("noticelist", service.noticelist());
+		
+		if(vo.getType() == 1) {
+
+			vo.setPageInfo(vo, service.noticeCountOfSubject(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfSubject(vo));
+			
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 2) {
+			
+			vo.setPageInfo(vo, service.noticeCountOfContent(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfContent(vo));
+		
+			model.addAttribute("type", "search");
+		} else if(vo.getType() == 3) {
+			
+			vo.setPageInfo(vo, service.noticeCountOfSC(vo));
+			model.addAttribute("noticelist", service.noticeSearchOfSC(vo));
+		
+			model.addAttribute("type", "search");
+		} else {
+			
+			vo.setPageInfo(vo, service.getNoticeCnt());
+			model.addAttribute("noticelist", service.noticelist(vo));
+		}
+		
+		model.addAttribute("searchVO", vo);
+		
 		return "/admin/admin_noticeList";
 	}
 	
@@ -204,5 +255,16 @@ public class AdminController {
 		rttr.addFlashAttribute("msg", "success");
 		
 		return "redirect:/admin/noticelist";
+	}
+	
+	@RequestMapping(value = "/updateItem", method = RequestMethod.GET)
+	public String adminUpdateItemGET(String item_num, Model model) throws Exception {
+		logger.info("C : adminUpdateItemGET() 호출");
+		
+		logger.info("C : join 결과 {}", service.readItemInfo(item_num));
+		
+		model.addAttribute("itemlist", service.readItemInfo(item_num));
+		
+		return "/admin/admin_updateItem";
 	}
 }

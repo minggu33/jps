@@ -1,6 +1,7 @@
 package com.jps.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
@@ -12,11 +13,26 @@ public interface AdminDAO {
 
 	public void insertItem(ItemVO vo, List<Item_detailVO> dtlList);
 	
-	public List<ItemVO> itemlist();
+	public List<ItemVO> itemlist(searchVO vo);
+	public List<ItemVO> itemSearchOfSubject(searchVO vo);
+	public List<ItemVO> itemSearchOfContent(searchVO vo);
+	public List<ItemVO> itemSearchOfSC(searchVO vo);
 	
 	public List<UserVO> userlist(searchVO vo);
 	
-	public List<NoticeVO> noticelist();
+	public List<NoticeVO> noticelist(searchVO vo);
+	
+	public List<NoticeVO> noticeSearchOfSubject(searchVO vo);
+
+	public List<NoticeVO> noticeSearchOfContent(searchVO vo);
+	
+	public List<NoticeVO> noticeSearchOfSC(searchVO vo);
+	
+	public int noticeCountOfSubject(searchVO vo);
+	
+	public int noticeCountOfContent(searchVO vo);
+	
+	public int noticeCountOfSC(searchVO vo);
 	
 	public int updatePoint(UserVO vo);
 	
@@ -26,9 +42,14 @@ public interface AdminDAO {
 	
 	public int getUserCnt();
 	
-	public int getItemCnt();
+	public int itemCount();
+	public int itemCountOfSubject(searchVO vo);
+	public int itemCountOfContent(searchVO vo);
+	public int itemCountOfSC(searchVO vo);
 
 	public int getNoticeCnt();
 	
 	public void insertNotice(NoticeVO vo);
+	
+	public List<Map<String, Object>> readItemInfo(String item_num);
 }
