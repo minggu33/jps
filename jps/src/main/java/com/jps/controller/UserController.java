@@ -262,23 +262,11 @@ public class UserController {
 			String user_num = (String)session.getAttribute("user_num");
 			
 			// user_num="1";
+
 			
-			
-			// 나의 장바구니 목록 불러오기 
-//			model.addAttribute("BasketList", service.getMyBasketList(user_num));
-			
-			// 아이템 정보 불러오기
-//			model.addAttribute("ItemList", service.getMyItemList(user_num));
-			
+			// 장바구니 목록 불러오
 			model.addAttribute("mbList", service.getmbList(user_num));
 			
-//			List BasketList = service.getMyBasketList(user_num);
-//			List ItemList =  service.getMyItemList(user_num);
-//			
-//			ItemList.add(BasketList);
-//					
-//			
-//			model.addAttribute("mblist", ItemList);
 			
 			// 유저 정보 저장 
 			model.addAttribute("infoVO", service.infoUser(user_num));
