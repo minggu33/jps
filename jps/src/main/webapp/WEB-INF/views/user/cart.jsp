@@ -75,14 +75,14 @@
 
 	 		<td>${status.count }</td>
 			<td>
-			<input type="checkbox" id="chk">
+			<input type="checkbox" id="chk"  name="chk" value="${il.itemvo.item_num}">
 			</td>
 	 	
 	 		<td>
 	 	 <img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(il.itemvo.item_img,',')[0]}">
 			</td>
 			<td style="text-align: left; padding-left:15px; ">
-	 		<strong>${il.itemvo.item_name }&nbsp;(${il.item_color} )</strong>
+	 		<strong>${il.itemvo.item_name }&nbsp;(${il.item_color})</strong>
 	 		<br>
 	 		size:${il.item_size }
 	 		
@@ -115,9 +115,12 @@
 				</td>
 	 </tr>
 	 </c:forEach>
-	
-	
-	 </table>	
+		
+	 </table>
+	 <div class="cart-del-area">
+			<button type="button" class="del-btn" id="del-btn">선택삭제</button>	 
+	 </div>
+	 	
 
 	<div class="cart-btn">
 		<button type="button" onclick="" class="button_order"> 주문하기 </button>

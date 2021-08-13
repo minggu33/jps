@@ -377,3 +377,25 @@ $('#chk_all').click(function(){
 	}
 });
 
+// 체크된 상품 가져오기
+$('#del-btn').click(function(){
+	
+	$("input[id=chk]:checked").each(function(){
+		var test = $(this).val();
+		alert(test);
+		$.ajax({
+			url:"/basket/basketdeleteMulti",
+			type:"post",
+			data:{"item_num":test},
+			success:function(){
+				alert("장바구니에서 삭제되었습니다.");
+				location.reload();
+				
+				}
+		});
+	});	
+	
+	
+});
+
+
