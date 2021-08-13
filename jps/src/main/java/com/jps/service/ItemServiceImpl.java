@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.OrderVO;
 import com.jps.persistence.ItemDAO;
 import com.jps.persistence.Item_detailDAO;
 
@@ -49,7 +50,12 @@ public class ItemServiceImpl implements ItemService{
 		return idao.getItemSC(idx);
 	}
 
+	@Override
+	public void realorder(OrderVO vo) throws Exception {
+		idao.insertRealorder(vo);
+	}
 
+	
 	
 	
 	

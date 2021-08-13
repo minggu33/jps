@@ -8,6 +8,8 @@ public class Order_detailVO {
 	private String order_detail_color;
 	private String order_detail_size;
 	private int order_detail_stock;
+	
+	
 	public int getOrder_detail_idx() {
 		return order_detail_idx;
 	}

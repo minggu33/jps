@@ -118,9 +118,18 @@
 	
 	
 	 </table>
+
+	 <form action="/item/order" method="post">
+	 <input type="submit" value="주문">
+	 </form>
+	
+	
+	
+
 	<div class="cart-btn">
 		<button type="button" onclick="" class="button_order"> 주문하기 </button>
 		</div>
+
 	</div>
 	</section>
 		<script src="/resources/jps/js/userinfo.js"></script>

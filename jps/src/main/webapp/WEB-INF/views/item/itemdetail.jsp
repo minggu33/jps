@@ -84,21 +84,38 @@
 		</form>
 	</div>
 	<div class="orderdetail" style="display: none;">
-	<form name="fr" action="./itemdetail" method="post" onsubmit="return check();">
+	<form name="fr" action="./order" method="post" onsubmit="return check();">
 	Name : ${vo.item_name }
 	<br>
+
+		Color : <select name="order_detail_color">
+				<option value="">Choose color</option>
+				<option value="black">Black</option>
+				<option value="white">White</option>
+				<option value="gray">Gray</option>
+
 		Option  : <select name="option">
 				<option value="">옵션을 선택하세요.</option>
 				<c:forEach  var="idL" items="${idL }">
 				<option value="${idL.item_detail_idx}">${idL.item_color }[${idL.item_size }] - 수량 : ${idL.item_stock }</option>				
 			</c:forEach>
+
 			</select>
-		
+
+			<br>
+		Size : <select name="order_detail_size">
+			<option value="">Choose size</option>
+			<option value="90">90</option>
+			<option value="95">95</option>
+			<option value="100">100</option>
+			<option value="105">105</option>
+		</select>
+
 		<br>
-		Count : <input type="number" name="count" id="count" value="1">
+		Count : <input type="number" name="order_detail_stock" id="count" value="1">
 		<br>
 		<input type="button" class="jjinmak" value="주문신청">
-		<input type="hidden" id="item_price" value="${vo.item_price}">
+		<input type="hidden" id="item_price" value="${vo.item_price}" name="item_price">
 		<div class="ni" style="display: none;">
 			Price : <content id="price"></content>
 			<br>

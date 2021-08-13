@@ -44,7 +44,7 @@ public class UserController {
 	// 
 	 @Autowired
 	 private JavaMailSender mailSender;
-	
+	 
 	
 	// http://localhost:8080/user/login
 	// 로그인페이지(get) 
