@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jps.domain.Item_likeVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -243,6 +244,11 @@ public class UserController {
 			
 			model.addAttribute("infoVO", infoVO);
 			
+			Item_likeVO ilvo = (Item_likeVO) service.like(user_num);
+			
+			model.addAttribute("ilvo", ilvo);
+			
+			
 			logger.info("페이지 이동 /user/like.jsp");
 			
 		}
@@ -440,4 +446,5 @@ public class UserController {
 			service.change1(user_num);
 			}
 		}
+		
 }

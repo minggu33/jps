@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_likeVO;
 import com.jps.domain.UserVO;
 
 public interface UserDAO {
@@ -47,5 +48,7 @@ public interface UserDAO {
 	public void change1(String user_num);
 
 	public List<BasketVO> getmbList(String user_num);
+	
+	public List<Item_likeVO> like(String user_num);
 
 }

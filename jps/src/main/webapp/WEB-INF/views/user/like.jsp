@@ -36,6 +36,15 @@
 		<h1>좋아요 </h1>
 		<div>상품</div>
 	</header>
+	<body>
+		<table border="1">
+		<c:forEach var="Item_likeVO" items="ilvo">
+			<tr>
+				<td>${Item_likeVO.item_num }</td>
+			</tr>
+		</c:forEach>
+		</table>
+	</body>
 	
 	
 	

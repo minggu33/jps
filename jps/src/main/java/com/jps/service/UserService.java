@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_likeVO;
 import com.jps.domain.UserVO;
 
 public interface UserService {
@@ -47,6 +48,8 @@ public interface UserService {
 	public void change1(String user_num) throws Exception;
 
 	public List<BasketVO> getmbList(String user_num) throws Exception;
+	
+	public List<Item_likeVO> like(String user_num) throws Exception;
 
 
 }
