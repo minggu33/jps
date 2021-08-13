@@ -17,7 +17,7 @@
 				<a onclick="searchFunc(${searchVO.startPage + searchVO.pageBlock });">[¥Ÿ¿Ω]</a>
 			</c:if>
 		</div>
-			<form name="searchFr" method="post">
+			<form name="searchFr" method="post" onsubmit="return searchCheck()">
 				<input type="hidden" name="pageNum" value="${searchVO.pageNum }">
 				<input type="hidden" name="pageSize" value="${searchVO.pageSize }">
 			
