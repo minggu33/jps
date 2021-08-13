@@ -111,7 +111,7 @@ public class ItemController {
 	public void itemorderGET(Order_detailVO odvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
 		String referer = (String) req.getHeader("REFERER");
-		System.out.println("이전페이지 주소"+referer);
+		System.out.println("이전페이지 주소"+referer); 
 		
 		if(referer.equals("http://localhost:8088/user/cart")) {
 			System.out.println("장바구니 주문");
