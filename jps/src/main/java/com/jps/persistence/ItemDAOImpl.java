@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_detailVO;
 
 @Repository
 public class ItemDAOImpl implements ItemDAO{
@@ -35,8 +36,17 @@ public class ItemDAOImpl implements ItemDAO{
 		return vo;
 	}
 
-	
-	
-	
+	@Override
+	public List<Item_detailVO> getItemDetail(Integer item_num) throws Exception {
+		return sqlSession.selectList(namespace+".getItemDetail", item_num);
+	}
+
+	@Override
+	public Item_detailVO getItemSC(Integer idx) throws Exception {
+		int item_detail_idx = idx;
+		return sqlSession.selectOne(namespace+".getItemSC", item_detail_idx);
+	}
+
+
 	
 }
