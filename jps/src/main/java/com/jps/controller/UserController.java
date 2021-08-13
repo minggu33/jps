@@ -51,7 +51,7 @@ public class UserController {
 	@RequestMapping(value="/login", method= RequestMethod.GET)
 	public String loginGET() throws Exception{
 		logger.info("C : loginGET() 페이지 호출 ");
-		logger.info("C : login view 페이지로 이동 ");
+		logger.info("C : login view 페이지로 이동 "); 
 		
 		
 		return "/user/loginForm";
