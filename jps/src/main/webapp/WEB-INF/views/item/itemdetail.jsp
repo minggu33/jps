@@ -58,20 +58,7 @@
 		<form name="fr2">
 		
 		<input type="hidden" name="item_num" value="${vo.item_num }">
-<!-- 		Color : <select name="basket_color"> -->
-<!-- 			<option value="">Choose color</option> -->
-<!-- 			<option value="black">Black</option> -->
-<!-- 			<option value="white">White</option> -->
-<!-- 			<option value="gray'">Gray</option> -->
-<!-- 		</select> -->
-<!-- 			<br> -->
-<!-- 		Size : <select name="basket_size"> -->
-<!-- 			<option value="">Choose color</option> -->
-<!-- 			<option value="90">90</option> -->
-<!-- 			<option value="95">95</option> -->
-<!-- 			<option value="100">100</option> -->
-<!-- 			<option value="105">105</option> -->
-<!-- 		</select> -->
+
 		Option  : <select name="item_detail_idx">
 				<option value="">옵션을 선택하세요.</option>
 				<c:forEach  var="idL" items="${idL }">
@@ -89,7 +76,7 @@
 	<br>
 
 
-		Option  : <select name="option">
+		Option  : <select name="item_detail_idx">
 				<option value="">옵션을 선택하세요.</option>
 				<c:forEach  var="idL" items="${idL }">
 				<option value="${idL.item_detail_idx}">${idL.item_color }[${idL.item_size }] - 수량 : ${idL.item_stock }</option>				
