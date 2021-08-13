@@ -38,6 +38,8 @@ public class ItemController {
 	
 	@Inject
 	private ItemService service;
+	
+	@Inject
 	private UserService uservice;
 	
 	@Inject
@@ -114,7 +116,6 @@ public class ItemController {
 		if(referer.equals("http://localhost:8088/user/cart")) {
 			System.out.println("장바구니 주문");
 			model.addAttribute("mbList", uservice.getmbList(user_num));
-			model.addAttribute("infoVO", uservice.infoUser(user_num));
 			
 		}else {
 			model.addAttribute("odvo", odvo);
@@ -123,4 +124,11 @@ public class ItemController {
 
 	}
 	
+	@RequestMapping(value="/pay", method = RequestMethod.POST)
+	public void payPOST(OrderVO vo, HttpSession session, String user_addr) throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		vo.setUser_num(user_num);
+		vo.setOrder_addr(user_addr);
+		service.realorder(vo);
+	}
 }

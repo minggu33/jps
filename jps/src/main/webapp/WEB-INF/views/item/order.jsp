@@ -8,26 +8,39 @@
 	<!-- header -->
 	<center>
     <h2>주문상세</h2>
-    <form action="#" method="post">
-	
-    <input type="hidden" value="${user_num }">
+    <form action="/item/pay" method="post">
+	<c:choose>
+	<c:when test="${mbList == null }">
+    <input type="hidden" value="${user_num }" name="item_num">
     Color : <input type="text" value="${odvo.order_detail_color }" readonly="readonly" style="text-align: center;" >
     <br>
     Size : <input type="text" value="${odvo.order_detail_size }" readonly="readonly" style="text-align: center;"> 
     <br>
     Count : <input type="number" value="${odvo.order_detail_stock }" readonly="readonly" style="text-align: center;">
 	<br>
-	Price : <input type="number" value="${vo.item_price*odvo.order_detail_stock }" readonly="readonly" style="text-align: center;">
-	
-	
-	<strong>${BasketList.size() }</strong>
+	Price : <input type="number" value="${vo.item_price*odvo.order_detail_stock }" readonly="readonly" style="text-align: center;" name="order_total_price">
+	<br>
+	Point : <input type="number" value="0" name="order_total_point" style="text-align: center;">
+	</c:when>
+	<c:otherwise>
 	 <c:forEach var="il" items="${mbList }" varStatus="status" >
-		<input type="text" value="${il.itemvo.item_price }">
+	 <!-- 장바구니 아이템 가져오기 -->
+		여기 사람 있어요 : <input type="text" value="${il.itemvo.item_price }">
 	</c:forEach>
+	</c:otherwise>
+	</c:choose>
 	<br>
 	<br>
 	<br>
 	<h2>추가 정보</h2>
+	<br>
+	<select name="order_method">
+		<option value="">결제 방법을 선택해주세요</option>
+		<option value="무통장입금">무통장입금</option>
+		<option value="카드결제">카드결제</option>
+		<option value="카카오페이">카카오페이</option>
+	</select>
+	<br>
 	<br>
 				<input type="text" id="sample4_postcode" name="postcode" readonly placeholder="우편번호" class="under_line_solid_gray" style="text-align: center;">
 				<input type="text" id="sample4_roadAddress" name="roadAddress" readonly placeholder="도로명주소" class="under_line_solid_gray" style="text-align: center;">
@@ -39,6 +52,8 @@
 				
 				<input type="hidden" name="user_addr">	
     	<br>
+    	
+    	<input type="submit" value="결제하기">
     </form>
     </center>
 	<script src="/resources/daum_postcode/js/postcode.js"></script><br>
