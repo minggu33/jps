@@ -88,11 +88,6 @@
 	Name : ${vo.item_name }
 	<br>
 
-		Color : <select name="order_detail_color">
-				<option value="">Choose color</option>
-				<option value="black">Black</option>
-				<option value="white">White</option>
-				<option value="gray">Gray</option>
 
 		Option  : <select name="option">
 				<option value="">옵션을 선택하세요.</option>
@@ -102,14 +97,7 @@
 
 			</select>
 
-			<br>
-		Size : <select name="order_detail_size">
-			<option value="">Choose size</option>
-			<option value="90">90</option>
-			<option value="95">95</option>
-			<option value="100">100</option>
-			<option value="105">105</option>
-		</select>
+
 
 		<br>
 		Count : <input type="number" name="order_detail_stock" id="count" value="1">
