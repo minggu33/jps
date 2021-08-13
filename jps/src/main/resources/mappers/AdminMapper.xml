@@ -59,4 +59,54 @@
 		insert into notice (notice_subject, notice_content, notice_count, notice_date, notice_file, notice_important) 
 		values(#{notice_subject}, #{notice_content}, #{notice_count}, now(), #{notice_file}, #{notice_important})
 	</insert>
+	
+	<select id="itemSearchOfSubject"  resultType="com.jps.domain.ItemVO">
+		select * from notice where notice_subject like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="itemSearchOfContent" resultType="com.jps.domain.ItemVO">
+		select * from notice where notice_content like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="itemSearchOfSC" resultType="com.jps.domain.ItemVO">
+		select * from notice where concat(notice_subject, notice_content) like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="itemCountOfSubject" resultType="int">
+		select count(*) from notice where notice_subject like '%${search}%'
+	</select>
+	
+	<select id="itemCountOfContent" resultType="int">
+		select count(*) from notice where notice_content like '%${search}%'
+	</select>
+	
+	<select id="itemCountOfSC" resultType="int">
+		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
+	</select>
+	
+	<select id="noticeSearchOfSubject"  resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_subject like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeSearchOfContent" resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_content like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeSearchOfSC" resultType="com.jps.domain.NoticeVO">
+		select * from notice where concat(notice_subject, notice_content) like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+	</select>
+	
+	<select id="noticeCountOfSubject" resultType="int">
+		select count(*) from notice where notice_subject like '%${search}%'
+	</select>
+	
+	<select id="noticeCountOfContent" resultType="int">
+		select count(*) from notice where notice_content like '%${search}%'
+	</select>
+	
+	<select id="noticeCountOfSC" resultType="int">
+		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
+	</select>
+	
+	
 </mapper>
