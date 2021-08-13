@@ -18,6 +18,12 @@
 		select * from item where item_num=#{item_num }
 	</select>
 	
+	<select id="getItemDetail" resultType="com.jps.domain.Item_detailVO">
+		select * from item_detail where item_num=#{item_num}
+	</select>
 	
+	<select id="getItemSC" resultType="com.jps.domain.Item_detailVO">
+		select * from item_detail where item_detail_idx = #{item_detail_idx}
+	</select>
 	
 </mapper>

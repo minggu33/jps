@@ -1,6 +1,7 @@
 package com.jps.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jps.domain.NoticeVO;
 import com.jps.domain.searchVO;
@@ -34,5 +35,7 @@ public interface NoticeDAO {
 	public int noticeCountOfContent(searchVO vo);
 	
 	public int noticeCountOfSC(searchVO vo);
+	
+	public Map<String, Object> noticefiledown(Map<String, Object> map);
 	
 }

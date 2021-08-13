@@ -64,13 +64,23 @@
 	margin-bottom: 3%;
 }
 
+.noticemodify-form {
+	width: 1200px;
+	margin-left: 30%
+}
 
+.noticemodify-h3 {
+	text-align: center;
+	margin-bottom: 3%;
+}
 
+.noticemodify-subject {
+	width: 600px;
+}
 
-
-
-
-
+.noticemodify-button {
+	margin-left: 49%;
+}
 
 
 

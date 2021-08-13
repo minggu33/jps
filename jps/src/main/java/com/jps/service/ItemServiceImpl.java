@@ -39,6 +39,17 @@ public class ItemServiceImpl implements ItemService{
 		iddao.insertOrder(item_num);
 	}
 
+	@Override
+	public List<Item_detailVO> getItemDetail(Integer item_num) throws Exception {
+		return idao.getItemDetail(item_num);
+	}
+
+	@Override
+	public Item_detailVO getItemSC(Integer idx) throws Exception {
+		return idao.getItemSC(idx);
+	}
+
+
 	
 	
 	

@@ -62,7 +62,9 @@
 		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
 	</select>
 	
-	
+	<select id="noticefiledown" parameterType="hashMap" resultType="hashMap">
+        select notice_file from notice where notice_file=#{notice_file}
+   </select>
 	
 	
 	
