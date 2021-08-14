@@ -20,7 +20,7 @@
 	<br>
 	Price : <input type="number" value="${vo.item_price*odvo.order_detail_stock }" readonly="readonly" style="text-align: center;" name="order_total_price">
 	<br>
-	Point : <input type="number" value="0" name="order_total_point" style="text-align: center;">
+	Point : <input type="text" value="${(vo.item_price*odvo.order_detail_stock)*5/100 }" name="order_total_point" style="text-align: center;">
 	</c:when>
 	<c:otherwise>
 	 <c:forEach var="il" items="${mbList }" varStatus="status" >

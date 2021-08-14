@@ -52,9 +52,9 @@
       <div class="row align-items-start">
         <div class="col-md-2">
           <ul class="custom-menu">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li class="active"><a href="/home">Home</a></li>
+            <li><a href="/notice/noticelist">Notice</a></li>
+            <li><a href="/item/itemlist">Shopping</a></li>
             <li><a href="works.html">Works</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>

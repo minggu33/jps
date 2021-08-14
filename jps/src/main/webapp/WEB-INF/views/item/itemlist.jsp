@@ -55,7 +55,8 @@
             <a href="./itemdetail?item_num=${ItemVO.item_num }" class="item-wrap fancybox">
               <div class="work-info">
                 <h3>${ItemVO.item_name }</h3>
-                <span>${ItemVO.item_category }</span>
+                <span>${ItemVO.item_category }</span><br>
+                <span>${ItemVO.item_price }</span>
               </div>
               <img class="img-fluid" src="/resources/jps/upload/insertItem/${fn:split(ItemVO.item_img,',')[0]}">
             </a>

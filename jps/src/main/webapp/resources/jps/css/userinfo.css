@@ -159,3 +159,14 @@
     background-color: rgba(255,255,255,0.5);
     margin-top: 3%;
 }
+.input-count{
+	width: 32px;
+    height: 30px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    color: #000000;
+    float: left;
+    
+}
