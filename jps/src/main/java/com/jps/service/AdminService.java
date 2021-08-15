@@ -52,5 +52,7 @@ public interface AdminService {
 	public void insertNotice(NoticeVO vo) throws Exception;
 	
 	public List<Map<String, Object>> readItemInfo(String item_num) throws Exception;
+	
+	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) throws Exception;
 
 }

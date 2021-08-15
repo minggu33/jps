@@ -158,4 +158,11 @@ public class AdminServiceImpl implements AdminService {
 		return adao.readItemInfo(item_num);
 	}
 
+	@Override
+	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) throws Exception {
+		adao.updateItem(vo, dtlList);
+	}
+
+	
+	
 }

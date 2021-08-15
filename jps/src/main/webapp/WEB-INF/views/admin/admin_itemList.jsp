@@ -47,7 +47,7 @@
 			<tr>
 				<td class="item_num">${ItemVO.item_num }</td>
 				<td class="item_img"><img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(ItemVO.item_img,',')[0]}"></td>
-				<td class="item_name_sub"><a href="./updateItem?item_num=${ItemVO.item_num }">${ItemVO.item_name }</a></td>
+				<td class="item_name_sub"><a href="./updateitem?item_num=${ItemVO.item_num }">${ItemVO.item_name }</a></td>
 				<td class="item_category">${ItemVO.item_category }</td>
 				<td class="item_price"><fmt:formatNumber value="${ItemVO.item_price }" type="number" /></td>
 				<td class="item_create_date"><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>

@@ -52,4 +52,6 @@ public interface AdminDAO {
 	public void insertNotice(NoticeVO vo);
 	
 	public List<Map<String, Object>> readItemInfo(String item_num);
+	
+	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList);
 }

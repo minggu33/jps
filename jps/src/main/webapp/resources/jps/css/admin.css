@@ -6,12 +6,11 @@ body, html {
 }
 
 #adminContent {
-	width: 80%;
+	width: 80vw;
 	box-sizing: border-box;
 	margin-left: 280px;
-	margin-top: 50px;
 	line-height: 2em;
-	height: 700px;
+	height: 100vh;
     overflow-y: scroll;
 }
 
@@ -489,4 +488,25 @@ Sidebar Nav
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.preImg a {
+	display: inline-block;
+	position: relative;
+}
+
+.preImg img {
+	background-color:rgba( 255, 255, 255, 1 );
+}
+
+.preImg label {
+	position: absolute;
+	z-index: 10;
+	top: 80%;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.preImg .delete {
+	left: 70%;
 }

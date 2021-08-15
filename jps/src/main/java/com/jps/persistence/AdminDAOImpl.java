@@ -161,5 +161,21 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<Map<String, Object>> readItemInfo(String item_num) {
 		return sqlSession.selectList(namespace+".getItemJoinList", item_num);
 	}
+
+	@Override
+	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) {
+		sqlSession.insert(namespace+".updateItem", vo);
+		
+		for(int i=0; i<dtlList.size(); i++) {
+			Item_detailVO dtlvo = dtlList.get(i);
+			if(dtlvo.getItem_detail_idx() == 0) {
+				sqlSession.insert(namespace+".insertItemDetail", dtlvo);
+			} else {
+				sqlSession.update(namespace+".updateItemDetail", dtlvo);
+			}
+		}
+	}
+	
+	
 	
 }
