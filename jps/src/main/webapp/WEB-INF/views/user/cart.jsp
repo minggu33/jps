@@ -59,7 +59,7 @@
 		 <tr>
 		 	<th>번호</th>
 		 	<th style="cursor: pointer;">
-		 	<input type="checkbox" id="chk_all">
+		 	<input type="checkbox" id="chk_all" checked="checked">
 		 	</th>
 		 	<th>상품</th>
 		 	<th>상품명(옵션)</th>
@@ -75,7 +75,7 @@
 
 	 		<td>${status.count }</td>
 			<td>
-			<input type="checkbox" id="chk"  name="chk" value="${il.itemvo.item_num}">
+			<input type="checkbox" id="chk"  name="chk" value="${il.basket_idx}" checked="checked">
 			</td>
 	 	
 	 		<td>
@@ -98,12 +98,15 @@
 	 			(<fmt:formatNumber value="${point}" type="number" />
 	 			p)
 	 		</td>
-	 		<td>${il.item_count }</td>
+	 		<td>
+	 			<button class="btn disabled"><i class="">-1</i></button>
+	 			<input class="input-count" type="text" value="${il.item_count }">
+	 		</td>
 	 		
 
 
 	 			<td>
-	 			<input type="hidden" value="${il.itemvo.item_num }" name="in" class="basket_item_num">
+	 			<input type="hidden" value="${il.basket_idx }" name="in" class="basket_item_num">
 	 			  <button style="border: none;
                      background-color:rgba( 255, 255, 255, 0.5 );" id="bkd${il.itemvo.item_num }">
 	 			  <svg  xmlns="http://www.w3.org/2000/svg" width="16"

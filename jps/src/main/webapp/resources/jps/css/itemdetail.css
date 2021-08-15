@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.btns{
+	height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+   	border: 1px solid #d8d8d8;
+    background-color: #ffffff;
+    color: #000000;
+    min-width: 100px;
+}
+[class*=jjim]{
+	height: 32px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+}
