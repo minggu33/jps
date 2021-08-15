@@ -17,6 +17,8 @@
 
 	if(msg == "success") {
 		alert("등록완료");
+	} else if (msg == "update") {
+		alert("업데이트 완료");
 	}
 </script>
 </head>

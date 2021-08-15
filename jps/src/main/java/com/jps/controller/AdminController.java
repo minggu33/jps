@@ -313,7 +313,7 @@ public class AdminController {
 		
 		service.updateItem(vo, dtlList);
 		
-		rttr.addFlashAttribute("msg", "success");
+		rttr.addFlashAttribute("msg", "update");
 		
 		return "redirect:/admin/itemlist";
 	}
