@@ -115,7 +115,7 @@
 				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock()"> 
 				<hr>
 				<textarea rows="20" cols="150" name="item_content" class="resize_none">${itemlist[0].item_content }</textarea>
-				<hr> 
+				<hr>
 				<div id="submit_button">
 					<input type="button" value="목록으로" class="border_none" onclick="location.href='/admin/itemlist'">
 					<input type="submit" value="등록하기" class="border_none">
