@@ -9,6 +9,7 @@
 		<h1>주문 감사합니다.</h1>
 		
 		<input type="button" value="HOME" onclick="location.href='/home'">
+		<input type="button" value="쇼핑계속하기" onclick="location.href='/item/itemlist'">
 	</center>
 	<!-- footer -->
 	<%@ include file="../include/footer.jsp" %>

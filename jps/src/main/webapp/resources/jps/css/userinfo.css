@@ -146,5 +146,16 @@
 .cart-btn{
 		margin: 5% 0;
 	    text-align: center;
-	
+}
+.del-btn{
+	display: inline-block;
+    width: 90px;
+    height: 33px;
+    margin-left: 1.5%;
+    line-height: 33px;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 3%;
 }
