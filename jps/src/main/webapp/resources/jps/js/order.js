@@ -13,7 +13,7 @@ $(function(){
 });
 // 좋아요 취소
 $(function(){
-	$(".nojjim").on("click",function(){
+	$(".no_jjim").on("click",function(){
 		$.ajax({
 			url:"/item/unlike",
 			type:"post",
@@ -48,14 +48,25 @@ $(function(){
 
 // 주문
 function check(){
-	if(document.fr.color.value==""){
-		alert("색상을 선택해주세요.");
+	
+	let rtn;
+	
+	rtn = confirm('주문하시겠습니까?');
+	
+	if(rtn){
+		
+		if(document.fr.item_detail_idx.value==""){
+		alert("옵션을 선택해 주세요.");
+		return false;
+	} 
+	
+		document.getElementById('fr').submit();
+		
+	}else{
 		return false;
 	}
-	if(document.fr.size.value==""){
-		alert("사이즈를 선택해주세요.");
-		return false;
-	}
+	
+	
 }
 
 // 주문상세정보 입력칸
@@ -64,20 +75,21 @@ $(function(){
 		$(".orderdetail").fadeToggle();
 	});
 });
-// 주문하기 유효성
+// 주문하기 유효성(수량에 따른 가격 표시)
 $(function(){
-	$(document).on("click", ".jjinmak", function(){
-		if(document.fr.order_detail_stock.value == ""){
+	$(document).on("change", ".order_detail_stock", function(){
+		if(document.fr.item_detail_idx.value == ""){
 		alert("옵션을 선택해주세요.");
+		document.fr.order_detail_stock.value = '1';
 		return false;
 			
 			}else if(document.fr.count.value==""){
 				alert("수량을 작성해주세요.");
 				return false;
 				}else{
-				$(".ni").fadeToggle();
-				$("#price").html(document.fr.count.value * $("#item_price").val() + "원");
-				document.getElementById("count").readOnly = true;
+//				$(".ni").fadeToggle();
+				$("#price").html("Price : "+document.fr.count.value * $("#item_price").val() + "원");
+				
 			}
 		});
 	});	
