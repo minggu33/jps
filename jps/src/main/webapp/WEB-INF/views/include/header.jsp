@@ -63,15 +63,26 @@
           <div class="tweet d-flex">
             <span class="icofont-twitter text-white mt-2 mr-3"></span>
             <div>
-              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut
-                  officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
+              <p><em>jps스토어에서 판매되는 모든 브랜드 제품은 정식제조, 정식수입원을 통해 유통되는 100% 정품임을 보증합니다. <br>
+              일부 상품의 경우 주식회사 무신사는 통신판매의 당사자가 아닌 통신판매중개자로서
+				상품, 상품정보, 거래에 대한 책임이 제한될 수 있으므로, 각 상품 페이지에서 구체적인 내용을 확인하시기 바랍니다.
+              </em></p>
             </div>
           </div>
         </div>
         <div class="col-md-4 d-none d-md-block">
-          <h3>Hire Me</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-            explicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>
+          <h3>고객 센터</h3>
+          <p>[ FAQ1:1질문하기이메일문의 ] <br>
+
+			대표전화 1544-0000 전화문의 <br>
+			
+			1번 : 배송 / 교환 / 환불관련 <br>
+			
+			2번 : 결제 / 회원 관련 <br>
+			
+			ㄴ상품 문의 > 각 상품 Q&A 이용 <br>
+			
+			오전9시-오후6시(토,일, 공휴일 휴무) </p>
         </div>
       </div>
 
@@ -90,7 +101,6 @@
     <div class="userinfo">
       Welcome!  
       <a href="/user/info">${userVO.user_nickname} </a>님 |
-      <a href="#">알림 </a> |
       <a href="/user/info">내 정보 </a> |
       <a href="/user/like">좋아요 </a> |
       <a href="/user/cart">장바구니 </a> |
