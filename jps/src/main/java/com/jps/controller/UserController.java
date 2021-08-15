@@ -260,7 +260,7 @@ public class UserController {
 		public void cartGET(HttpSession session, Model model) throws Exception {
 			
 			logger.info("C : cartGET() 호출 ");
-			
+			 
 			String user_num = (String)session.getAttribute("user_num");
 			
 			// user_num="1";
