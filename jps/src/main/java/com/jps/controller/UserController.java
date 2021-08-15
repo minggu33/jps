@@ -253,7 +253,7 @@ public class UserController {
 			
 			logger.info("페이지 이동 /user/like.jsp");
 			
-		}
+		} 
 	
 		// 장바구니 페이지 호출
 		@RequestMapping(value = "/cart",method = RequestMethod.GET)
