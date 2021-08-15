@@ -112,5 +112,10 @@
 		select * from item natural join item_detail where item_num = #{item_num}
 	</select>
 	
+	<update id="updateItemDetail">
+		update item_detail set item_color=#{item_color}, item_size=${item_size}, item_stock=${item_stock}
+		where item_detail_idx = ${item_detail_idx}
+	</update>
+	
 	
 </mapper>
