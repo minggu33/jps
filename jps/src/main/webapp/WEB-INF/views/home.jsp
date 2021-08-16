@@ -1,17 +1,47 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+<title>Home</title>
+
+<script>
+	window.onload = openPopup();
+
+	
+	function getCookie(name) {
+		var cookie = document.cookie;
+		
+		if (document.cookie != "") {
+			var cookie_array = cookie.split("; ");
+			for ( var index in cookie_array) {
+				var cookie_name = cookie_array[index].split("=");
+				if (cookie_name[0] == "popupYN") {
+					return cookie_name[1];
+				}
+			}
+		}
+	
+		return;
+	}
+	
+	function openPopup(url) {
+		var cookieCheck = getCookie("popupYN");
+		if (cookieCheck != "N"){
+			window.open("/popup/popup", "popup", "width=400, height=500, history=no, resizable=no, status=no, scrollbars=yes, menubar=no")
+		}
+	}
+</script>
+
+
 </head>
 <body>
 
-<%@ include file="include/header.jsp" %>
+	<%@ include file="include/header.jsp"%>
 
 
-  <main id="main">
+	<main id="main">
 
     <div class="site-section site-portfolio">
       <div class="container">
@@ -92,136 +122,158 @@
       </div>
     </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-4">
-          <div class="col-5">
-            <h3 class="h3 heading">My Clients</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-adobe.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-uber.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-apple.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-netflix.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-nike.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="/resources/tmp/img/logo-google.png" alt="Image" class="img-fluid"></a>
-          </div>
+		<div class="site-section">
+			<div class="container">
+				<div class="row justify-content-center text-center mb-4">
+					<div class="col-5">
+						<h3 class="h3 heading">My Clients</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-adobe.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-uber.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-apple.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-netflix.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-nike.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
+					<div class="col-4 col-sm-4 col-md-2">
+						<a href="#" class="client-logo"><img
+							src="/resources/tmp/img/logo-google.png" alt="Image"
+							class="img-fluid"></a>
+					</div>
 
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-4">
-          <div class="col-5">
-            <h3 class="h3 heading">My Services</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-cube la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-mobile la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Mobile Applications</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-image la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Graphic Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-search la-3x mb-4"></span>
-            <h4 class="h4 mb-2">SEO</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section pt-0">
-      <div class="container">
-
-        <div class="owl-carousel testimonial-carousel">
-
-          <div class="testimonial-wrap">
-            <div class="testimonial">
-              <img src="/resources/tmp/img/person_1.jpg" alt="Image" class="img-fluid">
-              <blockquote>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                  explicabo inventore.</p>
-              </blockquote>
-              <p>&mdash; Jean Hicks</p>
-            </div>
-          </div>
-
-          <div class="testimonial-wrap">
-            <div class="testimonial">
-              <img src="/resources/tmp/img/person_2.jpg" alt="Image" class="img-fluid">
-              <blockquote>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                  explicabo inventore.</p>
-              </blockquote>
-              <p>&mdash; Chris Stanworth</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </main>
+				</div>
+			</div>
+		</div>
 
 
+		<div class="site-section">
+			<div class="container">
+				<div class="row justify-content-center text-center mb-4">
+					<div class="col-5">
+						<h3 class="h3 heading">My Services</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+					</div>
+				</div>
+				<div class="row">
 
-<%@ include file="include/footer.jsp" %>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3">
+						<span class="la la-cube la-3x mb-4"></span>
+						<h4 class="h4 mb-2">Web Design</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+						<ul class="list-unstyled list-line">
+							<li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
+							<li>Non pariatur nisi</li>
+							<li>Magnam soluta quod</li>
+							<li>Lorem ipsum dolor</li>
+							<li>Cumque quae aliquam</li>
+						</ul>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3">
+						<span class="la la-mobile la-3x mb-4"></span>
+						<h4 class="h4 mb-2">Mobile Applications</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+						<ul class="list-unstyled list-line">
+							<li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
+							<li>Non pariatur nisi</li>
+							<li>Magnam soluta quod</li>
+							<li>Lorem ipsum dolor</li>
+							<li>Cumque quae aliquam</li>
+						</ul>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3">
+						<span class="la la-image la-3x mb-4"></span>
+						<h4 class="h4 mb-2">Graphic Design</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+						<ul class="list-unstyled list-line">
+							<li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
+							<li>Non pariatur nisi</li>
+							<li>Magnam soluta quod</li>
+							<li>Lorem ipsum dolor</li>
+							<li>Cumque quae aliquam</li>
+						</ul>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3">
+						<span class="la la-search la-3x mb-4"></span>
+						<h4 class="h4 mb-2">SEO</h4>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+							explicabo inventore.</p>
+						<ul class="list-unstyled list-line">
+							<li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
+							<li>Non pariatur nisi</li>
+							<li>Magnam soluta quod</li>
+							<li>Lorem ipsum dolor</li>
+							<li>Cumque quae aliquam</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="site-section pt-0">
+			<div class="container">
+
+				<div class="owl-carousel testimonial-carousel">
+
+					<div class="testimonial-wrap">
+						<div class="testimonial">
+							<img src="/resources/tmp/img/person_1.jpg" alt="Image"
+								class="img-fluid">
+							<blockquote>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Quisquam necessitatibus incidunt ut officiis explicabo
+									inventore.</p>
+							</blockquote>
+							<p>&mdash; Jean Hicks</p>
+						</div>
+					</div>
+
+					<div class="testimonial-wrap">
+						<div class="testimonial">
+							<img src="/resources/tmp/img/person_2.jpg" alt="Image"
+								class="img-fluid">
+							<blockquote>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Quisquam necessitatibus incidunt ut officiis explicabo
+									inventore.</p>
+							</blockquote>
+							<p>&mdash; Chris Stanworth</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</main>
+
+
+
+	<%@ include file="include/footer.jsp"%>
 </body>
 </html>
