@@ -122,4 +122,21 @@
 		where item_detail_idx = #{item_detail_idx}
 	</update>
 	
+	<select id="detailIdxList" resultType="Integer">
+		select item_detail_idx from item_detail
+		where item_num = #{item_num}
+	</select>
+	
+	<delete id="deleteDetailOfIdx">
+		delete from item_detail where item_detail_idx=#{idxList }
+	</delete>
+	
+	<delete id="deleteDetailOfItemNum">
+		delete from item_detail where item_num=#{item_num }
+	</delete>
+	
+	<delete id="deleteItem">
+		delete from item where item_num=#{item_num }
+	</delete>
+	
 </mapper>

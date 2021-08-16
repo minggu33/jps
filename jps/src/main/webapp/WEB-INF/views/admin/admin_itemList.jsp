@@ -10,7 +10,7 @@
 <title>관리자 페이지 - 상품 목록</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/jps/js/itemInsert.js"></script>
+<script src="/resources/jps/js/itemList.js"></script>
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 <script type="text/javascript">
 	var msg = "${msg }";
@@ -54,9 +54,13 @@
 				<td class="item_price"><fmt:formatNumber value="${ItemVO.item_price }" type="number" /></td>
 				<td class="item_create_date"><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td class="item_readcount">${ItemVO.item_read_count }</td>
-				<td class="item_etc"></td>
+				<td class="item_etc">
+					<input type="hidden" name="item_num" value="${ItemVO.item_num }">
+					<input type="hidden" name="item_name" value="${ItemVO.item_name }">
+					<input type="button" value="삭제하기" class="deleteItem border_none">
+				</td>
 			</tr>
-		</c:forEach> 
+		</c:forEach>
 		</table>
 		
 		<!-- 페이징처리 -->

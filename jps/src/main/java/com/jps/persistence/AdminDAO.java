@@ -54,4 +54,6 @@ public interface AdminDAO {
 	public List<Map<String, Object>> readItemInfo(String item_num);
 	
 	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList);
+	
+	public int deleteItem(int item_num);
 }

@@ -224,3 +224,9 @@ function updateCheck() {
 	});
 	
 }
+
+function checkReset() {
+	if(confirm("변경하신 내용이 초기화 됩니다. 그래도 목록으로 돌아가시겠습니까?")) {
+		location.href='/admin/itemlist'		
+	}
+}
