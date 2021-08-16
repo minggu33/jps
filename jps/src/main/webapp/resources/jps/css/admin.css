@@ -41,6 +41,16 @@ a:hover {
   transition: all 0.6s ease;
 }
 
+.pageLinkDiv {
+	position: fixed;
+	bottom: 1%;
+}
+
+.pageLink {
+	color:white;
+	font-size: 0.7em;
+}
+
 /* -------------
 Sidebar
 ----------------*/
