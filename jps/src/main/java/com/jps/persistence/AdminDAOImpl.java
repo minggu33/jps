@@ -166,6 +166,10 @@ public class AdminDAOImpl implements AdminDAO{
 	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) {
 		sqlSession.insert(namespace+".updateItem", vo);
 		
+		List<Integer> idxList = sqlSession.selectList(namespace+".detailIdxList", vo);
+		
+		System.out.println(idxList);
+		
 		for(int i=0; i<dtlList.size(); i++) {
 			Item_detailVO dtlvo = dtlList.get(i);
 			if(dtlvo.getItem_detail_idx() == 0) {
@@ -173,7 +177,26 @@ public class AdminDAOImpl implements AdminDAO{
 			} else {
 				sqlSession.update(namespace+".updateItemDetail", dtlvo);
 			}
+			
+			for(int j=0; j<idxList.size(); j++) {
+				if(dtlvo.getItem_detail_idx() == idxList.get(j)) {
+					idxList.remove(j);
+				}
+			}
 		}
+		
+		System.out.println(idxList);
+		
+		for(int i=0; i<idxList.size(); i++) {
+			sqlSession.delete(namespace+".deleteDetailOfIdx", idxList.get(i));
+		}
+	}
+
+	@Override
+	public int deleteItem(int item_num) {
+		sqlSession.delete(namespace+".deleteDetailOfItemNum", item_num);
+		
+		return sqlSession.delete(namespace+".deleteItem", item_num);
 	}
 	
 	

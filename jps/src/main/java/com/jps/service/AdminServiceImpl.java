@@ -163,6 +163,11 @@ public class AdminServiceImpl implements AdminService {
 		adao.updateItem(vo, dtlList);
 	}
 
+	@Override
+	public int deleteItem(int item_num) throws Exception {
+		return adao.deleteItem(item_num);
+	}
+
 	
 	
 }

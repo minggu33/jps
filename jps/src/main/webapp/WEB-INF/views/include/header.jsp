@@ -100,7 +100,7 @@
   %>
     <div class="userinfo">
       Welcome!  
-      <a href="/user/info">${userVO.user_nickname} </a>님 |
+      <a href="/user/info">${sessionScope.userVO.user_nickname} </a>님 |
       <a href="/user/info">내 정보 </a> |
       <a href="/user/like">좋아요 </a> |
       <a href="/user/cart">장바구니 </a> |

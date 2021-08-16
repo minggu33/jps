@@ -317,4 +317,16 @@ public class AdminController {
 		
 		return "redirect:/admin/itemlist";
 	}
+	
+	@RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
+	public void adminDeleteItemPOST(int item_num, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminDeleteItemPOST() 호출");
+		
+		logger.info("C : 지울 아이템 번호 - {}", item_num);
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.deleteItem(item_num));
+		out.close();
+	}
 }

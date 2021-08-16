@@ -54,5 +54,7 @@ public interface AdminService {
 	public List<Map<String, Object>> readItemInfo(String item_num) throws Exception;
 	
 	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) throws Exception;
+	
+	public int deleteItem(int item_num) throws Exception;
 
 }
