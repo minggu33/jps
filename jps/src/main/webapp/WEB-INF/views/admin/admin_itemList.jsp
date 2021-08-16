@@ -60,7 +60,7 @@
 					<input type="button" value="삭제하기" class="deleteItem border_none">
 				</td>
 			</tr>
-		</c:forEach> 
+		</c:forEach>
 		</table>
 		
 		<!-- 페이징처리 -->
