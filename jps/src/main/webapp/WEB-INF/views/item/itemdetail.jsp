@@ -73,6 +73,7 @@
 		
 	<form id="fr" name="fr" action="./order" method="post" onsubmit="return check();">
 	Name : ${vo.item_name }
+	<input type="hidden" name="item_num" value="${vo.item_num }">
 	<br>
 
 
@@ -110,4 +111,4 @@
 <%@ include file="../include/footer.jsp" %>
 <!-- footer -->
 
-<script src="/resources/jps/js/order.js"></script><br>
+<script src="/resources/jps/js/itemdetail.js"></script><br>

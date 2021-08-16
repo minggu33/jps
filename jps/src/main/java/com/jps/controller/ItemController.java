@@ -122,9 +122,13 @@ public class ItemController {
 			Item_detailVO idVO = new Item_detailVO();
 			idVO = service.getItemSC(idx);
 			
+			vo = service.read(vo.getItem_num());
+			
 			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 			System.out.println(idx);
+			System.out.println(vo);
 			
+			model.addAttribute("uvo",uservice.infoUser(user_num));
 			odvo.setOrder_detail_color(idVO.getItem_color());
 			odvo.setOrder_detail_size(idVO.getItem_size());
 			model.addAttribute("odvo", odvo);
