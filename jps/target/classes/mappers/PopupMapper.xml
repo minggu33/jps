@@ -6,8 +6,13 @@
 
 <mapper namespace="com.jps.mapper.PopupMapper">
 	
+	<insert id="insertPopup_img">
+		insert into popup (popup_img) values(#{popup_img})
+	</insert>
 	
-	
+	<select id="getPopup_img" resultType="com.jps.domain.PopupVO">
+		select * from popup order by popup_num desc limit 0,1
+	</select>
 	
 
 	
