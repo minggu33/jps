@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
+import com.jps.domain.OrderVO;
 
 @Repository
 public class ItemDAOImpl implements ItemDAO{
@@ -47,6 +48,12 @@ public class ItemDAOImpl implements ItemDAO{
 		return sqlSession.selectOne(namespace+".getItemSC", item_detail_idx);
 	}
 
+	@Override
+	public void insertRealorder(OrderVO vo) throws Exception {
+		sqlSession.insert(namespace+".order", vo);
+	}
+
+	
 
 	
 }

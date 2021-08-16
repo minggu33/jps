@@ -52,6 +52,9 @@
 						</li>
 					</ul></li>
 			</ul>
+			<div class="pageLinkDiv">
+				<a href="/home" class="pageLink">JPS 메인페이지로 가기</a>
+			</div>
 		</nav>
 	</aside>
 </section>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jps.domain.Item_likeVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -44,7 +45,7 @@ public class UserController {
 	// 
 	 @Autowired
 	 private JavaMailSender mailSender;
-	
+	 
 	
 	// http://localhost:8080/user/login
 	// 로그인페이지(get) 
@@ -239,9 +240,16 @@ public class UserController {
 			
 			// user_num="1";
 			
-			UserVO infoVO = service.infoUser(user_num);
+			/*
+			 * UserVO infoVO = service.infoUser(user_num);
+			 * 
+			 * model.addAttribute("infoVO", infoVO);
+			 */
 			
-			model.addAttribute("infoVO", infoVO);
+			
+			model.addAttribute("ilvo", service.like(user_num));
+			
+			
 			
 			logger.info("페이지 이동 /user/like.jsp");
 			
@@ -256,23 +264,11 @@ public class UserController {
 			String user_num = (String)session.getAttribute("user_num");
 			
 			// user_num="1";
+
 			
-			
-			// 나의 장바구니 목록 불러오기 
-//			model.addAttribute("BasketList", service.getMyBasketList(user_num));
-			
-			// 아이템 정보 불러오기
-//			model.addAttribute("ItemList", service.getMyItemList(user_num));
-			
+			// 장바구니 목록 불러오
 			model.addAttribute("mbList", service.getmbList(user_num));
 			
-//			List BasketList = service.getMyBasketList(user_num);
-//			List ItemList =  service.getMyItemList(user_num);
-//			
-//			ItemList.add(BasketList);
-//					
-//			
-//			model.addAttribute("mblist", ItemList);
 			
 			// 유저 정보 저장 
 			model.addAttribute("infoVO", service.infoUser(user_num));
@@ -440,4 +436,5 @@ public class UserController {
 			service.change1(user_num);
 			}
 		}
+		
 }

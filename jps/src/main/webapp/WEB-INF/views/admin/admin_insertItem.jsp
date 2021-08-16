@@ -66,7 +66,7 @@
 				<input type="hidden" name="item_stock">
 				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock()"> 
 				<hr>
-				<textarea rows="20" cols="165" name="item_content" class="resize_none"></textarea>
+				<textarea rows="20" cols="150" name="item_content" class="resize_none"></textarea>
 				<hr> 
 				<div id="submit_button">
 					<input type="submit" value="등록하기" class="border_none">

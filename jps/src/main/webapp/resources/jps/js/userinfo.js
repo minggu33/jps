@@ -336,16 +336,22 @@ $(function(){
 	$(document).on("click","[id*=bkd]",function(){
         	var trNum = $(this).closest('tr').prevAll().length;
         	var inputvalue = document.getElementsByClassName('basket_item_num')[trNum];
-  	
-		$.ajax({
-			url:"/basket/basketdelete",
-			type:"post",
-			data:{"item_num":inputvalue.value},
-			success:function(){
-				alert("장바구니 out!!");
-				location.reload();
-			}
-		});
+  
+	  
+	  	if(confirm("상품을 삭제하시겠습니까?")){
+			$.ajax({
+				url:"/basket/basketdelete",
+				type:"post",
+				data:{"basket_idx":inputvalue.value},
+				success:function(){
+					alert("장바구니에서 삭제되었습니다.");
+					location.reload();
+				}
+			});
+		}else{
+			alert("상품삭제가 취소되었습니다.");
+		}	
+		
 	});
 });
 
@@ -367,3 +373,34 @@ $(function(){
 			});
 	});
 });
+
+// 체크박스 전체선택 function
+$('#chk_all').click(function(){
+	if($("input:checkbox[id='chk_all']").prop("checked")){
+		$("input[type=checkbox]").prop("checked",true);
+	}else{
+		$("input[type=checkbox]").prop("checked",false);
+	}
+});
+
+// 체크된 상품 가져오기
+$('#del-btn').click(function(){
+	
+	$("input[id=chk]:checked").each(function(){
+		var test = $(this).val();
+		$.ajax({
+			url:"/basket/basketdeleteMulti",
+			type:"post",
+			data:{"basket_idx":test},
+			success:function(){
+				alert("장바구니에서 삭제되었습니다.");
+				location.reload();
+				
+				}
+		});
+	});	
+	
+	
+});
+
+

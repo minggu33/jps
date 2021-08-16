@@ -3,11 +3,13 @@ package com.jps.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,11 +18,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
+import com.jps.domain.Order_detailVO;
+import com.jps.service.BasketService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
+import com.jps.service.UserService;
 
 @Controller
 @RequestMapping(value = "/item/*")
@@ -31,6 +38,9 @@ public class ItemController {
 	
 	@Inject
 	private ItemService service;
+	
+	@Inject
+	private UserService uservice;
 	
 	@Inject
 	private Item_likeService ilservice;
@@ -81,12 +91,6 @@ public class ItemController {
 		model.addAttribute("idL",service.getItemDetail(item_num));
 	}	
 	
-	@RequestMapping(value="/itemdetail", method = RequestMethod.POST)
-	public String itemdetailPOST(Item_detailVO dvo, RedirectAttributes rttr, Model model) throws Exception {
-		
-		
-		return "redirect:/item/order";
-	}
 	@RequestMapping(value="/like", method = RequestMethod.POST)
 	public void itemlikePOST(Item_likeVO ilvo, HttpSession session, HttpServletResponse resp) throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
@@ -103,8 +107,37 @@ public class ItemController {
 		ilservice.unlike(ilvo);
 	}
 	
-	@RequestMapping(value="/order", method = RequestMethod.GET)
-	public void itemorderGET()throws Exception{
-		System.out.println("주문상세페이지 호출");
+	@RequestMapping(value="/order", method = RequestMethod.POST)
+	public void itemorderGET(Order_detailVO odvo,Item_detailVO idvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		String referer = (String) req.getHeader("REFERER");
+		System.out.println("이전페이지 주소"+referer);
+		
+		if(referer.equals("http://localhost:8088/user/cart")) {
+			System.out.println("장바구니 주문");
+			model.addAttribute("mbList", uservice.getmbList(user_num));
+			
+		}else {
+			int idx = idvo.getItem_detail_idx();
+			Item_detailVO idVO = new Item_detailVO();
+			idVO = service.getItemSC(idx);
+			
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println(idx);
+			
+			odvo.setOrder_detail_color(idVO.getItem_color());
+			odvo.setOrder_detail_size(idVO.getItem_size());
+			model.addAttribute("odvo", odvo);
+			model.addAttribute("vo", vo);
+		}
+
+	}
+	
+	@RequestMapping(value="/pay", method = RequestMethod.POST)
+	public void payPOST(OrderVO vo, HttpSession session, String user_addr) throws Exception{
+		String user_num = (String) session.getAttribute("user_num");
+		vo.setUser_num(user_num);
+		vo.setOrder_addr(user_addr);
+		service.realorder(vo);
 	}
 }

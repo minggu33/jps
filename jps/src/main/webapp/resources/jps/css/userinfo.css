@@ -131,3 +131,42 @@
 .cart-table th{
 	width: auto;	
 }
+.button_order{
+	display: table-cell;
+    width: 32%;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background: #000;
+    border: 1px solid #000;
+}
+.cart-btn{
+		margin: 5% 0;
+	    text-align: center;
+}
+.del-btn{
+	display: inline-block;
+    width: 90px;
+    height: 33px;
+    margin-left: 1.5%;
+    line-height: 33px;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 3%;
+}
+.input-count{
+	width: 32px;
+    height: 30px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+    color: #000000;
+    float: left;
+    
+}

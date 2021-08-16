@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
+import com.jps.domain.Item_likeVO;
 import com.jps.domain.UserVO;
 
 @Repository
@@ -179,6 +180,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void change1(String user_num) {
 		sqlSession.update(namespace+".change1", user_num);
+	}
+
+	@Override
+	public List<ItemVO> like(String user_num) {
+		return sqlSession.selectList(namespace+".like", user_num);
 	}
 
 	
