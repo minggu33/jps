@@ -37,7 +37,7 @@
 				<td class="notice_subject">글 제목</td>
 				<td class="notice_date">글 작성일</td>
 				<td class="notice_count">조회수</td>
-				<td class="notice_d">신고 횟수</td>
+				<td class="notice_i">중요글</td>
 				<td class="notice_delete">삭제</td>
 				<td class="notice_etc">비고</td>
 			</tr>
@@ -47,7 +47,13 @@
 				<td class="notice_subject">${NoticeVO.notice_subject }</td>
 				<td class="notice_date">${NoticeVO.notice_date }</td>
 				<td class="notice_count">${NoticeVO.notice_count }</td>
-				<td class="notice_d"></td>
+				<td class="notice_i">
+					<input type="checkbox" onclick="return false;"
+						<c:if test="${NoticeVO.notice_important eq 1}">
+							checked
+						</c:if>
+					>
+				</td>
 				<td class="notice_delete"></td>
 				<td class="notice_etc"></td>
 			
