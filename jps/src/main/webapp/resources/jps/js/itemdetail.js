@@ -27,7 +27,16 @@ $(function(){
 // 장바구니 디테일칸
 $(function(){
 	$(".basket").on("click", function(){
-		$(".basket_detail").fadeToggle();
+		let basket = $(".basket_detail");
+		let order = $(".orderdetail");
+		if(basket.css("display")=="none"){
+			basket.show();
+			order.hide();
+		}else{
+			order.hide();
+			basket.hide();
+		}
+	
 	});
 });	
 // 장바구니 담기
@@ -46,7 +55,7 @@ $(function(){
 	});
 
 
-// 주문
+// 주문하기 버튼 클릭 -> 주문페이지 이동
 function check(){
 	
 	let rtn;
@@ -69,10 +78,18 @@ function check(){
 	
 }
 
-// 주문상세정보 입력칸
+// 옵션정보 입력칸 나타나기
 $(function(){
 	$(".order").on("click",function(){
-		$(".orderdetail").fadeToggle();
+		let basket = $(".basket_detail");
+		let order = $(".orderdetail");
+		if(order.css("display")=="none"){
+			order.show();
+			basket.hide();
+		}else{
+			order.hide();
+			basket.hide();
+		}
 	});
 });
 // 주문하기 유효성(수량에 따른 가격 표시)
