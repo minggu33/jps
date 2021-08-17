@@ -36,20 +36,21 @@
 	<header class="mypage-header">
 		<h1>좋아요 </h1>
 	</header>
-	<body>
+	
+		
 		<table border="1">
 		<c:forEach var="ItemVO" items="${ilvo }">
 			<tr>
 				<td width="80" style="text-align: center;">${ItemVO.item_category }</td>
-				<td width="500" style="text-align: center;">${ItemVO.item_name }</td>
+				<td width="500" style="text-align: center;"><a href="/item/itemdetail?item_num=${ItemVO.item_num }">${ItemVO.item_name }</a></td>
 				<td><img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(ItemVO.item_img,',')[0]}"></td>
 				<td width="200" style="text-align: center;">${ItemVO.item_price } ￦</td>
-				<td><input type="button" value="장바구니"><br><input type="button" value="주문하기"></td>
 			</tr>
 			
 		</c:forEach>
 		</table>
-	</body>
+		
+	
 	
 	
 	
