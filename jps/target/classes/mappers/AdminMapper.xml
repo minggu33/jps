@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="itemlist" resultType="com.jps.domain.ItemVO">
-		select * from item order by item_num desc
+		select * from item order by item_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="getItemNum" resultType="int">
@@ -24,11 +24,11 @@
 	</insert>
 	
 	<select id="userlist" resultType="com.jps.domain.UserVO">
-		select * from user order by user_num limit #{startRow} , #{pageSize}
+		select * from user order by user_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="noticelist" resultType="com.jps.domain.NoticeVO">
-		select * from notice order by notice_num desc;
+		select * from notice order by notice_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<update id="updatePoint">
@@ -61,27 +61,27 @@
 	</insert>
 	
 	<select id="itemSearchOfSubject"  resultType="com.jps.domain.ItemVO">
-		select * from notice where notice_subject like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+		select * from item where item_name like '%${search}%' order by item_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="itemSearchOfContent" resultType="com.jps.domain.ItemVO">
-		select * from notice where notice_content like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+		select * from item where item_content like '%${search}%' order by item_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="itemSearchOfSC" resultType="com.jps.domain.ItemVO">
-		select * from notice where concat(notice_subject, notice_content) like '%${search}%' order by notice_num desc limit #{startRow} , #{pageSize}
+		select * from item where concat(item_name, item_content) like '%${search}%' order by item_num desc limit #{startRow} , #{pageSize}
 	</select>
 	
 	<select id="itemCountOfSubject" resultType="int">
-		select count(*) from notice where notice_subject like '%${search}%'
+		select count(*) from item where item_name like '%${search}%'
 	</select>
 	
 	<select id="itemCountOfContent" resultType="int">
-		select count(*) from notice where notice_content like '%${search}%'
+		select count(*) from item where item_content like '%${search}%'
 	</select>
 	
 	<select id="itemCountOfSC" resultType="int">
-		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
+		select count(*) from item where concat(item_name, item_content) like '%${search}%'
 	</select>
 	
 	<select id="noticeSearchOfSubject"  resultType="com.jps.domain.NoticeVO">
@@ -107,6 +107,36 @@
 	<select id="noticeCountOfSC" resultType="int">
 		select count(*) from notice where concat(notice_subject, notice_content) like '%${search}%'
 	</select>
+
+	<select id="getItemJoinList" resultType="map" >
+		select * from item natural join item_detail where item_num = #{item_num}
+	</select>
 	
+	<update id="updateItem">
+		update item set item_category = #{item_category}, item_name = #{item_name}, item_price = #{item_price}, item_img = #{item_img}, item_content = #{item_content}
+		where item_num = #{item_num}
+	</update>
+	
+	<update id="updateItemDetail">
+		update item_detail set item_color=#{item_color}, item_size=#{item_size}, item_stock=#{item_stock}
+		where item_detail_idx = #{item_detail_idx}
+	</update>
+	
+	<select id="detailIdxList" resultType="Integer">
+		select item_detail_idx from item_detail
+		where item_num = #{item_num}
+	</select>
+	
+	<delete id="deleteDetailOfIdx">
+		delete from item_detail where item_detail_idx=#{idxList }
+	</delete>
+	
+	<delete id="deleteDetailOfItemNum">
+		delete from item_detail where item_num=#{item_num }
+	</delete>
+	
+	<delete id="deleteItem">
+		delete from item where item_num=#{item_num }
+	</delete>
 	
 </mapper>

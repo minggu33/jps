@@ -55,6 +55,9 @@ public class BasketController {
 		System.out.println(user_num+"장바구니 목록 삭제");
 		bvo.setUser_num(user_num);
 		
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@bvo"+bvo);
+		
 		bservice.basketdelete(bvo);
 	}
 	
@@ -67,7 +70,9 @@ public class BasketController {
 		// 네개의 컬럼을 어떻게 가져올지가 문제
 		// 가져와서 bvo에 넣어서 sql문을 돌리면 될 것 같은데...
 		
-		System.out.println(bvo);
+		bservice.basketdelete(bvo);
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@bvo"+bvo);
 
 	}
 	

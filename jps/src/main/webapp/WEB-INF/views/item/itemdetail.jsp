@@ -5,7 +5,7 @@
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-			
+	<link href="/resources/jps/css/itemdetail.css" rel="stylesheet">		
 
 
 <!-- header -->
@@ -28,25 +28,22 @@
 				<img class="img-fluid" src="/resources/jps/upload/insertItem/${fn:split(vo.item_img,',')[p]}">
 		</c:forEach>
 	<br>
-	${vo.item_content }
+
 	<br>
 	<br>
 	<br>
-	<input type="button" class="order" value="주문하기">
-	<input type="button" value="장바구니" class="basket">
+	<button type="button" class="order btns">주문하기</button>
+	<button type="button" class="basket btns">장바구니</button>
+	
 		<c:if test="${ivo_cnt == 0 }">
 				<button class="jjim">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-	  				<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-					</svg>
+					<img src="/resources/jps/img/like.png" style="width:20; height:20;">
 				</button>
 		</c:if>
 		<c:if test="${ivo_cnt == 1 }">
 		
-				<button class="nojjim">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-	  				<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-					</svg>
+				<button class="no_jjim">
+					<img src="/resources/jps/img/heart.png" style="width:20; height:20;">					
 				</button>
 		</c:if>
 					
@@ -70,9 +67,13 @@
 		<br><input type="button" class="basket_insert" value="바구니담기">
 		</form>
 	</div>
+	
+	
 	<div class="orderdetail" style="display: none;">
-	<form name="fr" action="./order" method="post" onsubmit="return check();">
+		
+	<form id="fr" name="fr" action="./order" method="post" onsubmit="return check();">
 	Name : ${vo.item_name }
+	<input type="hidden" name="item_num" value="${vo.item_num }">
 	<br>
 
 
@@ -87,20 +88,27 @@
 
 
 		<br>
-		Count : <input type="number" name="order_detail_stock" id="count" value="1">
+		Count : <input type="number" class="order_detail_stock" name="order_detail_stock" id="count" value="1" min="0">
+		
 		<br>
-		<input type="button" class="jjinmak" value="주문신청">
 		<input type="hidden" id="item_price" value="${vo.item_price}" name="item_price">
-		<div class="ni" style="display: none;">
-			Price : <content id="price"></content>
+		<div class="ni" >
+			<span id="price"></span>
 			<br>
-			<input type="submit" value="상세정보입력">
+			<button type="submit" class="btns">주문하기</button>
+			
+			
 		</div>
 		</form>
+		
+		
 	</div>
     </center>
+    
+    
+    
 <!-- footer -->
 <%@ include file="../include/footer.jsp" %>
 <!-- footer -->
 
-<script src="/resources/jps/js/order.js"></script><br>
+<script src="/resources/jps/js/itemdetail.js"></script><br>

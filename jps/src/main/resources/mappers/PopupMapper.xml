@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jps.mapper.PopupMapper">
+	
+	<insert id="insertPopup_img">
+		insert into popup (popup_img) values(#{popup_img})
+	</insert>
+	
+	<select id="getPopup_img" resultType="com.jps.domain.PopupVO">
+		select * from popup order by popup_num desc limit 0,1
+	</select>
+	
+
+	
+	
+</mapper>

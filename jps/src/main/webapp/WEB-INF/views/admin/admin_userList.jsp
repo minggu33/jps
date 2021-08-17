@@ -25,6 +25,11 @@
 
 	<div id="adminContent">
 		<h1>회원 목록</h1>
+		<!-- 리스트 갯수 -->
+		<jsp:include page="../include/listCntPro.jsp">
+			<jsp:param value="${searchVO }" name="searchVO"/>
+		</jsp:include>
+		<!-- 리스트 갯수 -->
 		
 		<table class="userList">
 			<tr>
@@ -86,7 +91,7 @@
 					</c:if>
 					<c:if test="${UserVO.user_state eq -10}">
 						탈퇴 유예
-					</c:if>
+					</c:if><br>
 					
 					<button class="userStateBtn">등급<br>변경하기</button>
 				    <!-- The Modal -->
