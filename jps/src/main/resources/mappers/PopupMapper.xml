@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="getPopup_img" resultType="com.jps.domain.PopupVO">
-		select * from popup order by popup_num desc limit 0,1
+		select * from popup where popup_check=1
 	</select>
 	
 

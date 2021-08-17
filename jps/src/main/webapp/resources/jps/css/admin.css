@@ -520,3 +520,42 @@ Sidebar Nav
 .preImg .delete {
 	left: 70%;
 }
+
+
+.popupList {
+	text-align: center;
+	width: 100%;
+}
+
+.popupList .popup_num{
+	width: 10%;
+}
+
+.popupList .popup_check{
+	width: 10%;
+}
+
+.popupList .popup_title{
+	width: 35%;
+}
+
+.popupList .popup_img{
+	width: 30%;
+}
+
+.popupList .popup_d{
+	width: 15%;
+}
+
+.popupList tr td {
+	border-bottom: 1px solid gray;
+}
+
+.popupList tr:first-child td {
+	border-bottom: 2px solid gray;
+	background-color: #b9aab9;
+}
+
+.popupList tr:not(:first-child):hover {
+	background-color: #e7e2e7;
+}

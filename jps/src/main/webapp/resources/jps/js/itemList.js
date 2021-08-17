@@ -6,7 +6,7 @@ $(function(){
 		if(confirm("상품명 : "+item_name+"\n정말 삭제 하시겠습니까?")) {
 			$.ajax({
 				type: 'post',
-				url: './deleteItem',
+				url: './deleteitem',
 				data: { item_num: item_num},
 				success: function(data) {
 					if (data == 1) {

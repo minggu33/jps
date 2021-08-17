@@ -48,6 +48,7 @@
 						class="">이벤트 관리</span></a>
 					<ul class="nav-flyout">
 						<li><a href="#"><i class="ion-ios-filing-outline"></i>쿠폰 관리</a></li>
+						<li><a href="/admin/popup"><i class="ion-ios-filing-outline"></i>팝업 관리</a></li>
 						<li><a href="#"><i class="ion-ios-information-outline"></i>일정관리</a>
 						</li>
 					</ul></li>

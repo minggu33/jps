@@ -6,15 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지 - 상품 목록</title>
+<title>관리자 페이지 - 공지사항 목록</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/jps/js/adminNotice.js"></script>
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 <script type="text/javascript">
 	var msg = "${msg }";
 
 	if(msg == "success") {
 		alert("등록완료");
+	} else if(msg == "update") {
+		alert("업데이트 완료");
 	}
 </script>
 </head>
@@ -44,7 +47,7 @@
 		<c:forEach var="NoticeVO" items="${noticelist }">
 			<tr>
 				<td class="notice_num">${NoticeVO.notice_num }</td>
-				<td class="notice_subject">${NoticeVO.notice_subject }</td>
+				<td class="notice_subject"><a href="./updatenotice?notice_num=${NoticeVO.notice_num }">${NoticeVO.notice_subject }</a></td>
 				<td class="notice_date">${NoticeVO.notice_date }</td>
 				<td class="notice_count">${NoticeVO.notice_count }</td>
 				<td class="notice_i">
@@ -54,7 +57,11 @@
 						</c:if>
 					>
 				</td>
-				<td class="notice_delete"></td>
+				<td class="notice_delete">
+					<input type="hidden" name="notice_num" value="${NoticeVO.notice_num }">
+					<input type="hidden" name="notice_subject" value="${NoticeVO.notice_subject }">
+					<input type="button" value="삭제하기" class="deleteNotice border_none">
+				</td>
 				<td class="notice_etc"></td>
 			
 			</tr>

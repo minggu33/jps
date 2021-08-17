@@ -139,4 +139,36 @@
 		delete from item where item_num=#{item_num }
 	</delete>
 	
+	<select id="noticeInfo" resultType="com.jps.domain.NoticeVO">
+		select * from notice where notice_num=#{notice_num }
+	</select>
+	
+	<update id="updateNotice">
+		update notice set notice_important=${notice_important}, notice_subject=#{notice_subject}, notice_content=#{notice_content}, notice_file=#{notice_file} where notice_num=#{notice_num}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from notice where notice_num=#{notice_num }
+	</delete>
+	
+	<select id="popupList" resultType="com.jps.domain.PopupVO">
+		select * from popup
+	</select>
+	
+	<insert id="insertPopup">
+		insert into popup (popup_img, popup_title, popup_check) values(#{popup_img}, #{popup_title}, 0)
+	</insert>
+	
+	<update id="resetCheck">
+		update popup set popup_check=0
+	</update>
+	
+	<update id="changePopup">
+		update popup set popup_check=1 where popup_num=#{popup_num }
+	</update>
+	
+	<select id="checkPopupCnt" resultType="Integer">
+		select count(*) from popup
+	</select>
+	
 </mapper>
