@@ -27,6 +27,17 @@ public class BasketDAOImpl implements BasketDAO{
 		sqlSession.delete(namespace+".delete", bvo);
 	}
 
+	@Override
+	public int check(BasketVO bvo) throws Exception {
+
+		return sqlSession.selectOne(namespace+".check", bvo);
+	}
+
+	@Override
+	public void update(BasketVO bvo) throws Exception {
+			sqlSession.update(namespace+".update", bvo);
+	}
+
 	
 	
 }

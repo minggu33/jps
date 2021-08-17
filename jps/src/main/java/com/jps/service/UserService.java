@@ -5,6 +5,7 @@ import java.util.List;
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
 import com.jps.domain.UserVO;
 
 public interface UserService {
@@ -51,5 +52,7 @@ public interface UserService {
 	
 	public List<ItemVO> like(String user_num) throws Exception;
 
-
+	public List<OrderVO> myorder(OrderVO vo) throws Exception;
+	
+	
 }

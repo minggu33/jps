@@ -25,7 +25,7 @@
     	<dd><a href="/user/info">내 정보 </a></dd>
     	<dd><a href="/user/like">좋아요 </a></dd>
     	<dd><a href="/user/cart">장바구니 </a></dd>
-    	<dd><a href="#">주문내역 </a></dd>
+    	<dd><a href="/user/myorder">주문내역 </a></dd>
     	<dd><a href="/user/drop">회원탈퇴</a></dd>
     	
     	</dl>

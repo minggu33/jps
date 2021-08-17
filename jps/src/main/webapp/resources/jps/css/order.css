@@ -1,0 +1,185 @@
+@charset "UTF-8";
+.order-cont{
+	width: 90%;
+    padding: 0;
+    float: right;   
+    margin-top: 50px;
+    
+}
+.order-header>h1{
+	font-size: 24px;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+    display: inline-block;
+}
+.order-header>span{
+	padding-left: 15px;
+    line-height: 22px;
+    color: #b2b2b2;
+    font-family: "굴림","Gulim",sans-serif;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+.order-cont li,ul{
+	list-style: none;
+}
+.order-cont ul{
+	    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px
+}
+
+.upper-contents>h1{
+	font-size: 24px;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+    display: inline-block;
+    margin: 15px 0;
+}
+.upper-contents>span{
+	padding-left: 15px;
+    line-height: 22px;
+    color: #b2b2b2;
+    font-family: "굴림","Gulim",sans-serif;
+    font-size: 12px;
+    letter-spacing: 0;
+    
+}
+
+.order-header{
+	
+    border-bottom: 3px solid #000000;
+    padding-bottom: 14px;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    position: relative;
+}
+.upper-contents{
+	clear: both;
+    position: relative;
+    padding: 5px;
+}
+.cart-process{
+	display: table;
+    width: 100%;
+}
+.cart-pagenation_on{
+	display: table-cell;
+    width: 32%;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background: #000;
+    border: 1px solid #000;
+}
+.cart-pagenation{
+	display: table-cell;
+    width: 32%;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #ddd
+}
+.back-arrow{
+	display: table-cell;
+    height: 45px;
+    background: url("/resources/jps/img/back_arrow.gif") center 20px no-repeat;
+}
+.info-cont{
+	    border-left: 1px solid #ddd;
+	    border-top: 1px solid #ddd;
+}
+
+.info-ul{
+	display: table;
+    width: 100%;
+    font-family: "굴림", Gulim, Arial, sans-serif;
+    line-height: 24px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+.info-li{
+	display: table-cell;
+    width: 190px;
+    padding: 10px 0 10px 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.box-choice{
+	 margin-left: 0;
+}
+.pro-info{
+	position: relative;
+    padding: 15px 20px 20px 20px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    color: #ddd;
+}
+.order-table{
+	clear: both;
+    min-width: 920px;
+    width: 100%;
+    font-family: "굴림", Gulim, sans-serif;
+    text-align: center;
+    background: #fff;
+        border: 1px solid #ddd;
+}
+.product-info{
+	padding: 15px 10px;
+    overflow: hidden;
+    border-right: none;
+    
+}
+.product-info2{
+	border-left: none;
+	text-align: left;
+}
+.product-infos{
+	padding: 14px 0 13px;
+	
+}
+.order-table thead{
+	text-align: center;
+	vertical-align: middle;
+}
+.order-table img{
+	width: 100%;
+    
+}
+.btns{
+		height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+   	border: 1px solid #d8d8d8;
+    background-color: #ffffff;
+    color: #000000;
+    min-width: 100px;
+}
+.explain{
+	 font-size: 12px;
+    color: #777;
+    padding-left: 10px;
+}
+#toc-content{
+	border: 1px solid #aaa;
+    background: rgba(245, 245, 245, 0.5);
+    line-height: 18px;
+    color: #aaa;
+    border-top: none;
+    padding: 13px 15px
+}
+#toc-content {
+    display: none;
+  }
+#toc-toggle:hover {
+    text-decoration: underline;
+  }

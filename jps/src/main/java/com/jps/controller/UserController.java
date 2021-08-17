@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
 
@@ -253,18 +254,18 @@ public class UserController {
 			
 			logger.info("페이지 이동 /user/like.jsp");
 			
-		}
+		} 
 	
 		// 장바구니 페이지 호출
 		@RequestMapping(value = "/cart",method = RequestMethod.GET)
 		public void cartGET(HttpSession session, Model model) throws Exception {
 			
 			logger.info("C : cartGET() 호출 ");
-			
+			 
 			String user_num = (String)session.getAttribute("user_num");
 			
 			// user_num="1";
-
+			
 			
 			// 장바구니 목록 불러오
 			model.addAttribute("mbList", service.getmbList(user_num));
@@ -435,6 +436,12 @@ public class UserController {
 			service.cancel(vo);
 			service.change1(user_num);
 			}
+		}
+		@RequestMapping(value="/myorder", method = RequestMethod.GET)
+		public void myorderGET(HttpSession session, OrderVO vo, Model model) throws Exception{
+			String user_num = (String) session.getAttribute("user_num");
+			vo.setUser_num(user_num);
+			model.addAttribute("orderVo", service.myorder(vo));
 		}
 		
 }

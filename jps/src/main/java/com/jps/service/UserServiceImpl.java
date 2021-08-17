@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
 import com.jps.domain.UserVO;
 import com.jps.persistence.UserDAO;
 
@@ -150,6 +151,11 @@ public class UserServiceImpl implements UserService {
 		
 		
 		return udao.like(user_num);
+	}
+
+	@Override
+	public List<OrderVO> myorder(OrderVO vo) throws Exception {
+		return udao.myorder(vo);
 	}
 
 	

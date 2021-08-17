@@ -1,98 +1,40 @@
-// 좋아요 기능
-$(function(){
-	$(".jjim").on("click", function(){
-		$.ajax({
-			url:"/item/like",
-			type:"post",
-			data:{"item_num":document.fr2.item_num.value},
-			success:function(data){
-				location.reload();
-			}
-		});
-	});
-});
-// 좋아요 취소
-$(function(){
-	$(".no_jjim").on("click",function(){
-		$.ajax({
-			url:"/item/unlike",
-			type:"post",
-			data:{"item_num":document.fr2.item_num.value},
-			success:function(data){
-				location.reload();
-			}
-		});
-	});
-});
-// 장바구니 디테일칸
-$(function(){
-	$(".basket").on("click", function(){
-		$(".basket_detail").fadeToggle();
-	});
-});	
-// 장바구니 담기
-$(function(){
-	$(document).on("click",".basket_insert", function(){
-			$.ajax({
-				url:"/basket/basket",
-				type:"post",
-				data:{"item_num":document.fr2.item_num.value, "item_detail_idx":document.fr2.item_detail_idx.value, "item_count":document.fr2.basket_count.value},
-				success:function(data){
-					alert("장바구니 담기 완료");
-					location.reload();						
-				}
-			});
-		});
-	});
 
-
-// 주문
-function check(){
-	
-	let rtn;
-	
-	rtn = confirm('주문하시겠습니까?');
-	
-	if(rtn){
-		
-		if(document.fr.item_detail_idx.value==""){
-		alert("옵션을 선택해 주세요.");
-		return false;
-	} 
-	
-		document.getElementById('fr').submit();
-		
-	}else{
-		return false;
+  function openCloseToc() {
+    if(document.getElementById('toc-content').style.display === 'block') {
+      document.getElementById('toc-content').style.display = 'none';
+      document.getElementById('toc-toggle').textContent = '자세히';
+    } else {
+      document.getElementById('toc-content').style.display = 'block';
+      document.getElementById('toc-toggle').textContent = '닫기';
+    }
+  }
+  
+  function iamport(){
+		//가맹점 식별코드
+		IMP.init('imp83171229');
+		IMP.request_pay({
+		    pg : 'kcp',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '상품1' , //결제창에서 보여질 이름
+		    amount : 100, //실제 결제되는 가격
+		    buyer_email : 'iamport@siot.do',
+		    buyer_name : '구매자이름',
+		    buyer_tel : '010-1234-5678',
+		    buyer_addr : '서울 강남구 도곡동',
+		    buyer_postcode : '123-456'
+		}, function(rsp) {
+			console.log(rsp);
+		    if ( rsp.success ) {
+		    	var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		    } else {
+		    	 var msg = '결제에 실패하였습니다.';
+		         msg += '에러내용 : ' + rsp.error_msg;
+		    }
+		    alert(msg);
+		});
 	}
-	
-	
-}
-
-// 주문상세정보 입력칸
-$(function(){
-	$(".order").on("click",function(){
-		$(".orderdetail").fadeToggle();
-	});
-});
-// 주문하기 유효성(수량에 따른 가격 표시)
-$(function(){
-	$(document).on("change", ".order_detail_stock", function(){
-		if(document.fr.item_detail_idx.value == ""){
-		alert("옵션을 선택해주세요.");
-		document.fr.order_detail_stock.value = '1';
-		return false;
-			
-			}else if(document.fr.count.value==""){
-				alert("수량을 작성해주세요.");
-				return false;
-				}else{
-//				$(".ni").fadeToggle();
-				$("#price").html("Price : "+document.fr.count.value * $("#item_price").val() + "원");
-				
-			}
-		});
-	});	
-	
-// 주문하기 페이지
-
