@@ -51,24 +51,30 @@
 	
 	<br>
 	<br>
+	
+	<!-- 장바구니  -->
 	<div class="basket_detail" style="display: none">
 		<form name="fr2">
 		
 		<input type="hidden" name="item_num" value="${vo.item_num }">
 
-		Option  : <select name="item_detail_idx">
+		Option  : <select name="item_detail_idx1" class="item_detail_idx1">
 				<option value="">옵션을 선택하세요.</option>
 				<c:forEach  var="idL" items="${idL }">
 				<option value="${idL.item_detail_idx}">${idL.item_color }[${idL.item_size }] - 수량 : ${idL.item_stock }</option>				
 			</c:forEach>
 			</select>
 			<br>
-		Count : <input type="number" id="basket_count" value="1">
-		<br><input type="button" class="basket_insert" value="바구니담기">
+		Count : <input type="number" name="basket_count" id="basket_count" value="1" min="1"><br>
+		<span id="price1"></span>
+		<br><input type="button" class="basket_insert btns" value="바구니담기">
 		</form>
 	</div>
+		<!-- 장바구니  -->
 	
 	
+	
+		<!-- 주문하기  -->	
 	<div class="orderdetail" style="display: none;">
 		
 	<form id="fr" name="fr" action="./order" method="post" onsubmit="return check();">
@@ -77,7 +83,7 @@
 	<br>
 
 
-		Option  : <select name="item_detail_idx">
+		Option  : <select name="item_detail_idx" class="item_detail_idx">
 				<option value="">옵션을 선택하세요.</option>
 				<c:forEach  var="idL" items="${idL }">
 				<option value="${idL.item_detail_idx}">${idL.item_color }[${idL.item_size }] - 수량 : ${idL.item_stock }</option>				
@@ -88,7 +94,7 @@
 
 
 		<br>
-		Count : <input type="number" class="order_detail_stock" name="order_detail_stock" id="count" value="1" min="0">
+		Count : <input type="number" class="order_detail_stock" name="order_detail_stock" id="count" value="1" min="1">
 		
 		<br>
 		<input type="hidden" id="item_price" value="${vo.item_price}" name="item_price">
@@ -99,10 +105,11 @@
 			
 			
 		</div>
-		</form>
-		
-		
+		</form>	
 	</div>
+	<!-- 주문하기  -->
+	
+	
     </center>
     
     
