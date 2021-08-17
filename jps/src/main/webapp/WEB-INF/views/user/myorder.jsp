@@ -28,7 +28,7 @@
     	</dl>
     </nav>
     <!-- 왼쪽 nav bar -->
-  <section class="mypage-cont" style="margin-bottom:100px;">
+  <section class="mypage-cont" style="margin-bottom:100px;"> 
   	<header class="mypage-header"><h1>My order</h1></header>
 
 
