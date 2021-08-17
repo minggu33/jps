@@ -6,10 +6,19 @@
   <mapper namespace="com.jps.mapper.BasketMapper">
   	<insert id="insert">
   		insert into basket (user_num, item_num, item_color, item_size, item_count, update_date)
-  		values(#{user_num}, #{item_num}, #{item_color}, #{item_size}, #{item_count}, now())
+  		values(#{user_num}, #{item_num}, #{item_color}, #{item_size}, #{item_count}, now()) 
   	</insert>
   	
   	<delete id="delete">
   		delete from basket where basket_idx=#{basket_idx}
   	</delete>
+  	
+  	<select id="check" resultType="int">
+  		select count(*) from basket where user_num=#{user_num} and item_num=#{item_num} and item_size=#{item_size} and item_color=#{item_color}
+  	</select>
+  	
+  	<update id="update">
+  		update basket set item_count=item_count+#{item_count} where user_num=#{user_num} and item_num=#{item_num} and item_size=#{item_size} and item_color=#{item_color}
+  	</update>
+  	
   </mapper>

@@ -264,7 +264,7 @@ public class UserController {
 			String user_num = (String)session.getAttribute("user_num");
 			
 			// user_num="1";
-
+			
 			
 			// 장바구니 목록 불러오
 			model.addAttribute("mbList", service.getmbList(user_num));

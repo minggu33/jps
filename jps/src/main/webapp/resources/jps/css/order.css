@@ -140,6 +140,7 @@
 }
 .product-info2{
 	border-left: none;
+	text-align: left;
 }
 .product-infos{
 	padding: 14px 0 13px;
@@ -153,9 +154,32 @@
 	width: 100%;
     
 }
-.prodiv{
-	clear:both;
-	position: relative;
-    width: calc(100% - 72px);
-    margin-left: 10px;
+.btns{
+		height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    font-family: "Gulim", "Apple SD Gothic", Auto, sans-serif !important;
+   	border: 1px solid #d8d8d8;
+    background-color: #ffffff;
+    color: #000000;
+    min-width: 100px;
 }
+.explain{
+	 font-size: 12px;
+    color: #777;
+    padding-left: 10px;
+}
+#toc-content{
+	border: 1px solid #aaa;
+    background: rgba(245, 245, 245, 0.5);
+    line-height: 18px;
+    color: #aaa;
+    border-top: none;
+    padding: 13px 15px
+}
+#toc-content {
+    display: none;
+  }
+#toc-toggle:hover {
+    text-decoration: underline;
+  }

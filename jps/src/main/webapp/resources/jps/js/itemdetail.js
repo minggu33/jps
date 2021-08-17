@@ -92,8 +92,19 @@ $(function(){
 		}
 	});
 });
+
 // 주문하기 유효성(수량에 따른 가격 표시)
 $(function(){
+	
+	$(document).on("change",".item_detail_idx",function(){
+		if(document.fr.item_detail_idx.value != ""){
+			$("#price").html("Price : "+document.fr.count.value * $("#item_price").val() + "원");
+
+		}
+	});
+	
+	
+	
 	$(document).on("change", ".order_detail_stock", function(){
 		if(document.fr.item_detail_idx.value == ""){
 		alert("옵션을 선택해주세요.");
@@ -104,12 +115,39 @@ $(function(){
 				alert("수량을 작성해주세요.");
 				return false;
 				}else{
-//				$(".ni").fadeToggle();
 				$("#price").html("Price : "+document.fr.count.value * $("#item_price").val() + "원");
 				
 			}
 		});
 	});	
 	
-// 주문하기 페이지
+// 장바구니 유효성(수량에 따른 가격 표시)
 
+$(function(){
+	
+	$(document).on("change",".item_detail_idx1",function(){
+		if(document.fr2.item_detail_idx1.value != ""){
+			
+			$("#price1").html("Price : "+document.fr2.basket_count.value * $("#item_price").val() + "원");
+
+		}
+	});
+	
+	
+	
+	$(document).on("change", "#basket_count", function(){
+		if(document.fr2.item_detail_idx1.value == ""){
+		alert("옵션을 선택해주세요.");
+		document.fr2.basket_count.value = '1';
+		return false;
+			
+			}else if(document.fr2.basket_count.value==""){
+				alert("수량을 작성해주세요.");
+				return false;
+				}else{
+				$("#price1").html("Price : "+document.fr2.basket_count.value * $("#item_price").val() + "원");
+				
+			}
+		});
+	});	
+	
