@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.jps.domain.BasketVO;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_likeVO;
+import com.jps.domain.OrderVO;
 import com.jps.domain.UserVO;
 
 @Repository
@@ -185,6 +186,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<ItemVO> like(String user_num) {
 		return sqlSession.selectList(namespace+".like", user_num);
+	}
+
+	@Override
+	public List<OrderVO> myorder(OrderVO vo) {
+		return sqlSession.selectList(namespace+".myorder", vo);
 	}
 
 	

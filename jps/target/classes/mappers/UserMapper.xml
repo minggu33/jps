@@ -124,4 +124,8 @@
 		select * from item where item_num in (select item_num from item_like where user_num=#{user_num})
 	</select>
 	
+	<select id="myorder" resultType="com.jps.domain.OrderVO">
+		select * from jpsdb.order where user_num=#{user_num}
+	</select>
+	
 </mapper>
