@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 좋아요 목록 </title>
-
+ 
   <link href="/resources/jps/css/userinfo.css" rel="stylesheet">
   <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
 
