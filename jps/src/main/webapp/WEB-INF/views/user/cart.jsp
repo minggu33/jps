@@ -99,8 +99,7 @@
 	 			p)
 	 		</td>
 	 		<td>
-	 			<button class="btn disabled"><i class="">-1</i></button>
-	 			<input class="input-count" type="text" value="${il.item_count }">
+	 			${il.item_count }
 	 		</td>
 	 		
 

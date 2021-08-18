@@ -44,7 +44,16 @@ public class BasketController {
 		bvo.setItem_size(idVO.getItem_size());
 		bvo.setUser_num(user_num);
 		System.out.println("C : basketPOST() 호출");
-		bservice.basket(bvo);
+		System.out.println(bvo);
+		
+		if(bservice.check(bvo)==1) {
+			
+			bservice.update(bvo);
+		}else {
+			bservice.basket(bvo);
+		}
+		
+		
 		System.out.println("C : 장바구니 담기 완료");
 		
 	}

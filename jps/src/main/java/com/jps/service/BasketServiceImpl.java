@@ -24,6 +24,16 @@ public class BasketServiceImpl implements BasketService{
 		bdao.delete(bvo);
 	}
 
+	@Override
+	public int check(BasketVO bvo) throws Exception {
+		return bdao.check(bvo);
+	}
+
+	@Override
+	public void update(BasketVO bvo) throws Exception {
+		bdao.update(bvo);
+	}
+
 	
 	
 }
