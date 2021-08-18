@@ -6,7 +6,7 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href="/resources/jps/css/order.css" rel="stylesheet"/>
     <!-- iamport.payment.js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script> 
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     
     <!-- header -->
 	<%@ include file="../include/header.jsp" %>
@@ -113,11 +113,7 @@
 				<td class="product-info">
 					<img src="/resources/jps/upload/insertItem/${fn:split(vo.item_img,',')[0]}" style="width:62px; height:75px;">
 					</td>
-					<td class="product-info2">
-					
-						${vo.item_name } <br>
-					${odvo.order_detail_size} , ${odvo.order_detail_color} 
-					
+					<td class="product-info2">${vo.item_name }<br>${odvo.order_detail_size} , ${odvo.order_detail_color}
 					</td>					
 				
 				<td>
@@ -234,8 +230,14 @@
 		
 	</div>
 	
+	<input type="hidden" id="item_name" value="${vo.item_name }">
+	<input type="hidden" id="item_price" value="${vo.item_price}">
+	<input type="hidden" id="user_name" value="${uvo.user_name}">
+	<input type="hidden" id="user_email" value="${uvo.user_email}">
+	<input type="hidden" id="user_phone" value="${uvo.user_phone}">
+	<input type="hidden" id="user_addr" value="${uvo.user_addr}">
 	
-	
+	<button id="check_module" type="button" onclick="requestPay()">결제 테스트</button>
 	
 	<!-- Payment info / Agreement -->
 

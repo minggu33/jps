@@ -23,4 +23,6 @@ public interface ItemService {
 	
 	public void realorder(OrderVO vo)throws Exception;
 	
+	public String ordernum() throws Exception;
+	
 }

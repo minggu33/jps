@@ -2,6 +2,10 @@ package com.jps.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -144,4 +148,28 @@ public class ItemController {
 		vo.setOrder_addr(user_addr);
 		service.realorder(vo);
 	}
+	
+	@RequestMapping(value = "/orderNum", method = RequestMethod.POST)
+	public void orderNumPOST(HttpServletResponse resp) throws Exception {
+		int result = Integer.parseInt(service.ordernum())+1;
+		
+		// 주문번호 생성 (오늘날짜+여섯자리숫자)
+		String result1 = String.format("%06d", result);
+		
+		Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+		String result2 = sdf.format(now);
+		
+		
+		String result3 = result2+"-"+result1;
+		
+			
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(result3);
+		out.close();
+		
+		
+	}
+	
 }
