@@ -45,7 +45,7 @@
 					<td width="150">
 					${OrderVO.order_method }
 					</td>
-					<td width="150">${OrderVO.order_total_price }</td>
+					<td width="150">${OrderVO.order_total_price }</td> 
 				<!-- 주문정보 -->
 			</tr>
 		</c:forEach>
