@@ -441,4 +441,14 @@ public class AdminController {
 		
 	}
 	
+	@RequestMapping(value = "/deletepopup", method = RequestMethod.POST)
+	public void adminDeletePopupPOST(int popup_num, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminDeletePopupPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.deletePopup(popup_num));
+		out.close();
+	}
+	
 }

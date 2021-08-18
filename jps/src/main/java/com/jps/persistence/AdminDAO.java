@@ -70,6 +70,8 @@ public interface AdminDAO {
 	
 	public int changePopup(int popup_num);
 	
+	public int deletePopup(int popup_num);
+	
 	public int checkPopupCnt();
 	
 }

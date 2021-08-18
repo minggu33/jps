@@ -70,6 +70,8 @@ public interface AdminService {
 	
 	public int changePopup(int popup_num) throws Exception;
 	
+	public int deletePopup(int popup_num) throws Exception;
+	
 	public int checkPopupCnt() throws Exception;
 
 }

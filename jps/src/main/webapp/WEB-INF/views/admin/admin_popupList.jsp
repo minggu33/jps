@@ -49,7 +49,7 @@
 					<td class="popup_check">
 						<input type="radio" value="${popupvo.popup_num }" name="popup_check" class="popupChangeBnt"
 							<c:if test="${popupvo.popup_check eq 1 }">
-								checked
+								checked="checked"
 							</c:if>
 						>
 					</td>
@@ -59,7 +59,9 @@
 						<img class="img-fluid" width="100px" src="/resources/jps/upload/insertPopup/${fn:split(popupvo.popup_img,',')[p]}">
 					</c:forEach>
 					</td>
-					<td class="popup_d"></td>
+					<td class="popup_d">
+						<input type="button" value="삭제하기" class="deletePopup border_none">
+					</td>
 				</tr>
 			</c:forEach>
 		

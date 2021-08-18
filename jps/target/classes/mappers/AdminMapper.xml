@@ -171,4 +171,8 @@
 		select count(*) from popup
 	</select>
 	
+	<delete id="deletePopup">
+		delete from popup where popup_num=#{popup_num }
+	</delete>
+	
 </mapper>

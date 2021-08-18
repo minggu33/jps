@@ -230,6 +230,11 @@ public class AdminDAOImpl implements AdminDAO{
 		sqlSession.update(namespace+".resetCheck");
 		return sqlSession.update(namespace+".changePopup", popup_num);
 	}
+	
+	@Override
+	public int deletePopup(int popup_num) {
+		return sqlSession.update(namespace+".deletePopup", popup_num);
+	}
 
 	@Override
 	public int checkPopupCnt() {

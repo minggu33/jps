@@ -198,6 +198,11 @@ public class AdminServiceImpl implements AdminService {
 	public int changePopup(int popup_num) throws Exception {
 		return adao.changePopup(popup_num);
 	}
+	
+	@Override
+	public int deletePopup(int popup_num) throws Exception {
+		return adao.deletePopup(popup_num);
+	}
 
 	@Override
 	public int checkPopupCnt() throws Exception {
