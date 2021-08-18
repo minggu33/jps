@@ -34,7 +34,7 @@
 
 	<table class="mypage-table" style="text-align: center;">
 			<tr>
-			<td>주문 일자</td>
+			<td>주문 일자</td> 
 			<td>결제 방식</td>
 			<td>결제 금액</td>
 			</tr>
