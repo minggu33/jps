@@ -20,4 +20,6 @@ public interface ItemDAO {
 
 	public void insertRealorder(OrderVO vo) throws Exception;
 	
+	public String ordernum() throws Exception;
+	
 }
