@@ -31,4 +31,8 @@
 		values(#{user_num}, now(), #{order_method}, #{order_addr}, 0, #{order_total_price}, #{order_total_point}, #{order_com_memo}, #{order_fee}, #{order_del}, #{order_del_num}, #{order_del_memo}, #{order_coupon_use}, #{order_coupon}, #{order_point_use}, #{order_point_amount}, #{order_final_price})
 	</insert>
 	
+	<select id="ordernum" resultType="String">
+		select count(*) from jpsdb.order where DATE_FORMAT(order_date,"%Y-%m-%d")=CURDATE();
+	</select>
+	
 </mapper>

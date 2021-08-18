@@ -53,6 +53,11 @@ public class ItemDAOImpl implements ItemDAO{
 		sqlSession.insert(namespace+".order", vo);
 	}
 
+	@Override
+	public String ordernum() throws Exception {
+		return sqlSession.selectOne(namespace+".ordernum" );
+	}
+
 	
 
 	
