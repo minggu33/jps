@@ -73,5 +73,9 @@ public interface AdminService {
 	public int deletePopup(int popup_num) throws Exception;
 	
 	public int checkPopupCnt() throws Exception;
+	
+	public PopupVO readPopup(int popup_num) throws Exception;
+	
+	public void updatePopup(PopupVO vo) throws Exception;
 
 }

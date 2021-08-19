@@ -451,4 +451,40 @@ public class AdminController {
 		out.close();
 	}
 	
+	@RequestMapping(value = "/updatepopup", method = RequestMethod.GET)
+	public String adminUpdatePopupGET(int popup_num, Model model) throws Exception {
+		
+		logger.info("C : adminUpdatePopupGET() 호출");
+		
+		model.addAttribute("popupvo",service.readPopup(popup_num));
+		
+		return "/admin/admin_updatePopup";
+	}
+	
+	@RequestMapping(value = "/updatepopup", method = RequestMethod.POST)
+	public String adminUpdatePopupPOST(PopupVO vo, MultipartFile[] uploadfile,
+			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
+		
+		logger.info("C : adminUpdatePopupPOST() 호출");
+		
+		String popup_img = vo.getPopup_img();
+		
+		for(int i=0; i<uploadfile.length; i++) {
+			
+			if(uploadfile[i].getOriginalFilename() == "") {
+				logger.info("C : 빈파일");
+				continue;
+			}
+			
+			popup_img += ","+saveFile(uploadfile[i], req.getRealPath("/"), "/insertPopup");
+		}
+		
+		vo.setPopup_img(popup_img);
+		
+		service.updatePopup(vo);
+		
+		rttr.addFlashAttribute("msg", "update");
+		
+		return "redirect:/admin/popup";
+	}
 }

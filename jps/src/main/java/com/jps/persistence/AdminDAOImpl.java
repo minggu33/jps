@@ -240,6 +240,16 @@ public class AdminDAOImpl implements AdminDAO{
 	public int checkPopupCnt() {
 		return sqlSession.selectOne(namespace+".checkPopupCnt");
 	}
+
+	@Override
+	public PopupVO readPopup(int popup_num) {
+		return sqlSession.selectOne(namespace+".readPopup", popup_num);
+	}
+
+	@Override
+	public void updatePopup(PopupVO vo) {
+		sqlSession.update(namespace+".updatePopup", vo);
+	}
 	
 	
 	

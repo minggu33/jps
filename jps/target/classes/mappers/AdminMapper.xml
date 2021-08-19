@@ -175,4 +175,13 @@
 		delete from popup where popup_num=#{popup_num }
 	</delete>
 	
+	<select id="readPopup" resultType="com.jps.domain.PopupVO">
+		select * from popup where popup_num=#{popup_num }
+	</select>
+	
+	<update id="updatePopup">
+		update popup set popup_title = #{popup_title}, popup_img = #{popup_img}
+		where popup_num = #{popup_num}
+	</update>
+	
 </mapper>

@@ -74,4 +74,8 @@ public interface AdminDAO {
 	
 	public int checkPopupCnt();
 	
+	public PopupVO readPopup(int popup_num);
+	
+	public void updatePopup(PopupVO vo);
+	
 }

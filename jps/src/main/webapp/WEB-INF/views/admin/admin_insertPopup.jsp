@@ -18,7 +18,7 @@
 	<div id="adminContent">
 		<fieldset>
 			<legend>[팝업 이미지 등록하기]</legend>
-			<form action="./insertpopup" method="post" name="fr" enctype="multipart/form-data">
+			<form action="./insertpopup" method="post" name="fr" enctype="multipart/form-data" onsubmit="return check()">
 				제목 : <input type="text" name="popup_title" class="under_line_solid_gray"><br>
 				<table id="file">
 					<tr>

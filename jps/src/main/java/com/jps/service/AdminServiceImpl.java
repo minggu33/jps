@@ -209,6 +209,16 @@ public class AdminServiceImpl implements AdminService {
 		return adao.checkPopupCnt();
 	}
 
+	@Override
+	public PopupVO readPopup(int popup_num) throws Exception {
+		return adao.readPopup(popup_num);
+	}
+
+	@Override
+	public void updatePopup(PopupVO vo) throws Exception {
+		adao.updatePopup(vo);
+	}
+
 	
 	
 }

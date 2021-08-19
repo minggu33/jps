@@ -53,7 +53,7 @@
 							</c:if>
 						>
 					</td>
-					<td class="popup_title">${popupvo.popup_title }</td>
+					<td class="popup_title"><a href="./updatepopup?popup_num=${popupvo.popup_num }" class="popup_title_a">${popupvo.popup_title }</a></td>
 					<td class="popup_img">
 					<c:forEach begin="0" end="${fn:length(fn:split(popupvo.popup_img,','))-1}" var="p">
 						<img class="img-fluid" width="100px" src="/resources/jps/upload/insertPopup/${fn:split(popupvo.popup_img,',')[p]}">

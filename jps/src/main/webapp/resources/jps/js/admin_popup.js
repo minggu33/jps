@@ -35,7 +35,7 @@ $(function(){
 	$('.deletePopup').on('click', function(){
 		var trNum = $(this).closest('tr').prevAll().length;
 		var popup_num = document.getElementsByClassName('popup_num')[trNum].innerHTML;
-		var popup_title = document.getElementsByClassName('popup_title')[trNum].innerHTML;
+		var popup_title = document.getElementsByClassName('popup_title_a')[trNum-1].innerHTML;
 		var popup_check = document.getElementsByName('popup_check')[trNum-1];
 		console.log(popup_check);
 		if(popup_check.checked) {
@@ -50,6 +50,7 @@ $(function(){
 						if (data == 1) {
 							alert("삭제가 완료 되었습니다.");
 							$(".popupList > tbody:last > tr:nth-child("+(trNum+1)+")").remove();
+							document.getElementById("popup_cnt").value--;
 						} else {
 							alert("삭제에 실패 하였습니다.");
 						}
