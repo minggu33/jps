@@ -139,7 +139,7 @@ public class ItemController {
 	
 	@RequestMapping(value="/insertorder", method = RequestMethod.POST)
 	public void insertOrderPOST(OrderVO vo, String order_idx,
-			HttpSession session) throws Exception {
+			HttpSession session, HttpServletResponse resp) throws Exception {
 		
 		String user_num = (String) session.getAttribute("user_num");
 		logger.info("C : insertOrderPOST() 호출");
@@ -148,7 +148,10 @@ public class ItemController {
 		
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@paypay"+vo);
 		
-		service.realorder(vo);
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.realorder(vo));
+		out.close();
 	}
 	
 	@RequestMapping(value = "/orderNum", method = RequestMethod.POST)

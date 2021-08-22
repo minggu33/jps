@@ -57,11 +57,6 @@
       	
           	if (rsp.success) {// 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
        		// jQuery로 HTTP 요청
-       			alert("데이터 전송");
-       		 	alert(order_num);
-       		 	alert(user_addr1+user_addr2);
-       		 	alert(rsp.pay_method);
-       		 	alert(item_price);
        		 
 	            jQuery.ajax({
 		            url:'./insertorder', // 예: https://www.myservice.com/payments/complete
@@ -77,7 +72,11 @@
 		            }
 	        	}).done(function (data) {
 		          	// 가맹점 서버 결제 API 성공시 로직
-		          	alert("결제에 성공하셨습니다.");
+		          	if (data == 1) {
+			          	alert("결제에 성공하셨습니다.");
+					} else {
+						alert("결제에 실패 하였습니다.");
+					}
 	        	});
           	} else {
                	alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);

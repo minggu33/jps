@@ -21,7 +21,7 @@ public interface ItemService {
 	
 	public Item_detailVO getItemSC(Integer idx) throws Exception;
 	
-	public void realorder(OrderVO vo)throws Exception;
+	public int realorder(OrderVO vo)throws Exception;
 	
 	public String ordernum() throws Exception;
 	

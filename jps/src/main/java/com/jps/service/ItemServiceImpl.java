@@ -51,8 +51,8 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public void realorder(OrderVO vo) throws Exception {
-		idao.insertRealorder(vo);
+	public int realorder(OrderVO vo) throws Exception {
+		return idao.insertRealorder(vo);
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public interface ItemDAO {
 	
 	public Item_detailVO getItemSC(Integer idx) throws Exception;
 
-	public void insertRealorder(OrderVO vo) throws Exception;
+	public int insertRealorder(OrderVO vo) throws Exception;
 	
 	public String ordernum() throws Exception;
 	
