@@ -101,6 +101,7 @@
 		<div class="ni" >
 			<span id="price"></span>
 			<br>
+			<input type="hidden" name="user_num12" value="${user_num}">
 			<button type="submit" class="btns">주문하기</button>
 			
 			
