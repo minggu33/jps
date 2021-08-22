@@ -146,6 +146,10 @@ public class ItemController {
 		String user_num = (String) session.getAttribute("user_num");
 		vo.setUser_num(user_num);
 		vo.setOrder_addr(user_addr);
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@paypay"+vo);
+		
+		
 		service.realorder(vo);
 	}
 	
