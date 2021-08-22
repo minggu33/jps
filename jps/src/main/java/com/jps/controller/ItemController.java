@@ -1,7 +1,5 @@
 package com.jps.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,7 +25,6 @@ import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
 import com.jps.domain.OrderVO;
 import com.jps.domain.Order_detailVO;
-import com.jps.service.BasketService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
 import com.jps.service.UserService;
@@ -141,14 +137,16 @@ public class ItemController {
 
 	}
 	
-	@RequestMapping(value="/pay", method = RequestMethod.POST)
-	public void payPOST(OrderVO vo, HttpSession session, String user_addr) throws Exception{
+	@RequestMapping(value="/insertorder", method = RequestMethod.POST)
+	public void insertOrderPOST(OrderVO vo, String order_idx,
+			HttpSession session) throws Exception {
+		
 		String user_num = (String) session.getAttribute("user_num");
+		logger.info("C : insertOrderPOST() 호출");
+		
 		vo.setUser_num(user_num);
-		vo.setOrder_addr(user_addr);
 		
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@paypay"+vo);
-		
 		
 		service.realorder(vo);
 	}

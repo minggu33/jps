@@ -27,8 +27,8 @@
 	</select>
 	
 	<insert id="order">
-		insert into jpsdb.order (user_num, order_date, order_method, order_addr, order_state, order_total_price, order_total_point, order_com_memo, order_fee, order_del, order_del_num, order_del_memo, order_coupon_use, order_coupon, order_point_use, order_point_amount, order_final_price)
-		values(#{user_num}, now(), #{order_method}, #{order_addr}, 0, #{order_total_price}, #{order_total_point}, #{order_com_memo}, #{order_fee}, #{order_del}, #{order_del_num}, #{order_del_memo}, #{order_coupon_use}, #{order_coupon}, #{order_point_use}, #{order_point_amount}, #{order_final_price})
+		insert into jpsdb.order (order_idx, user_num, order_date, order_method, order_addr, order_state, order_total_price, order_total_point, order_com_memo, order_fee, order_del, order_del_num, order_del_memo, order_coupon_use, order_coupon, order_point_use, order_point_amount, order_final_price)
+		values(#{order_idx}, #{user_num}, now(), #{order_method}, #{order_addr}, 0, #{order_total_price}, #{order_total_point}, #{order_com_memo}, #{order_fee}, #{order_del}, #{order_del_num}, #{order_del_memo}, #{order_coupon_use}, #{order_coupon}, #{order_point_use}, #{order_point_amount}, #{order_final_price})
 	</insert>
 	
 	<select id="ordernum" resultType="String">
