@@ -2,7 +2,7 @@ package com.jps.domain;
 
 public class OrderVO {
 
-	private int order_idx;
+	private String order_idx;
 	private String user_num;
 	private String order_date;
 	private String order_method;
@@ -20,10 +20,10 @@ public class OrderVO {
 	private int order_point_use;
 	private int order_point_amount;
 	private int order_final_price;
-	public int getOrder_idx() {
+	public String getOrder_idx() {
 		return order_idx;
 	}
-	public void setOrder_idx(int order_idx) {
+	public void setOrder_idx(String order_idx) {
 		this.order_idx = order_idx;
 	}
 	public String getUser_num() {
@@ -130,7 +130,7 @@ public class OrderVO {
 	}
 	@Override
 	public String toString() {
-		return "orderVO [order_idx=" + order_idx + ", user_num=" + user_num + ", order_date=" + order_date
+		return "OrderVO [order_idx=" + order_idx + ", user_num=" + user_num + ", order_date=" + order_date
 				+ ", order_method=" + order_method + ", order_addr=" + order_addr + ", order_state=" + order_state
 				+ ", order_total_price=" + order_total_price + ", order_total_point=" + order_total_point
 				+ ", order_com_memo=" + order_com_memo + ", order_fee=" + order_fee + ", order_del=" + order_del

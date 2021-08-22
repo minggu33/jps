@@ -49,8 +49,8 @@ public class ItemDAOImpl implements ItemDAO{
 	}
 
 	@Override
-	public void insertRealorder(OrderVO vo) throws Exception {
-		sqlSession.insert(namespace+".order", vo);
+	public int insertRealorder(OrderVO vo) throws Exception {
+		return sqlSession.insert(namespace+".order", vo);
 	}
 
 	@Override

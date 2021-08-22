@@ -6,6 +6,7 @@ import java.util.Map;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.NoticeVO;
+import com.jps.domain.PopupVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 
@@ -56,4 +57,25 @@ public interface AdminDAO {
 	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList);
 	
 	public int deleteItem(int item_num);
+	
+	public NoticeVO readNoticeInfo(int notice_num);
+	
+	public void updateNotice(NoticeVO vo);
+	
+	public int deleteNotice(int notice_num);
+	
+	public List<PopupVO> popupList();
+	
+	public void insertPopup(PopupVO vo);
+	
+	public int changePopup(int popup_num);
+	
+	public int deletePopup(int popup_num);
+	
+	public int checkPopupCnt();
+	
+	public PopupVO readPopup(int popup_num);
+	
+	public void updatePopup(PopupVO vo);
+	
 }

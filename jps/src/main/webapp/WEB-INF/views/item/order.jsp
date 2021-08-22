@@ -237,7 +237,7 @@
 	<input type="hidden" id="user_phone" value="${uvo.user_phone}">
 	<input type="hidden" id="user_addr" value="${uvo.user_addr}">
 	
-	<button id="check_module" type="button" onclick="requestPay()">결제 테스트</button>
+	<button id="check_module">결제 테스트</button>
 	
 	<!-- Payment info / Agreement -->
 

@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.NoticeVO;
+import com.jps.domain.PopupVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 import com.jps.service.AdminService;
@@ -247,7 +248,9 @@ public class AdminController {
 			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
 		logger.info("C : adminInsertNoticePOST() 호출");
 		
-		vo.setNotice_file(saveFile(uploadfile, req.getRealPath("/"), "/insertNotice"));
+		if(uploadfile.getOriginalFilename() != "") {
+			vo.setNotice_file(saveFile(uploadfile, req.getRealPath("/"), "/insertNotice"));
+		}
 		
 		service.insertNotice(vo);
 		
@@ -318,7 +321,7 @@ public class AdminController {
 		return "redirect:/admin/itemlist";
 	}
 	
-	@RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteitem", method = RequestMethod.POST)
 	public void adminDeleteItemPOST(int item_num, HttpServletResponse resp) throws Exception {
 		logger.info("C : adminDeleteItemPOST() 호출");
 		
@@ -328,5 +331,160 @@ public class AdminController {
 		PrintWriter out = resp.getWriter();
 		out.print(service.deleteItem(item_num));
 		out.close();
+	}
+	
+	@RequestMapping(value = "/updatenotice", method = RequestMethod.GET)
+	public String adminUpdateNoticeGET(int notice_num, Model model) throws Exception {
+
+		logger.info("C : adminUpdateNoticeGET() 호출");
+		
+		model.addAttribute("noticevo", service.readNoticeInfo(notice_num));
+		
+		return "/admin/admin_updateNotice";
+	}
+	
+	@RequestMapping(value = "/updatenotice", method = RequestMethod.POST)
+	public String adminUpdateNoticePOST(NoticeVO vo, MultipartFile uploadfile,
+			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
+		
+		logger.info("C : adminUpdateNoticePOST() 호출");
+		
+		if(uploadfile.getOriginalFilename() != "") {
+			vo.setNotice_file(saveFile(uploadfile, req.getRealPath("/"), "/insertNotice"));
+		}
+		
+		service.updateNotice(vo);
+		
+		logger.info("C : 공지사항 업데이트 완료 -" + vo);
+		
+		rttr.addFlashAttribute("msg", "update");
+		
+		return "redirect:/admin/noticelist";
+	}
+	
+	@RequestMapping(value = "/deletenotice", method = RequestMethod.POST)
+	public void adminDeleteNoticePOST(int notice_num, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminDeleteNoticePOST() 호출");
+		
+		logger.info("C : 지울 공지사항 번호 - {}", notice_num);
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.deleteNotice(notice_num));
+		out.close();
+	}
+	
+	@RequestMapping(value = "/popup", method = RequestMethod.GET)
+	public String adminPopupGET(Model model) throws Exception {
+		logger.info("C : adminPopupGET() 호출");
+		
+		model.addAttribute("popuplist", service.popupList());
+		model.addAttribute("popupcnt", service.checkPopupCnt());
+		
+		return "/admin/admin_popupList";
+	}
+	
+	@RequestMapping(value = "/insertpopup", method = RequestMethod.GET)
+	public String adminInsertPopupGET() {
+		logger.info("C : adminInsertPopupGET() 호출");
+		
+		
+		
+		return "/admin/admin_insertPopup";
+	}
+	
+	@RequestMapping(value = "/insertpopup", method = RequestMethod.POST)
+	public String adminInsertPopupPOST(PopupVO vo, MultipartFile[] uploadfile,
+			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
+		logger.info("C : adminInsertPopupPOST() 호출");
+		
+		if(service.checkPopupCnt() < 5) {
+			String img = "";
+			
+			for (int i = 0; i < uploadfile.length; i++) {
+				
+				if (uploadfile[i].getOriginalFilename() == "") {
+					continue;
+				}
+				
+				img += saveFile(uploadfile[i], req.getRealPath("/"), "/insertPopup");
+				
+				if (i == (uploadfile.length - 1)) {
+					break;
+				}
+				
+				img += ",";
+			}
+			
+			vo.setPopup_img(img);
+			
+			service.insertPopup(vo);
+			
+			rttr.addFlashAttribute("msg", "success");
+			
+			
+		} else {
+			rttr.addFlashAttribute("msg", "fail");
+		}
+		
+		return "redirect:/admin/popup";
+	}
+	
+	@RequestMapping(value = "/changepopup", method = RequestMethod.POST)
+	public void adminChangePopupPOST(int popup_num, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminChangePopupPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.changePopup(popup_num));
+		out.close();
+		
+	}
+	
+	@RequestMapping(value = "/deletepopup", method = RequestMethod.POST)
+	public void adminDeletePopupPOST(int popup_num, HttpServletResponse resp) throws Exception {
+		logger.info("C : adminDeletePopupPOST() 호출");
+		
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.deletePopup(popup_num));
+		out.close();
+	}
+	
+	@RequestMapping(value = "/updatepopup", method = RequestMethod.GET)
+	public String adminUpdatePopupGET(int popup_num, Model model) throws Exception {
+		
+		logger.info("C : adminUpdatePopupGET() 호출");
+		
+		model.addAttribute("popupvo",service.readPopup(popup_num));
+		
+		return "/admin/admin_updatePopup";
+	}
+	
+	@RequestMapping(value = "/updatepopup", method = RequestMethod.POST)
+	public String adminUpdatePopupPOST(PopupVO vo, MultipartFile[] uploadfile,
+			RedirectAttributes rttr, HttpServletRequest req) throws Exception {
+		
+		logger.info("C : adminUpdatePopupPOST() 호출");
+		
+		String popup_img = vo.getPopup_img();
+		
+		for(int i=0; i<uploadfile.length; i++) {
+			
+			if(uploadfile[i].getOriginalFilename() == "") {
+				logger.info("C : 빈파일");
+				continue;
+			}
+			
+			popup_img += ","+saveFile(uploadfile[i], req.getRealPath("/"), "/insertPopup");
+		}
+		
+		vo.setPopup_img(popup_img);
+		
+		service.updatePopup(vo);
+		
+		rttr.addFlashAttribute("msg", "update");
+		
+		return "redirect:/admin/popup";
 	}
 }

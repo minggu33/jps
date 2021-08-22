@@ -7,7 +7,7 @@
 <title>관리자 페이지 - 공지사항 등록</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- <script src="/resources/jps/js/itemInsert.js"></script> -->
+<script src="/resources/jps/js/adminNotice.js"></script>
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 
 </head>

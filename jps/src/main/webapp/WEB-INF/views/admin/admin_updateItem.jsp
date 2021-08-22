@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지 - 상품 수정</title>
+<title>관리자 페이지 - 상품 관리</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/resources/jps/js/itemInsert.js"></script>

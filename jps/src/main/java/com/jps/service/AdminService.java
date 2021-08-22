@@ -6,6 +6,7 @@ import java.util.Map;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.NoticeVO;
+import com.jps.domain.PopupVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 
@@ -56,5 +57,25 @@ public interface AdminService {
 	public void updateItem(ItemVO vo, List<Item_detailVO> dtlList) throws Exception;
 	
 	public int deleteItem(int item_num) throws Exception;
+	
+	public NoticeVO readNoticeInfo(int notice_num) throws Exception;
+	
+	public void updateNotice(NoticeVO vo) throws Exception;
+	
+	public int deleteNotice(int notice_num) throws Exception;
+	
+	public List<PopupVO> popupList() throws Exception;
+	
+	public void insertPopup(PopupVO vo) throws Exception;
+	
+	public int changePopup(int popup_num) throws Exception;
+	
+	public int deletePopup(int popup_num) throws Exception;
+	
+	public int checkPopupCnt() throws Exception;
+	
+	public PopupVO readPopup(int popup_num) throws Exception;
+	
+	public void updatePopup(PopupVO vo) throws Exception;
 
 }

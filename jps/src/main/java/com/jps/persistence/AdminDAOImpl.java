@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.NoticeVO;
+import com.jps.domain.PopupVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 
@@ -197,6 +198,57 @@ public class AdminDAOImpl implements AdminDAO{
 		sqlSession.delete(namespace+".deleteDetailOfItemNum", item_num);
 		
 		return sqlSession.delete(namespace+".deleteItem", item_num);
+	}
+
+	@Override
+	public NoticeVO readNoticeInfo(int notice_num) {
+		return sqlSession.selectOne(namespace+".noticeInfo", notice_num);
+	}
+
+	@Override
+	public void updateNotice(NoticeVO vo) {
+		sqlSession.update(namespace+".updateNotice", vo);
+	}
+
+	@Override
+	public int deleteNotice(int notice_num) {
+		return sqlSession.delete(namespace+".deleteNotice", notice_num);
+	}
+
+	@Override
+	public List<PopupVO> popupList() {
+		return sqlSession.selectList(namespace+".popupList");
+	}
+
+	@Override
+	public void insertPopup(PopupVO vo) {
+		sqlSession.insert(namespace+".insertPopup", vo);
+	}
+
+	@Override
+	public int changePopup(int popup_num) {
+		sqlSession.update(namespace+".resetCheck");
+		return sqlSession.update(namespace+".changePopup", popup_num);
+	}
+	
+	@Override
+	public int deletePopup(int popup_num) {
+		return sqlSession.update(namespace+".deletePopup", popup_num);
+	}
+
+	@Override
+	public int checkPopupCnt() {
+		return sqlSession.selectOne(namespace+".checkPopupCnt");
+	}
+
+	@Override
+	public PopupVO readPopup(int popup_num) {
+		return sqlSession.selectOne(namespace+".readPopup", popup_num);
+	}
+
+	@Override
+	public void updatePopup(PopupVO vo) {
+		sqlSession.update(namespace+".updatePopup", vo);
 	}
 	
 	

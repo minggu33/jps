@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.NoticeVO;
+import com.jps.domain.PopupVO;
 import com.jps.domain.UserVO;
 import com.jps.domain.searchVO;
 import com.jps.persistence.AdminDAO;
@@ -166,6 +167,56 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int deleteItem(int item_num) throws Exception {
 		return adao.deleteItem(item_num);
+	}
+
+	@Override
+	public NoticeVO readNoticeInfo(int notice_num) throws Exception {
+		return adao.readNoticeInfo(notice_num);
+	}
+
+	@Override
+	public void updateNotice(NoticeVO vo) throws Exception {
+		adao.updateNotice(vo);
+	}
+
+	@Override
+	public int deleteNotice(int notice_num) throws Exception {
+		return adao.deleteNotice(notice_num);
+	}
+
+	@Override
+	public List<PopupVO> popupList() throws Exception {
+		return adao.popupList();
+	}
+
+	@Override
+	public void insertPopup(PopupVO vo) throws Exception {
+		adao.insertPopup(vo);
+	}
+
+	@Override
+	public int changePopup(int popup_num) throws Exception {
+		return adao.changePopup(popup_num);
+	}
+	
+	@Override
+	public int deletePopup(int popup_num) throws Exception {
+		return adao.deletePopup(popup_num);
+	}
+
+	@Override
+	public int checkPopupCnt() throws Exception {
+		return adao.checkPopupCnt();
+	}
+
+	@Override
+	public PopupVO readPopup(int popup_num) throws Exception {
+		return adao.readPopup(popup_num);
+	}
+
+	@Override
+	public void updatePopup(PopupVO vo) throws Exception {
+		adao.updatePopup(vo);
 	}
 
 	
