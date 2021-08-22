@@ -60,23 +60,36 @@ function check(){
 	
 	let rtn;
 	
+	let lgncheck = document.fr.user_num12.value;	
+	
+	if(lgncheck==""){
+		
+	let lgnmsg = confirm('로그인이 필요한 페이지입니다. 로그인하시겠습니까?');	
+		if(lgnmsg==true){
+	
+		window.location.href="/user/login";
+		
+		return false;
+			
+		}else{
+			return false;
+		}
+	}else{
+	
 	rtn = confirm('주문하시겠습니까?');
 	
 	if(rtn){
-		
 		if(document.fr.item_detail_idx.value==""){
-		alert("옵션을 선택해 주세요.");
-		return false;
-	} 
-	
+			alert("옵션을 선택해 주세요.");
+			return false;
+		}
 		document.getElementById('fr').submit();
-		
 	}else{
 		return false;
 	}
-	
-	
+ }
 }
+
 
 // 옵션정보 입력칸 나타나기
 $(function(){

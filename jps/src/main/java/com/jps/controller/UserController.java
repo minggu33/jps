@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jps.domain.Item_likeVO;
 import com.jps.domain.OrderVO;
 import com.jps.domain.UserVO;
 import com.jps.service.UserService;
@@ -51,9 +51,12 @@ public class UserController {
 	// http://localhost:8080/user/login
 	// 로그인페이지(get) 
 	@RequestMapping(value="/login", method= RequestMethod.GET)
-	public String loginGET() throws Exception{
+	public String loginGET(HttpServletRequest request) throws Exception{
 		logger.info("C : loginGET() 페이지 호출 ");
 		logger.info("C : login view 페이지로 이동 ");
+		
+		String referer = request.getHeader("Referer");
+		request.getSession().setAttribute("redirectURI", referer);
 		
 		
 		return "/user/loginForm";
@@ -65,11 +68,14 @@ public class UserController {
 		
 		logger.info("C : loginPOST() 페이지 호출 ");
 		
+		String redirectURI = ((String)session.getAttribute("redirectURI"));
 		
 		logger.info("C : 서비스 -loginUser() 호출시도 ");
 		logger.info(vo.getUser_id() + "@@@@@" + vo.getUser_pw());
 		
 		UserVO loginVO = service.loginUser(vo);
+		
+		
 		
 		
 		if(loginVO == null) {
@@ -111,7 +117,7 @@ public class UserController {
 		
 		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@login@@@@@@");
 		
-		return "redirect:/home";
+		return "redirect:"+redirectURI;
 	}
 	
 	
