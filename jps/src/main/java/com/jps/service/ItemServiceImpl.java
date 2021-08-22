@@ -55,6 +55,11 @@ public class ItemServiceImpl implements ItemService{
 		idao.insertRealorder(vo);
 	}
 
+	@Override
+	public String ordernum() throws Exception {
+		return idao.ordernum();
+	}
+
 	
 	
 	
