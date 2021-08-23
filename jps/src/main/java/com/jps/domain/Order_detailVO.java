@@ -7,7 +7,7 @@ public class Order_detailVO {
 	private int item_num;
 	private String order_detail_color;
 	private String order_detail_size;
-	private int order_detail_stock;
+	private int order_detail_count;
 	
 	
 	public int getOrder_detail_idx() {
@@ -40,17 +40,17 @@ public class Order_detailVO {
 	public void setOrder_detail_size(String order_detail_size) {
 		this.order_detail_size = order_detail_size;
 	}
-	public int getOrder_detail_stock() {
-		return order_detail_stock;
+	public int getorder_detail_count() {
+		return order_detail_count;
 	}
-	public void setOrder_detail_stock(int order_detail_stock) {
-		this.order_detail_stock = order_detail_stock;
+	public void setorder_detail_count(int order_detail_count) {
+		this.order_detail_count = order_detail_count;
 	}
 	@Override
 	public String toString() {
 		return "Order_detailVO [order_detail_idx=" + order_detail_idx + ", order_idx=" + order_idx + ", item_num="
 				+ item_num + ", order_detail_color=" + order_detail_color + ", order_detail_size=" + order_detail_size
-				+ ", order_detail_stock=" + order_detail_stock + "]";
+				+ ", order_detail_count=" + order_detail_count + "]";
 	}
 	
 	

@@ -117,10 +117,10 @@
 					</td>					
 				
 				<td>
-					${odvo.order_detail_stock }
+					${odvo.order_detail_count }
 				</td>
 				<td>
-					${(vo.item_price*odvo.order_detail_stock)*5/100 }
+					${(vo.item_price*odvo.order_detail_count)*5/100 }
 				</td>
 				<td>
 					무료
