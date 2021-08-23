@@ -173,8 +173,7 @@ public class ItemController {
 		PrintWriter out = resp.getWriter();
 		out.print(result3);
 		out.close();
-		
-		
+				
 	}
 	
 }

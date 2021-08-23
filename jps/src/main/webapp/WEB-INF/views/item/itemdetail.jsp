@@ -94,7 +94,7 @@
 
 
 		<br>
-		Count : <input type="number" class="order_detail_stock" name="order_detail_stock" id="count" value="1" min="1">
+		Count : <input type="number" class="order_detail_stock" name="order_detail_count" id="count" value="1" min="1">
 		
 		<br>
 		<input type="hidden" id="item_price" value="${vo.item_price}" name="item_price">
