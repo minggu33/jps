@@ -43,14 +43,14 @@ public class PopUpController {
 		return "popup/popup";
 	}
 
-	@RequestMapping(value = "/insertPopup_img", method = RequestMethod.GET)
+	// @RequestMapping(value = "/insertPopup_img", method = RequestMethod.GET)
 	public void insertPopup_img() {
 
 		logger.info("C: insertPopup_img() 호출");
 
 	}
 
-	@RequestMapping(value = "/insertPopup_img", method = RequestMethod.POST)
+	// @RequestMapping(value = "/insertPopup_img", method = RequestMethod.POST)
 	public String insertPopup_imgPOST(PopupVO vo, MultipartFile[] uploadfile, HttpServletRequest req) throws Exception {
 
 		logger.info("C: insertPopup_imgPOST() 호출");

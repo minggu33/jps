@@ -50,14 +50,7 @@
 	
 	<br>
 	<input type="button" value="목록으로" onclick="location.href='./noticelist'" class="noticecontent-btn">
-<!-- 	<form action="./noticemodify" class="noticecontent-form"> -->
-<!-- 		<input type="submit" value="수정" onclick="return confirm('공지사항을 수정하시겠습니까?')"> -->
-<%-- 		<input type="hidden" name="notice_num" value="${vo.notice_num}"> --%>
-<!-- 	</form> -->
-<!-- 	<form action="./noticedelete" class="noticecontent-form"> -->
-<!-- 		<input type="submit" value="삭제" onclick="return confirm('공지사항을 삭제하시겠습니까?')"> -->
-<%-- 		<input type="hidden" name="notice_num" value="${vo.notice_num}"> --%>
-<!-- 	</form> -->
+
 	
 
 <%@ include file="../include/footer.jsp" %>

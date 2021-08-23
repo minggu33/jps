@@ -17,8 +17,6 @@
 
 	<h3 class="noticelist-h3"> 공지사항 </h3>
 
-	<input type="submit" class="noticelist-write" value="글쓰기" onclick="location.href='./noticeWrite'" >
-	
 	<!-- 리스트 갯수 -->
 	<jsp:include page="../include/listCntPro.jsp">
 		<jsp:param value="${searchVO }" name="searchVO"/>

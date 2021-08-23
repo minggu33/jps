@@ -76,7 +76,7 @@ public class NoticeController {
 	}
 	
 	
-	@RequestMapping(value = "/noticeWrite", method = RequestMethod.GET)
+	// @RequestMapping(value = "/noticeWrite", method = RequestMethod.GET)
 	public void noticeWriteGET() {
 		
 		logger.info("C: noticeWriteGET() 호출");
@@ -84,7 +84,7 @@ public class NoticeController {
 		
 	}
 	
-	@RequestMapping(value = "/noticeWrite", method = RequestMethod.POST)
+	// @RequestMapping(value = "/noticeWrite", method = RequestMethod.POST)
 	public String noticeWritePOST(NoticeVO vo) throws Exception {
 		
 		logger.info("C: noticeWritePOST() 호출");
@@ -132,7 +132,7 @@ public class NoticeController {
 		return "/notice/noticecontent";
 	}
 	
-	@RequestMapping(value = "/noticemodify", method = RequestMethod.GET)
+	// @RequestMapping(value = "/noticemodify", method = RequestMethod.GET)
 	public String noticeModifyGET(Model model, int notice_num) throws Exception {
 		
 		logger.info("C: noticeModifyGET() 호출");
@@ -143,7 +143,7 @@ public class NoticeController {
 		
 	}
 	
-	@RequestMapping(value = "/noticemodify", method = RequestMethod.POST)
+	// @RequestMapping(value = "/noticemodify", method = RequestMethod.POST)
 	public String noticeModifyPOST(NoticeVO vo) throws Exception {
 		
 		logger.info("C: noticeModifyPOST() 호출");
@@ -151,7 +151,7 @@ public class NoticeController {
 		return "redirect:/notice/noticecontent?notice_num="+vo.getNotice_num();
 	}
 	
-	@RequestMapping(value = "/noticedelete", method = RequestMethod.GET)
+	// @RequestMapping(value = "/noticedelete", method = RequestMethod.GET)
 	public String noticeDelete(NoticeVO vo) throws Exception {
 		
 		logger.info("C: noticeDelecte(vo) 호출");
