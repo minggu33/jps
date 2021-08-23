@@ -110,7 +110,14 @@ public class UserController {
 		int admin = loginVO.getUser_state();
 		if(admin==2) {
 			session.setAttribute("admin", "jpsadmin");
-			return "redirect:/admin";
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			out.print("<script type=\"text/javascript\">");
+			out.print("if(confirm('관리자 계정 입니다.\n 관리자 페이지로 이동하시겠습니까?')) {"
+					+"location.href='/admin';} else {"
+					+"location.href='"+redirectURI+"'}</script>");
+			
+			out.close();
 		}
 		
 		System.out.println("로그인 완료!~~~~~~~~~₩");

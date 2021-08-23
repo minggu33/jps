@@ -35,13 +35,38 @@
 
 	<beans:bean id="adminInterceptor"
 		class="com.jps.interceptor.adminInterceptor" />
-
+	
+	<beans:bean id="loginInterceptor"
+		class="com.jps.interceptor.loginInterceptor" />
+		
+	<beans:bean id="userInterceptor"
+		class="com.jps.interceptor.userInterceptor" />
+	
 	<interceptors>
 		<interceptor>
 			<mapping path="/admin" />
 			<mapping path="/admin/*" />
 			<beans:ref bean="adminInterceptor" />
 		</interceptor>
+	
+		<!-- 세션 X 페이지 이동, 세션 O 이전페이지 돌아감 -->
+		<interceptor>
+			<mapping path="/user/login" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+		<!-- 세션 X 페이지 이동, 세션 O 이전페이지 돌아감 -->
+		
+		<!-- 세션 O 페이지 이동, 세션 X 이전페이지 돌아감 -->
+		<interceptor>
+			<mapping path="/user/logout" />
+			<mapping path="/user/info" />
+			<mapping path="/user/like" />
+			<mapping path="/user/cart" />
+			<mapping path="/user/drop" />
+			<beans:ref bean="userInterceptor" />
+		</interceptor>
+		<!-- 세션 O 페이지 이동, 세션 X 이전페이지 돌아감 -->
+		
 	</interceptors>
 	
 	<!-- 브라우저가 multipart/form-data 데이터로 보내는
