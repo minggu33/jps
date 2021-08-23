@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="itemlist" resultType="com.jps.domain.ItemVO">
-		select * from item
+		select * from item order by item_num desc
 	</select>
 	
 	<select id="read" resultType="com.jps.domain.ItemVO">

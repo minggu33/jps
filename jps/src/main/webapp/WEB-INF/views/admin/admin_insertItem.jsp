@@ -64,7 +64,7 @@
 				<input type="hidden" name="item_color">
 				<input type="hidden" name="item_size">
 				<input type="hidden" name="item_stock">
-				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock()"> 
+				<input type="button" value="추가하기" id="addItem" class="border_none" onclick="addStock_new()"> 
 				<hr>
 				<textarea rows="20" cols="150" name="item_content" class="resize_none"></textarea>
 				<hr> 

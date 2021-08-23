@@ -102,6 +102,20 @@ function addStock() {
 	});
 }
 
+function addStock_new() {
+	$(function(){
+		
+		var t = '<tr><td><input type="text" name="item_colors"></td>'
+		+'<td><select name="item_sizes"><option value="">사이즈를 선택해 주세요.</option>'
+		+'<option value="S">S</option><option value="M">M</option><option value="L">L</option>'
+		+'<option value="XL">XL</option><option value="XXL">XXL</option><option value="Free">Free</option></select></td>'
+		+'<td><input type="number" name="item_stocks" min="0"></td>'
+		+'<td><input type="button" value="삭제하기" class="deleteStock border_none"></td></tr>';
+		
+		$('#stock').append(t);
+	});
+}
+
 
 $(function(){
 	$(document).on('click', '.deleteStock', function(){

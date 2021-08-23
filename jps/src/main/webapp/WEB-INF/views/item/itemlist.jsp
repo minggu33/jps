@@ -4,6 +4,8 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<script src="/resources/jps/js/itemList.js"></script>
+
 <!-- header -->
 <%@ include file="../include/header.jsp" %>
 <!-- header -->
@@ -67,7 +69,6 @@
     </div>
     
     </main>
-	
 <!-- footer -->
 <%@ include file="../include/footer.jsp" %>
 <!-- footer -->

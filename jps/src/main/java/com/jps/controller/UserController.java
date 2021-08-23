@@ -113,18 +113,20 @@ public class UserController {
 			resp.setContentType("text/html; charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			out.print("<script type=\"text/javascript\">");
-			out.print("if(confirm('관리자 계정 입니다.\n 관리자 페이지로 이동하시겠습니까?')) {"
+			out.print("if(confirm('관리자 계정 입니다. 관리자 페이지로 이동하시겠습니까?')) {"
 					+"location.href='/admin';} else {"
-					+"location.href='"+redirectURI+"'}</script>");
+					+"location.href='"+redirectURI+"';}</script>");
 			
 			out.close();
+			return "";
+		} else {
+		
+			System.out.println("로그인 완료!~~~~~~~~~₩");
+			
+			logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@login@@@@@@");
+			
+			return "redirect:"+redirectURI;
 		}
-		
-		System.out.println("로그인 완료!~~~~~~~~~₩");
-		
-		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@login@@@@@@");
-		
-		return "redirect:"+redirectURI;
 	}
 	
 	

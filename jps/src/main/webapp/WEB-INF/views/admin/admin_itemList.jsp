@@ -10,7 +10,7 @@
 <title>관리자 페이지 - 상품 목록</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/jps/js/itemList.js"></script>
+<script src="/resources/jps/js/admin_itemList.js"></script>
 <link href="/resources/jps/css/jps.css" rel="stylesheet">
 <script type="text/javascript">
 	var msg = "${msg }";
