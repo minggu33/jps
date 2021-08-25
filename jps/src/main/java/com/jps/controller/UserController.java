@@ -273,7 +273,7 @@ public class UserController {
 			// user_num="1";
 			
 			
-			// 장바구니 목록 불러오
+			// 장바구니 목록 불러오기
 			model.addAttribute("mbList", service.getmbList(user_num));
 			
 			
