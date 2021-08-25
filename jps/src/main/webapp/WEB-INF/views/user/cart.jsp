@@ -54,53 +54,49 @@
 	개	
 	</div>
 	
-	 <table class="cart-table">
-	 <thead>
-		 <tr>
-		 	<th>번호</th>
-		 	<th style="cursor: pointer;">
-		 	<input type="checkbox" id="chk_all" checked="checked">
-		 	</th>
-		 	<th>상품</th>
-		 	<th>상품명(옵션)</th>
-		 	<th>판매가</th>
-		 	<th>주문금액<br>(적립예정)</th>
-		 	<th>수량</th>
-		 	<th>주문관리</th>
-		 </tr>
-	 </thead>
-	  <c:forEach var="il" items="${mbList }" varStatus="status" >	  
-	 <tr>
-
-
-	 		<td>${status.count }</td>
-			<td>
-			<input type="checkbox" id="chk"  name="chk" value="${il.basket_idx}" checked="checked">
-			</td>
-	 	
-	 		<td>
-	 	 <img class="img-fluid" style="width:62px; height:75px;" src="/resources/jps/upload/insertItem/${fn:split(il.itemvo.item_img,',')[0]}">
-			</td>
-			<td style="text-align: left; padding-left:15px; ">
-	 		<strong>${il.itemvo.item_name }&nbsp;(${il.item_color})</strong>
-	 		<br>
-	 		size:${il.item_size }
-	 		
-	 		</td>
 	
-	 		<td>
-	 		<fmt:formatNumber value="${il.itemvo.item_price }" type="number" />
-	 		</td>
-	 		<td>
-	 			<fmt:formatNumber value="${il.itemvo.item_price*il.item_count }" type="number" />
-	 			<br>
-	 			<fmt:parseNumber var="point" value="${(il.itemvo.item_price*il.item_count)*5/100 }" integerOnly="true" />
-	 			(<fmt:formatNumber value="${point}" type="number" />
-	 			p)
-	 		</td>
-	 		<td>
-	 			${il.item_count }
-	 		</td>
+	<form class="fr" action="/item/order" method="post">
+		 <table class="cart-table">
+	 		<thead>
+		 		<tr>
+		 			<th>번호</th>
+		 			<th style="cursor: pointer;">
+		 				<input type="checkbox" id="boxall" checked="checked">
+		 			</th>
+				 	<th>상품</th>
+				 	<th>상품명(옵션)</th>
+				 	<th>판매가</th>
+				 	<th>주문금액<br>(적립예정)</th>
+				 	<th>수량</th>
+				 	<th>주문관리</th>
+				 </tr>
+			 </thead>
+		  <c:forEach var="il" items="${mbList }" varStatus="status" >	  
+				 <tr>
+
+
+			 		<td>${status.count }</td>
+					<td>
+						<input type="checkbox" id="chk" class="chkBox" name="chk" value="${il.basket_idx}" checked="checked">
+					</td>
+			 	
+			 		<td>
+			 			 <img class="img-fluid" style="width:62px; height:75px;" 
+			 			 src="/resources/jps/upload/insertItem/${fn:split(il.itemvo.item_img,',')[0]}">	
+					</td>
+					<td style="text-align: left; padding-left:15px; ">
+			 			<strong>${il.itemvo.item_name }&nbsp;(${il.item_color})</strong>
+			 			<br>
+			 			size:${il.item_size }			 		
+			 		</td>
+			
+			 		<td class="item_price"><fmt:formatNumber value="${il.itemvo.item_price }" type="number"  /></td>
+			 		<td>
+			 			<fmt:formatNumber value="${il.itemvo.item_price*il.item_count }" type="number" /><br>
+			 			<fmt:parseNumber var="point" value="${(il.itemvo.item_price*il.item_count)*5/100 }" integerOnly="true" />
+	 					(<fmt:formatNumber value="${point}" type="number" /> p)
+	 				</td>
+	 				<td class="item_count">${il.item_count }</td>
 	 		
 
 
@@ -108,8 +104,8 @@
 	 			<input type="hidden" value="${il.basket_idx }" name="in" class="basket_item_num">
 	 			  <button style="border: none;
                      background-color:rgba( 255, 255, 255, 0.5 );" id="bkd${il.itemvo.item_num }">
-	 			  <svg  xmlns="http://www.w3.org/2000/svg" width="16"
-                      height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+	 			  <svg   class="bi bi-trash" xmlns="http://www.w3.org/2000/svg" width="16"
+                      height="16" fill="currentColor"viewBox="0 0 16 16">
 				  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
 				  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 				  </svg>
@@ -119,18 +115,22 @@
 	 </c:forEach>
 		
 	 </table>
+	 
 	 <div class="cart-del-area">
 			<button type="button" class="del-btn" id="del-btn">선택삭제</button>	 
 	 </div>
-	 	
 
 	<div class="cart-btn">
-		<button type="button" onclick="" class="button_order"> 주문하기 </button>
-		</div>
-
+		<button type="submit" name="cart-order" id="cart-order" class="button_order" > 			
+			<span id="total_price">
+			</span>
+			주문하기 
+		</button>
+	</div>
+</form>
 	</div>
 	</section>
-		<script src="/resources/jps/js/userinfo.js"></script>
+		<script src="/resources/jps/js/cart.js"></script>
 	<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

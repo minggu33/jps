@@ -45,10 +45,18 @@ $(function(){
 			$.ajax({
 				url:"/basket/basket",
 				type:"post",
-				data:{"item_num":document.fr2.item_num.value, "item_detail_idx":document.fr2.item_detail_idx.value, "item_count":document.fr2.basket_count.value},
+				data:{"item_num":document.fr2.item_num.value, "item_detail_idx":document.fr2.item_detail_idx1.value, "item_count":document.fr2.basket_count.value},
 				success:function(data){
 					alert("장바구니 담기 완료");
-					location.reload();						
+					
+					var gotobk=confirm('장바구니 페이지로 이동하시겠습니까?')
+					if(gotobk){
+						location.href="/user/cart";
+					}else{
+					
+					location.reload();
+					}
+											
 				}
 			});
 		});
