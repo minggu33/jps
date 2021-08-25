@@ -4,31 +4,12 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<script src="/resources/jps/js/itemList.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- header -->
 <%@ include file="../include/header.jsp" %>
 <!-- header -->
-	<%-- <center>
-		<table border="1">
-			<tr style="text-align: center;">
-				<td width="100">상품명</td>
-				<td width="100">카테고리</td>
-				<td width="100">가격</td>
-				<td width="100">상품등록일</td>
-				<td width="100">조회수</td>
-			</tr>
-		<c:forEach var="ItemVO" items="${itemlist }">
-			<tr style="text-align: center;">
-				<td>${ItemVO.item_name }</td>
-				<td>${ItemVO.item_category }</td>
-				<td>${ItemVO.item_price }</td>
-				<td><fmt:formatDate value="${ItemVO.item_create_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				<td>${ItemVO.item_read_count }</td>
-			</tr>
-		</c:forEach> 
-		</table>
-	</center> --%>
+
 	
 	<main id="main">
       
@@ -44,8 +25,8 @@
               <a href="#" data-filter="*" class="active">All</a>
               <a href="#" data-filter=".hat">Hat</a>
               <a href="#" data-filter=".outer">Outer</a>
-              <a href="#" data-filter=".shirts">Shirts</a>
-              <a href="#" data-filter=".pants">Pants</a>
+              <a href="#" data-filter=".top">Top</a>
+              <a href="#" data-filter=".bottom">Bottom</a>
               <a href="#" data-filter=".shoes">Shoes</a>
             </div>
           </div>
@@ -53,7 +34,7 @@
         <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
         <c:forEach var="ItemVO" items="${itemlist }">
           
-          <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+          <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4 ${ItemVO.item_category }">
             <a href="./itemdetail?item_num=${ItemVO.item_num }" class="item-wrap fancybox">
               <div class="work-info">
                 <h3>${ItemVO.item_name }</h3>
@@ -68,7 +49,12 @@
       </div>
     </div>
     
+    <input type="button" onclick="reStart()" value="재정렬">
+    
+    <div class="pagination"></div>
     </main>
+    
 <!-- footer -->
 <%@ include file="../include/footer.jsp" %>
 <!-- footer -->
+   <script src="/resources/jps/js/itemList.js"></script>

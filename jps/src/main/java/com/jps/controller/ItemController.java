@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jps.domain.BasketVO;
@@ -66,6 +67,17 @@ public class ItemController {
 		System.out.println("C : itemListGET() 호출");
 		model.addAttribute("itemlist", service.itemlist());
 		return "/item/itemlist";
+	}
+	
+	@RequestMapping(value = "/itemlistinfi", method = RequestMethod.GET)
+	@ResponseBody
+	public void itemlistInfiGET(HttpServletResponse resp) throws Exception { 
+		System.out.println("C : itemlistInfiGET() 호출");
+		resp.setContentType("application/json; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.print(service.itemlist());
+		out.close();
+		logger.info("C : 데이터 입력");
 	}
 	
 	@RequestMapping(value = "/itemdetail", method = RequestMethod.GET)
