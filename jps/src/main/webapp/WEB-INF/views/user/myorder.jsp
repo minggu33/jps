@@ -28,13 +28,13 @@
     	</dl>
     </nav>
     <!-- 왼쪽 nav bar -->
-  <section class="mypage-cont" style="margin-bottom:100px;">
+  <section class="mypage-cont" style="margin-bottom:100px;"> 
   	<header class="mypage-header"><h1>My order</h1></header>
 
 
 	<table class="mypage-table" style="text-align: center;">
 			<tr>
-			<td>주문 일자</td>
+			<td>주문 일자</td> 
 			<td>결제 방식</td>
 			<td>결제 금액</td>
 			</tr>
@@ -45,7 +45,7 @@
 					<td width="150">
 					${OrderVO.order_method }
 					</td>
-					<td width="150">${OrderVO.order_total_price }</td>
+					<td width="150">${OrderVO.order_total_price }</td> 
 				<!-- 주문정보 -->
 			</tr>
 		</c:forEach>

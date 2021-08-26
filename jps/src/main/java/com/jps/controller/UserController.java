@@ -414,7 +414,7 @@ public class UserController {
 			resp.setContentType("text/html; charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			out.println("<script>alert('한달뒤에 정상처리 됩니다.');");
-			out.println("location.href='/home';</script>");
+			out.println("location.href='/home';</script>"); 
 			out.flush();
 
 			
@@ -433,7 +433,7 @@ public class UserController {
 			System.out.println("요청정보 : "+loginVO);
 			
 			if(loginVO == null) {
-				resp.setContentType("text/html; charset=utf-8");
+				resp.setContentType("text/html; charset=utf-8"); 
 				PrintWriter out = resp.getWriter();
 				out.println("1");
 				out.flush();
