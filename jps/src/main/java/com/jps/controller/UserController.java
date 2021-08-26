@@ -408,7 +408,7 @@ public class UserController {
 			resp.setContentType("text/html; charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			out.println("<script>alert('한달뒤에 정상처리 됩니다.');");
-			out.println("location.href='/home';</script>");
+			out.println("location.href='/home';</script>"); 
 			out.flush();
 
 			
