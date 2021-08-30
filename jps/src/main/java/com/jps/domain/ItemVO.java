@@ -74,11 +74,12 @@ public class ItemVO {
 	}
 	@Override
 	public String toString() {
-		return "ItemVO [item_num=" + item_num + ", item_category=" + item_category + ", item_name=" + item_name
-				+ ", item_price=" + item_price + ", item_img=" + item_img + ", item_content=" + item_content
-				+ ", item_create_date=" + item_create_date + ", item_read_count=" + item_read_count + ", item_point="
-				+ item_point + "]";
+		return "{\"item_num\":\"" + item_num + "\",\"item_category\":\"" + item_category + "\",\"item_name\":\"" + item_name
+				+ "\",\"item_price\":\"" + item_price + "\",\"item_img\":\"" + item_img + "\",\"item_content\":\"" + item_content
+				+ "\",\"item_create_date\":\"" + item_create_date + "\",\"item_read_count\":\"" + item_read_count + "\",\"item_point\":\""
+				+ item_point + "\"}";
 	}
+	
 	
 	
 }

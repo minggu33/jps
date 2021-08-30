@@ -132,8 +132,13 @@ public class ItemController {
 		String referer = (String) req.getHeader("REFERER");
 		System.out.println("이전페이지 주소"+referer);
 		
-		if(referer.equals("http://localhost:8088/user/cart")) {
+		if(referer.equals("http://localhost:8080/user/cart")) {
 			System.out.println("장바구니 주문");
+			System.out.println("idvo = "+idvo);
+			System.out.println("vo = "+vo);
+			System.out.println("odvo = "+odvo);
+			
+			
 			model.addAttribute("mbList", uservice.getmbList(user_num));
 			
 		}else {
