@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.OrderVO;
+import com.jps.domain.searchVO;
 
 @Repository
 public class ItemDAOImpl implements ItemDAO{
@@ -26,9 +27,9 @@ public class ItemDAOImpl implements ItemDAO{
 	}
 
 	@Override
-	public List<ItemVO> itemlist() throws Exception {
+	public List<ItemVO> itemlist(searchVO vo) throws Exception {
 		
-		return sqlSession.selectList(namespace+".itemlist");
+		return sqlSession.selectList(namespace+".itemlist", vo);
 	}
 
 	@Override

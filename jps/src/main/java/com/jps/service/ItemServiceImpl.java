@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jps.domain.ItemVO;
 import com.jps.domain.Item_detailVO;
 import com.jps.domain.OrderVO;
+import com.jps.domain.searchVO;
 import com.jps.persistence.ItemDAO;
 import com.jps.persistence.Item_detailDAO;
 
@@ -25,8 +26,8 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public List<ItemVO> itemlist() throws Exception {
-		return idao.itemlist();
+	public List<ItemVO> itemlist(searchVO vo) throws Exception {
+		return idao.itemlist(vo);
 	}
 
 	@Override

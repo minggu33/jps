@@ -48,8 +48,7 @@
         </div>
       </div>
     </div>
-    
-    <input type="button" onclick="reStart()" value="재정렬">
+
     
     <div class="pagination"></div>
     </main>

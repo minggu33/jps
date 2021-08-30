@@ -26,6 +26,8 @@ import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
 import com.jps.domain.OrderVO;
 import com.jps.domain.Order_detailVO;
+import com.jps.domain.searchVO;
+import com.jps.service.AdminService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
 import com.jps.service.UserService;
@@ -46,6 +48,9 @@ public class ItemController {
 	@Inject
 	private Item_likeService ilservice;
 	
+	@Inject
+	private AdminService aservice;
+	
 	// @RequestMapping(value = "/item", method = RequestMethod.GET) 
 	public void itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
 	
@@ -63,19 +68,21 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
-	public String itemlistGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2) throws Exception { 
+	public String itemlistGET(Model model, @ModelAttribute("msg") String result,@ModelAttribute("result") String result2, searchVO vo) throws Exception { 
 		System.out.println("C : itemListGET() 호출");
-		model.addAttribute("itemlist", service.itemlist());
+		vo.setPageInfo(vo,aservice.itemCount());
+		model.addAttribute("itemlist", service.itemlist(vo));
 		return "/item/itemlist";
 	}
 	
 	@RequestMapping(value = "/itemlistinfi", method = RequestMethod.GET)
 	@ResponseBody
-	public void itemlistInfiGET(HttpServletResponse resp) throws Exception { 
+	public void itemlistInfiGET(HttpServletResponse resp, searchVO vo) throws Exception { 
 		System.out.println("C : itemlistInfiGET() 호출");
+		vo.setPageInfo(vo,aservice.itemCount());
 		resp.setContentType("application/json; charset=utf-8");
 		PrintWriter out = resp.getWriter();
-		out.print(service.itemlist());
+		out.print(service.itemlist(vo));
 		out.close();
 		logger.info("C : 데이터 입력");
 	}
