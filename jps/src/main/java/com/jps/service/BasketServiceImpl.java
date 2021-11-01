@@ -1,5 +1,7 @@
 package com.jps.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -32,6 +34,11 @@ public class BasketServiceImpl implements BasketService{
 	@Override
 	public void update(BasketVO bvo) throws Exception {
 		bdao.update(bvo);
+	}
+
+	@Override
+	public List<BasketVO> getInfo(int basket_idx, String user_num) throws Exception {
+		return bdao.getInfo(basket_idx,user_num);
 	}
 
 	

@@ -12,10 +12,7 @@
 	<%@ include file="../include/header.jsp" %>
 	<!-- header -->
 	
-	<section class="order-cont" >
-	
-	
-	
+	<section class="order-cont" >			
 	
 	<!-- Recipient info -->
 	 <header class="order-header">
@@ -29,7 +26,7 @@
 		<span class="back-arrow"></span>
 		<span class="cart-pagenation">주문 완료</span>
 		</div>		
-		</div>
+	</div>
 	 </header>
 	<div class="upper-contents">	
 	<h1>Recipient Info</h1>	
@@ -108,28 +105,29 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-			
+<%-- 		<c:forEach var="ol" items="${odList.get(0}"> --%>
+			<tr>			
 				<td class="product-info">
-					<img src="/resources/jps/upload/insertItem/${fn:split(vo.item_img,',')[0]}" style="width:62px; height:75px;">
+					<img src="/resources/jps/upload/insertItem/${fn:split(odList.get(0).item_img,',')[0]}" style="width:62px; height:75px;">
 					</td>
-					<td class="product-info2">${vo.item_name }<br>${odvo.order_detail_size} , ${odvo.order_detail_color}
+					<td class="product-info2">${odList.get(0).item_name }<br>${odList.get(1).order_detail_size} , ${odList.get(1).order_detail_color}
 					</td>					
 				
 				<td>
-					${odvo.order_detail_count }
+					${odList.get(1).order_detail_count }
 				</td>
 				<td>
-					${(vo.item_price*odvo.order_detail_count)*5/100 }
+					${(odList.get(0).item_price*odList.get(1).order_detail_count)*5/100 }
 				</td>
 				<td>
 					무료
 				</td>
 				<td>
-					${vo.item_price }
+					${odList.get(0).item_price }
 				</td>
 				
 			</tr>
+<%-- 			</c:forEach> --%>
 		</tbody>
 	</table>
 	
@@ -226,8 +224,7 @@
 				<input type="checkbox" style="vertical-align: -3px;"> 위 상품 정보 및 거래 조건을 확인하였으며, 구매 진행에 동의합니다.(필수)<br>
 			</li>
 		</ul>
-		
-		
+				
 	</div>
 	
 	<input type="hidden" id="item_name" value="${vo.item_name }">
@@ -241,12 +238,7 @@
 	
 	<!-- Payment info / Agreement -->
 
-
-
-
-	</section>
-	
-	
+	</section>		
 	
 	<script src="/resources/daum_postcode/js/postcode.js"></script><br>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

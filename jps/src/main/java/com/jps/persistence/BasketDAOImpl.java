@@ -1,5 +1,7 @@
 package com.jps.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -36,6 +38,15 @@ public class BasketDAOImpl implements BasketDAO{
 	@Override
 	public void update(BasketVO bvo) throws Exception {
 			sqlSession.update(namespace+".update", bvo);
+	}
+
+	@Override
+	public List<BasketVO> getInfo(int basket_idx, String user_num) throws Exception {
+		BasketVO vo = new BasketVO();
+		vo.setBasket_idx(basket_idx);
+		vo.setUser_num(user_num);
+		
+		return sqlSession.selectList(namespace+".getInfo", vo);
 	}
 
 	

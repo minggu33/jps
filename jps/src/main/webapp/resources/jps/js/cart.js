@@ -114,9 +114,18 @@ $(function(){
 // 체크한 상품 총합가격 추가 제거 
 $(function(){
 	$(document).on("click","[id*=chk]",function(){
-			var total_price = document.getElementById("total_price").innerHTML;
-			total_price = total_price.replace("원","");
 			
+			
+			var total_price = document.getElementById("total_price").innerHTML;
+			if(total_price == ""){
+			
+				total_price = 0;
+			
+				}else{
+					
+			total_price = parseInt(total_price.replace("원",""));
+			
+			}
 			
         	var trNum = $(this).closest('tr').prevAll().length;
         	var price = document.getElementsByClassName('item_price')[trNum].innerHTML;
@@ -129,13 +138,14 @@ $(function(){
 	  		
 	  	if(ced){
 			
-			total_price = total_price+(price*cnt);
+			total_price =(total_price)+(price*cnt);
 			$("#total_price").html(total_price + "원");
 
 		}else{
-			total_price = total_price-(price*cnt);
+			total_price = (total_price)-(price*cnt);
 			$("#total_price").html(total_price + "원");
 		}
+	  			
 	  			
 	});
 });

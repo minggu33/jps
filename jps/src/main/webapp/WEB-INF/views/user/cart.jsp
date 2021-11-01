@@ -77,7 +77,7 @@
 
 			 		<td>${status.count }</td>
 					<td>
-						<input type="checkbox" id="chk" class="chkBox" name="chk" value="${il.basket_idx}" checked="checked">
+						<input type="checkbox" id="chk" class="chkBox" name="basket_idx" value="${il.basket_idx}" checked="checked">
 					</td>
 			 	
 			 		<td>
@@ -90,7 +90,7 @@
 			 			size:${il.item_size }			 		
 			 		</td>
 			
-			 		<td class="item_price"><fmt:formatNumber value="${il.itemvo.item_price }" type="number"  /></td>
+			 		<td class="item_price" ><fmt:formatNumber value="${il.itemvo.item_price }" type="number"  /></td>
 			 		<td>
 			 			<fmt:formatNumber value="${il.itemvo.item_price*il.item_count }" type="number" /><br>
 			 			<fmt:parseNumber var="point" value="${(il.itemvo.item_price*il.item_count)*5/100 }" integerOnly="true" />
