@@ -21,4 +21,8 @@
   		update basket set item_count=item_count+#{item_count} where user_num=#{user_num} and item_num=#{item_num} and item_size=#{item_size} and item_color=#{item_color}
   	</update>
   	
+  	<select id="getInfo" resultType="List">
+  		select * from basket where basket_idx = #{basket_idx} and user_num = #{user_num}
+  	</select>
+  	
   </mapper>

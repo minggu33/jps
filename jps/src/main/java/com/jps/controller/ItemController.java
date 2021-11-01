@@ -2,7 +2,9 @@ package com.jps.controller;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,8 @@ import com.jps.domain.Item_detailVO;
 import com.jps.domain.Item_likeVO;
 import com.jps.domain.OrderVO;
 import com.jps.domain.Order_detailVO;
+import com.jps.domain.UserVO;
+import com.jps.service.BasketService;
 import com.jps.service.ItemService;
 import com.jps.service.Item_likeService;
 import com.jps.service.UserService;
@@ -44,6 +48,9 @@ public class ItemController {
 	
 	@Inject
 	private Item_likeService ilservice;
+	
+	@Inject
+	private BasketService bservice;
 	
 	// @RequestMapping(value = "/item", method = RequestMethod.GET) 
 	public void itemGET() throws Exception { System.out.println("C : itemGET() 호출"); }
@@ -108,17 +115,30 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public void itemorderGET(Order_detailVO odvo,Item_detailVO idvo, HttpSession session, Model model,ItemVO vo, HttpServletRequest req, BasketVO bvo)throws Exception{
+	public void itemorderGET(Order_detailVO odvo,Item_detailVO idvo, HttpSession session, Model model, ItemVO vo, 
+			HttpServletRequest req, String[] basket_idx, ArrayList<BasketVO> bvo, UserVO uvo)throws Exception{
 		String user_num = (String) session.getAttribute("user_num");
 		String referer = (String) req.getHeader("REFERER");
 		System.out.println("이전페이지 주소"+referer);
 		
-		if(referer.equals("http://localhost:8080/user/cart")) {
-			System.out.println("장바구니 주문");
-			System.out.println("idvo = "+idvo);
-			System.out.println("vo = "+vo);
-			System.out.println("odvo = "+odvo);
+		String[] arry = referer.split("/");
+		String referer_arry = "/"+arry[3]+"/"+arry[4];				
+		
+		if(referer_arry.equals("/user/cart")) {			
 			
+			model.addAttribute("uvo",uservice.infoUser(user_num));
+			model.addAttribute("olList", uservice.getmbList(user_num));
+			
+			
+			System.out.println("장바구니 주문");
+			
+			//장바구니 idx를 배열로 받아옴... 
+			System.out.println("basket_idx:"+basket_idx[0]+basket_idx[1]+basket_idx[2]);
+			
+			List odList = new ArrayList();						
+			
+			
+			System.out.println("!!!!!!!!!!!!!!odList:"+odList);
 			
 			model.addAttribute("mbList", uservice.getmbList(user_num));
 			
@@ -136,8 +156,13 @@ public class ItemController {
 			model.addAttribute("uvo",uservice.infoUser(user_num));
 			odvo.setOrder_detail_color(idVO.getItem_color());
 			odvo.setOrder_detail_size(idVO.getItem_size());
-			model.addAttribute("odvo", odvo);
-			model.addAttribute("vo", vo);
+			
+			List odList = new ArrayList();
+			
+			odList.add(vo);
+			odList.add(odvo);
+	
+			model.addAttribute("odList", odList);
 		}
 
 	}
